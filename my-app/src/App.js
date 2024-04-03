@@ -1,10 +1,11 @@
 import logo from './logo.svg';
+import CardInicial from "./componentes/CardInicial"
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      {/* <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.js</code> and save to reload.
@@ -17,7 +18,26 @@ function App() {
         >
           Learn React
         </a>
-      </header>
+      </header> */}
+      <div className='box'>
+        <h2>Recommended for you</h2>
+        <div className='boxcard'>
+          <CardInicial />
+          <CardInicial />
+          <CardInicial />
+        </div>
+      </div>
+      
+      <div className='box'>
+        <h2>Recently added</h2>
+        <div className='boxcard'>
+          <CardInicial />
+          <CardInicial />
+          <CardInicial />
+        </div>
+      </div>
+
+
     </div>
   );
 }

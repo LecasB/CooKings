@@ -4,6 +4,13 @@
 }
 
 .logoContainer {
+  max-width: 100px;
+
+}
+
+.logo{
+width: 100%;
+
 }
 
 .linksContainer {

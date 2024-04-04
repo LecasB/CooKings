@@ -1,7 +1,7 @@
 .card-procurar {
-	width: 340px;
+	width: 21em;
 	background: #f5f2f2;
-	border-radius: 50px;
+	border-radius: 3em;
 	overflow: hidden;
 	display: flex;
 	flex-direction: row;
@@ -29,19 +29,20 @@
 }
 
 .cont-text {
-	padding: 15px;
-	padding-top: 0px;
+	padding: 2em;
+	padding-top: 0;
 	word-wrap: break-word;
 }
 
 .cont-actions-procurar {
-	padding-left: 15px;
+	padding-left: 1em;
+	padding-bottom: 1em;
 }
 
 .cont-actions-procurar button {
 	width: 60%;
-	height: 45px;
-	border-radius: 50px;
+	height: 4em;
+	border-radius: 5em;
 	background: #ffdb63;
 	border: 0;
 	font-weight: bold;

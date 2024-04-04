@@ -1,0 +1,23 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: red;
+}
+
+.logoContainer {
+  width: 270px;
+}
+
+.logoContainer img {
+  max-width: 100%;
+}
+
+.linksContainer {
+  list-style: none;
+}
+
+.linksItems {
+  display: inline-block;
+  margin: 10px;
+}

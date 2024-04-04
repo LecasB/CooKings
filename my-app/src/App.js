@@ -1,6 +1,9 @@
 import logo from "./logo.svg";
 import CardInicial from "./componentes/CardInicial";
 import "./App.css";
+import LoginButton from "./componentes/LoginButton";
+import NavBar from "./componentes/NavBar";
+import CardProcurar from "./componentes/CardProcurar";
 
 function App() {
   return (
@@ -19,7 +22,6 @@ function App() {
           Learn React
         </a>
       </header> */}
-
       <div className="box">
         <h2>Recommended for you</h2>
         <div className="boxcard">
@@ -27,6 +29,7 @@ function App() {
           <CardInicial titulo={"Titilo 2"} texto={"texto 2"} />
           <CardInicial titulo={"Titilo 3"} texto={"texto 3"} />
         </div>
+        <LoginButton />
       </div>
 
       <div className="box">
@@ -37,6 +40,16 @@ function App() {
           <CardInicial titulo={"Titilo 6"} texto={"texto 6"} />
         </div>
       </div>
+
+      <div className="box">
+        <h2>Procurar</h2>
+        <div className="boxcard">
+          <CardProcurar titulo={"Titilo 4"} texto={"texto 4"} />
+          <CardProcurar titulo={"Titilo 5"} texto={"texto 5"} />
+          <CardProcurar titulo={"Titilo 6"} texto={"texto 6"} />
+        </div>
+      </div>
+      <NavBar />
     </div>
   );
 }

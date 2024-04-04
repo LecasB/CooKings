@@ -1,16 +1,16 @@
 .navBar {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  background: red;
 }
 
 .logoContainer {
-  max-width: 100px;
-
+  width: 270px;
 }
 
-.logo{
-width: 100%;
-
+.logoContainer img {
+  max-width: 100%;
 }
 
 .linksContainer {

@@ -1,7 +1,7 @@
 import React from "react";
 import './cardInicial.css';
 
-const CardInicial = () => {
+const CardInicial = ({titulo, texto}) => {
     return (
         <div className="card-pi">
             <div className="cont-img">
@@ -9,8 +9,8 @@ const CardInicial = () => {
             </div>
             <div className="cont">
                 <div className="cont-text">
-                    <h2>Teste</h2>
-                    <p>Teste do teste</p>
+                    <h2>{titulo}</h2>
+                    <p>{texto}</p>
                 </div>
 
                 <div className="cont-actions">

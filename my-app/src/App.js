@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import CardInicial from "./componentes/CardInicial";
 import "./App.css";
 import LoginButton from "./componentes/LoginButton";
+import NavBar from "./componentes/NavBar";
 
 function App() {
   return (
@@ -37,6 +38,11 @@ function App() {
           <CardInicial titulo={"Titilo 5"} texto={"texto 5"} />
           <CardInicial titulo={"Titilo 6"} texto={"texto 6"} />
         </div>
+      </div>
+      <div >
+        <NavBar />
+
+       
       </div>
     </div>
   );

@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import CardInicial from "./componentes/CardInicial";
 import "./App.css";
 import LoginButton from "./componentes/LoginButton";
+import NavBar from "./componentes/NavBar";
 import CardProcurar from "./componentes/CardProcurar";
 
 function App() {
@@ -48,6 +49,11 @@ function App() {
 					<CardProcurar titulo={"Titilo 6"} texto={"texto 6"} />
 				</div>
 			</div>
+      <div >
+        <NavBar />
+
+       
+      </div>
 		</div>
 	);
 }

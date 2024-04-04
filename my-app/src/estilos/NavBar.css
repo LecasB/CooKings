@@ -1,0 +1,16 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logoContainer {
+}
+
+.linksContainer {
+  list-style: none;
+}
+
+.linksItems {
+  display: inline-block;
+  margin: 10px;
+}

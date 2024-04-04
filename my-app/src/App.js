@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import CardInicial from "./componentes/CardInicial";
 import "./App.css";
 import LoginButton from "./componentes/LoginButton";
+import InputTextLogin from "./componentes/InputTextLogin";
 
 function App() {
   return (
@@ -28,6 +29,7 @@ function App() {
           <CardInicial titulo={"Titilo 3"} texto={"texto 3"} />
         </div>
         <LoginButton />
+        <InputTextLogin />
       </div>
 
       <div className="box">

@@ -4,6 +4,8 @@ import "./App.css";
 import LoginButton from "./componentes/LoginButton";
 import NavBar from "./componentes/NavBar";
 import CardProcurar from "./componentes/CardProcurar";
+import recipe from "./componentes/ArrayInfo";
+import ListaCard from "./componentes/ListaCards";
 
 function App() {
   return (
@@ -25,9 +27,10 @@ function App() {
       <div className="box">
         <h2>Recommended for you</h2>
         <div className="boxcard">
-          <CardInicial titulo={"Titilo 1"} texto={"texto 1"} />
+          {/* <CardInicial titulo={recipe.titulo} texto={recipe.desc} />
           <CardInicial titulo={"Titilo 2"} texto={"texto 2"} />
-          <CardInicial titulo={"Titilo 3"} texto={"texto 3"} />
+          <CardInicial titulo={"Titilo 3"} texto={"texto 3"} /> */}
+          <ListaCard dados={recipe} />
         </div>
         <LoginButton />
       </div>

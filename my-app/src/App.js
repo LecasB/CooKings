@@ -27,9 +27,6 @@ function App() {
       <div className="box">
         <h2>Recommended for you</h2>
         <div className="boxcard">
-          {/* <CardInicial titulo={recipe.titulo} texto={recipe.desc} />
-          <CardInicial titulo={"Titilo 2"} texto={"texto 2"} />
-          <CardInicial titulo={"Titilo 3"} texto={"texto 3"} /> */}
           <ListaCard dados={recipe} />
         </div>
         <LoginButton />

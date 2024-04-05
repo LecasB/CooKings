@@ -8,20 +8,10 @@ import CardProcurar from "./componentes/CardProcurar";
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      <header>
+      <NavBar />
+      </header>
+      <div className="body">
       <div className="box">
         <h2>Recommended for you</h2>
         <div className="boxcard">
@@ -49,7 +39,7 @@ function App() {
           <CardProcurar titulo={"Titilo 6"} texto={"texto 6"} />
         </div>
       </div>
-      <NavBar />
+    </div>
     </div>
   );
 }

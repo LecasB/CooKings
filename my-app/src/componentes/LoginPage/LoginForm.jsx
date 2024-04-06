@@ -5,10 +5,12 @@ import InputTextPassword from './InputTextPassword';
 import InputTextConfPassword from './InputTextConfPassword';
 import "../../estilos/LoginForm.css"
 import CreateAccButton from './CreateAccButton';
+import Logo from './Logo';
 
 const Login = () => {
     return(
         <div id="LoginForm">
+        <Logo/>
         <InputTextUser />
         <InputTextPassword />
         <InputTextConfPassword />

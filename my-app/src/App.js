@@ -1,7 +1,9 @@
 import logo from "./logo.svg";
 import CardInicial from "./componentes/CardInicial";
 import "./App.css";
-import LoginButton from "./componentes/LoginPage/LoginButton";
+import LoginForm from "./componentes/LoginPage/LoginForm";
+import NavBar from "./componentes/NavBar";
+import CardProcurar from "./componentes/CardProcurar";
 
 function App() {
   return (

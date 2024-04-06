@@ -1,26 +1,15 @@
 import logo from "./logo.svg";
 import CardInicial from "./componentes/CardInicial";
 import "./App.css";
-import LoginForm from "./componentes/LoginPage/LoginForm";
-
+import LoginButton from "./componentes/LoginPage/LoginButton";
 
 function App() {
   return (
     <div className="App">
-      {/* <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header> */}
+      <header>
+      <NavBar />
+      </header>
+      <div className="body">
       <div className="box">
         <h2>Recommended for you</h2>
         <div className="boxcard">
@@ -39,6 +28,16 @@ function App() {
           <CardInicial titulo={"Titilo 6"} texto={"texto 6"} />
         </div>
       </div>
+
+      <div className="box">
+        <h2>Procurar</h2>
+        <div className="boxcard">
+          <CardProcurar titulo={"Titilo 4"} texto={"texto 4"} />
+          <CardProcurar titulo={"Titilo 5"} texto={"texto 5"} />
+          <CardProcurar titulo={"Titilo 6"} texto={"texto 6"} />
+        </div>
+      </div>
+    </div>
     </div>
   );
 }

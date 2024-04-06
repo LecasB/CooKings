@@ -1,8 +1,8 @@
 import logo from "./logo.svg";
 import CardInicial from "./componentes/CardInicial";
 import "./App.css";
-import LoginButton from "./componentes/LoginButton";
-import InputTextLogin from "./componentes/InputTextLogin";
+import LoginForm from "./componentes/LoginPage/LoginForm";
+
 
 function App() {
   return (
@@ -28,8 +28,7 @@ function App() {
           <CardInicial titulo={"Titilo 2"} texto={"texto 2"} />
           <CardInicial titulo={"Titilo 3"} texto={"texto 3"} />
         </div>
-        <LoginButton />
-        <InputTextLogin />
+       <LoginForm></LoginForm>
       </div>
 
       <div className="box">

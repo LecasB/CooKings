@@ -2,22 +2,29 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: red;
+  background: #fffae4;
 }
 
 .logoContainer {
   width: 270px;
+  margin-left: 4em;
 }
 
 .logoContainer img {
-  max-width: 100%;
+  max-width: 50%;
 }
 
 .linksContainer {
   list-style: none;
+  margin-right: 2.5em;
 }
 
 .linksItems {
   display: inline-block;
-  margin: 10px;
+  margin-left: 20px;
+}
+
+.navBarIcon {
+  max-width: 2.5em;
+  max-height: 2.5em;
 }

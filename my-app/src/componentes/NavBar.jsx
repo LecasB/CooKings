@@ -1,21 +1,21 @@
 import React from "react";
-import cooKingsImage from "../imagens/cooKingsImage.png"; // Importe a imagem
+import cooKingsImage from "../imagens/cooKingsImagev1.png";
 import "../estilos/NavBar.css";
+import {Storage, Profile} from "../imagens/svgs.jsx";
 
-const NavBar = ({}) => {
+const NavBar = () => {
   return (
     <nav className="navBar">
       <div className="logoContainer">
-        <img src={cooKingsImage} alt="CooKings Logo"></img>{" "}
-        {/* Use a variável importada */}
+        <img src={cooKingsImage} alt="CooKings Logo" />
       </div>
       <div>
         <ul className="linksContainer">
           <li className="linksItems">
-            <p>teste</p>
+            <Storage/>
           </li>
           <li className="linksItems">
-            <p>teste</p>
+           <Profile/>
           </li>
         </ul>
       </div>

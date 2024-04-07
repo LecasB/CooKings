@@ -6,6 +6,9 @@ import NavBar from "./componentes/NavBar";
 import CardProcurar from "./componentes/CardProcurar";
 import recipe from "./componentes/ArrayInfo";
 import ListaCard from "./componentes/ListaCards";
+import SignUpForm from "./componentes/SignUpPage/SignUpForm";
+
+
 
 function App() {
   return (
@@ -19,9 +22,9 @@ function App() {
         <div className="boxcard">
           <ListaCard dados={recipe} />
         </div>
+        <SignUpForm></SignUpForm>
        <LoginForm></LoginForm>
       </div>
-
       <div className="box">
         <h2>Recently added</h2>
         <div className="boxcard">

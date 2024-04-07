@@ -1,8 +1,8 @@
 import React from "react";
-import "../../estilos/InputTextLogin.css";
+import "../../estilos/InputText.css";
 
-const InputTextConfPassword = ({texto}) => {
+const InputText = ({texto}) => {
   return <input type="text" id="inputTextUser" placeholder={texto}></input>;
 };
 
-export default InputTextConfPassword;
+export default InputText;

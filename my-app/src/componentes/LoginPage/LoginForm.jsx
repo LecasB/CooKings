@@ -1,21 +1,19 @@
 import React from 'react';
-import InputTextUser from './InputTextUser';
 import LoginButton from './LoginButton';
-import InputTextPassword from './InputTextPassword';
-import InputTextConfPassword from './InputTextConfPassword';
+
+import InputText from './InputText';
 import "../../estilos/LoginForm.css"
-import CreateAccButton from './CreateAccButton';
-import Logo from './Logo';
+import Logo from '../../imagens/cooKingsImagev1.png';
 
 const Login = () => {
     return(
         <div id="LoginForm">
-        <Logo/>
-        <InputTextUser />
-        <InputTextPassword />
-        <InputTextConfPassword />
-        <CreateAccButton/>
-        <LoginButton/> 
+        <img src={Logo}></img>
+        <InputText texto={"Username"} />
+        <InputText texto={"Password"}  />
+        <InputText texto={"Confirm Password"} />
+        <LoginButton texto={"Create Account"}/>
+        <LoginButton texto={"Log in"}/> 
         </div>
            )
 }

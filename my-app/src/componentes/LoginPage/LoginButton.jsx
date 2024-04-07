@@ -1,11 +1,9 @@
 import React from "react";
 import "../../estilos/LoginButton.css";
 
-const LoginButton = () => {
+const LoginButton = ({texto}) => {
   return (
-    <button onClick={() => console.log("pila")} id="loginButton">
-      Log In
-    </button>
+    <button onClick={() => console.log("pila")} id="loginButton">{texto}</button>
   );
 };
 

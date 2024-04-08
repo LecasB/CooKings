@@ -7,6 +7,8 @@ import CardProcurar from "./componentes/CardProcurar";
 import recipe from "./componentes/ArrayInfo";
 import ListaCard from "./componentes/ListaCards";
 import SignUpForm from "./componentes/SignUpPage/SignUpForm";
+import LoadingScreen from "./componentes/LoadingScreen/LoadingPage";
+import MenuTeste from "./componentes/MenuTeste";
 
 
 
@@ -16,12 +18,14 @@ function App() {
       <header>
       <NavBar />
       </header>
+      <MenuTeste />
       <div className="body">
       <div className="box">
         <h2>Recommended for you</h2>
         <div className="boxcard">
           <ListaCard dados={recipe} />
         </div>
+        <LoadingScreen></LoadingScreen>
         <SignUpForm></SignUpForm>
        <LoginForm></LoginForm>
       </div>

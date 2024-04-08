@@ -7,6 +7,7 @@ import CardProcurar from "./componentes/CardProcurar";
 import recipe from "./componentes/ArrayInfo";
 import ListaCard from "./componentes/ListaCards";
 import SearchForm from "./componentes/SearchPage/SearchForm";
+import MenuTeste from "./componentes/MenuTeste";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <header>
         <NavBar />
       </header>
+      <MenuTeste />
       <div className="body">
         <div className="box">
           <h2>Recommended for you</h2>

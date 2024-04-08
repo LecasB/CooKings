@@ -1,11 +1,10 @@
 import React from 'react';
 import LoginButton from './LoginButton';
-
 import InputText from './InputText';
 import "../../estilos/LoginForm.css"
 import Logo from '../../imagens/cooKingsImagev1.png';
 
-const Login = () => {
+const LoginForm = () => {
     return(
         <div id="LoginForm">
         <img src={Logo}></img>
@@ -19,4 +18,4 @@ const Login = () => {
 }
 
 
-export default Login;
+export default LoginForm;

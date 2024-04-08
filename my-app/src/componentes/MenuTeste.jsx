@@ -11,6 +11,7 @@ import LoadingScreen from "./LoadingScreen/LoadingPage";
 import LoginPage from "./LoginPage/LoginForm";
 import SignUpPage from "./SignUpPage/SignUpForm";
 import LoginForm from "./LoginPage/LoginForm";
+import SearchPage from "./SearchPage/SearchPage";
 
 const MenuTeste = () => {
   return (
@@ -27,6 +28,9 @@ const MenuTeste = () => {
             <li>
               <Link to="/SignUpPage">Sign up</Link>
             </li>
+            <li>
+              <Link to="/SearchPage">Search page</Link>
+            </li>
           </ul>
         </nav>
 
@@ -35,6 +39,7 @@ const MenuTeste = () => {
           <Route path="/LoadingPage" element={<LoadingScreen />} />
           <Route path="/LoginPage" element={<LoginForm />} />
           <Route path="/SignUpPage" element={<SignUpPage />} />
+          <Route path="/SearchPage" element={<SearchPage />} />
         </Routes>
       </div>
     </BrowserRouter>

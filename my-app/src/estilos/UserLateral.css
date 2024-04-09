@@ -1,0 +1,33 @@
+.UserLateral {
+	width: 33%;
+	height: 665px;
+	background: #d4eff1;
+	padding: 35px 25px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+}
+.butoesdiv{
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+.butao{
+    background-color:transparent;
+    border-radius: 1em;
+    padding-bottom: 1em;
+    padding-top: 1em;
+    border: none;
+    
+}
+.butao span{
+    padding-left: 1em;
+}
+
+.butao:active{
+    background-color: black;
+    color: white;
+}
+.butao:active svg path {
+    stroke: white;
+}

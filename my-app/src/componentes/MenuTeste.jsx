@@ -13,6 +13,7 @@ import LoginForm from "./LoginPage/LoginForm";
 import SearchForm from "./SearchPage/SearchForm";
 import SearchPage from "./SearchPage/SearchPage";
 import IndexPage from "./IndexPage/IndexPage";
+import UserPage from "./UserPage/UserPage";
 
 const MenuTeste = () => {
 	return (
@@ -35,6 +36,9 @@ const MenuTeste = () => {
 						<li>
 							<Link to="/IndexPage">Index page</Link>
 						</li>
+						<li>
+							<Link to="/UserPage">User page</Link>
+						</li>
 					</ul>
 				</nav>
 
@@ -44,6 +48,7 @@ const MenuTeste = () => {
 					<Route path="/SignUpPage" element={<SignUpForm />} />
 					<Route path="/SearchPage" element={<SearchPage />} />
 					<Route path="/IndexPage" element={<IndexPage />} />
+					<Route path="/UserPage" element={<UserPage />} />
 				</Routes>
 			</div>
 		</BrowserRouter>

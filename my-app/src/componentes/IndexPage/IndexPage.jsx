@@ -12,7 +12,7 @@ const IndexPage = () => {
 			<header>
 				<NavBar />
 			</header>
-			<main>
+			<main className="IndexPage">
 				<div
 					style={{
 						display: "flex",

@@ -22,8 +22,8 @@ function App() {
           <div className="boxcard">
             <ListaCard dados={recipe} />
           </div>
-          <LoginForm></LoginForm>
-          <SearchForm />
+          
+          
         </div>
 
         <div className="box">

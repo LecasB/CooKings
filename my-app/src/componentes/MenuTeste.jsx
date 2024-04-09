@@ -8,10 +8,10 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 import LoadingScreen from "./LoadingScreen/LoadingPage";
-import LoginPage from "./LoginPage/LoginForm";
-import SignUpPage from "./SignUpPage/SignUpForm";
+import SignUpForm from "./SignUpPage/SignUpForm";
 import LoginForm from "./LoginPage/LoginForm";
 import SearchPage from "./SearchPage/SearchPage";
+import SearchForm from "./SearchPage/SearchForm";
 
 const MenuTeste = () => {
   return (
@@ -20,13 +20,16 @@ const MenuTeste = () => {
         <nav>
           <ul>
             <li>
-              <Link to="/LoadingPage">Loading page</Link>
+              <Link to="/LoadingPage">Loading Page</Link>
             </li>
             <li>
-              <Link to="/LoginPage">Login form</Link>
+              <Link to="/LoginPage">Login Form</Link>
             </li>
             <li>
-              <Link to="/SignUpPage">Sign up</Link>
+              <Link to="/SignUpPage">Sign Up</Link>
+            </li>
+            <li>
+              <Link to="/SearchPage">Search Form</Link>
             </li>
             <li>
               <Link to="/SearchPage">Search page</Link>
@@ -35,7 +38,6 @@ const MenuTeste = () => {
         </nav>
 
         <Routes>
-          {/* <Route path="/LoadingPage" component={LoadingScreen} /> */}
           <Route path="/LoadingPage" element={<LoadingScreen />} />
           <Route path="/LoginPage" element={<LoginForm />} />
           <Route path="/SignUpPage" element={<SignUpPage />} />

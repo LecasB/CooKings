@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from '../../imagens/cooKingsImagev1.png';
+import "../../estilos/LoadingPage.css"
 
 const LoadingScreen = () => {
     const cookingTips = [
@@ -19,7 +20,7 @@ const LoadingScreen = () => {
     const randomTip = cookingTips[randomIndex];
 
     return (
-        <div>
+        <div id="LoadingPage">
             <img src={Logo}></img>
             <h1>Tip: {randomTip}</h1>
         </div>

@@ -2,7 +2,6 @@ import React from "react";
 import SearchForm from "./SearchForm";
 import CardProcurar from "../CardProcurar";
 import NavBar from "../NavBar";
-import CardInicial from "../CardInicial";
 
 const SearchPage = () => {
   return (

@@ -15,9 +15,9 @@ const SearchPage = () => {
         <div style={{ display: "flex" }}>
           <SearchForm />
           <div className="boxcard">
-            <CardInicial titulo={"Titilo 4"} texto={"texto 4"} />
-            <CardInicial titulo={"Titilo 5"} texto={"texto 5"} />
-            <CardInicial titulo={"Titilo 6"} texto={"texto 6"} />
+            <CardProcurar titulo={"Titilo 4"} texto={"texto 4"} />
+            <CardProcurar titulo={"Titilo 5"} texto={"texto 5"} />
+            <CardProcurar titulo={"Titilo 6"} texto={"texto 6"} />
           </div>
         </div>
       </main>

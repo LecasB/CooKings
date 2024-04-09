@@ -1,0 +1,8 @@
+#inputTextUser {
+  background: rgba(28, 26, 26, 0.077);
+  border: 1px solid black;
+  width: 70%;
+  margin:10px;
+  height: 40px;
+  border-radius: 10px;
+}

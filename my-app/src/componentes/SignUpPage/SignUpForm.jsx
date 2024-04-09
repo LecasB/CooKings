@@ -2,6 +2,7 @@ import React from "react"
 import Logo from '../../imagens/cooKingsImagev1.png';
 import InputText from './InputText';
 import LoginButton from "./LoginButton";
+import "../../estilos/SignUpForm.css"
 
 const SignUpForm = () => {
     return(

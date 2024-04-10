@@ -1,5 +1,6 @@
 .UserLateral {
-	width: 15%;
+    min-width: 10em;
+	max-width: 15%;
 	height: 665px;
 	background: #d4eff1;
 	padding: 35px 25px;

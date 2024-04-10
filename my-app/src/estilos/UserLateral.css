@@ -1,12 +1,14 @@
 .UserLateral {
 	min-width: 10em;
 	max-width: 15%;
-	height: 665px;
+	height: 41.5625em;
 	background: #d4eff1;
-	padding: 35px 25px;
+	padding: 2.1875em 1.5625em;
+
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
+    
 }
 .butoesdiv {
 	display: flex;
@@ -41,4 +43,35 @@
 .butao svg {
 	width: 12px;
 	height: 12px;
+}
+.UserPage {
+	display: flex;
+}
+.UserInfo{
+    border: 0;
+    border-right: 0.1em;
+    border-color: black;
+    border-style:solid;
+}
+.UserInfo figure {
+	text-align: center;
+}
+.UserInfo section {
+	display: flex;
+	margin: 1em;
+	flex-direction: column;
+	gap: 1em;
+}
+.UserInfo input, select{
+    height: 2em;
+    border-radius: 1em;
+    background-color: #D9D9D9;
+    border: none;;
+
+}
+.UserInfo button{
+    background-color: #D4EFF1;
+    height: 2em;
+    border-radius: 1em;
+    border: none;
 }

@@ -1,7 +1,5 @@
 import React from "react";
 
-
-
 import NavBar from "../NavBar";
 import UserLateral from "./UserLateral";
 
@@ -11,10 +9,9 @@ const UserPage = () => {
 			<header>
 				<NavBar />
 			</header>
-			<main >
+			<main>
 				<div>
 					<UserLateral />
-					
 				</div>
 			</main>
 		</>

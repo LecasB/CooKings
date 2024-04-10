@@ -7,19 +7,17 @@ const UserLateral = () => {
 		<div className="UserLateral">
 			<div className="butoesdiv">
 				<button className="butao">
-					<Account/>
+					<Account />
 					<span>Account</span>
 				</button>
 
 				<button className="butao">
-					<Coroa/>
-					
-
+					<Coroa />
 					<span>My favorites</span>
 				</button>
 
 				<button className="butao" id="ingredients">
-					<Ingredients/>
+					<Ingredients />
 					<span>Ingredients</span>
 				</button>
 			</div>

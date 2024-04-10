@@ -1,5 +1,5 @@
 .UserLateral {
-    min-width: 10em;
+	min-width: 10em;
 	max-width: 15%;
 	height: 665px;
 	background: #d4eff1;
@@ -8,38 +8,37 @@
 	display: flex;
 	flex-direction: column;
 }
-.butoesdiv{
-    display: flex;
-    flex-direction: column;
-    gap: 2em;
-    align-items: flex-start;
+.butoesdiv {
+	display: flex;
+	flex-direction: column;
+	gap: 2em;
+	align-items: flex-start;
 }
-.butao{
-    background-color:transparent;
-    border-radius: 1em;
-    padding-bottom: 1em;
-    padding-top: 1em;
-    border: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    
+.butao {
+	background-color: transparent;
+	border-radius: 1em;
+	padding-bottom: 1em;
+	padding-top: 1em;
+	border: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
-.butao span{
-    padding-left: 1em;
+.butao span {
+	padding-left: 1em;
 }
 
-.butao:active{
-    background-color: black;
-    color: white;
+.butao:active {
+	background-color: black;
+	color: white;
 }
 .butao:active svg path {
-    stroke: white;
+	stroke: white;
 }
-#ingredients:active svg path{
-    fill: white;
+#ingredients:active svg path {
+	fill: white;
 }
-.butao svg{
-    width: 12px;
-    height: 12px;
+.butao svg {
+	width: 12px;
+	height: 12px;
 }

@@ -10,7 +10,7 @@ const SearchForm = () => {
           className="searchinput"
           name=""
           id=""
-          placeholder="Search"
+          placeholder="⌕ Search"
         />
       </div>
       <div>

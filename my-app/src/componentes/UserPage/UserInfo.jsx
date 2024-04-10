@@ -1,6 +1,6 @@
 import React from "react";
 import "../../estilos/UserLateral.css";
-import { Account, Coroa, Ingredients, Profile } from "../../imagens/svgs";
+import { Profile } from "../../imagens/svgs";
 
 const UserInfo = () => {
 	return (

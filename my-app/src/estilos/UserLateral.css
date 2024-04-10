@@ -1,5 +1,5 @@
 .UserLateral {
-	width: 33%;
+	width: 15%;
 	height: 665px;
 	background: #d4eff1;
 	padding: 35px 25px;
@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: column;
     gap: 2em;
+    align-items: flex-start;
 }
 .butao{
     background-color:transparent;
@@ -18,6 +19,9 @@
     padding-bottom: 1em;
     padding-top: 1em;
     border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     
 }
 .butao span{
@@ -30,4 +34,11 @@
 }
 .butao:active svg path {
     stroke: white;
+}
+#ingredients:active svg path{
+    fill: white;
+}
+.butao svg{
+    width: 12px;
+    height: 12px;
 }

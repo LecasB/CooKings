@@ -1,17 +1,12 @@
 import React from "react";
 import "../../estilos/SearchForm.css";
+import { SearchInput } from "../SearchInput";
 
 const SearchForm = () => {
   return (
     <div className="searchform">
-      <div>
-        <input
-          type="text"
-          className="searchinput"
-          name=""
-          id=""
-          placeholder="⌕ Search"
-        />
+      <div className="searchform-input">
+        <SearchInput />
       </div>
       <div>
         <hr />
@@ -27,7 +22,7 @@ const SearchForm = () => {
       <div>
         <hr />
       </div>
-      <div className="ingredients-list">
+      <div className="search-ingredients-list">
         <div className="item-container">
           <input type="checkbox" name="ing1" id="ing1" />
           <label for="ing1">Ing1</label>

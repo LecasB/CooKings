@@ -7,18 +7,17 @@ const UserInfo = () => {
 
   return (
     <div className="UserInfo">
-      <section className="">
+      <section className="Perfil">
         <figure className="">
           <Profile />
         </figure>
 
-        <label htmlFor="">
-          <input type="text" name="Nome" id="" />
-        </label>
-        <label htmlFor="">
-          <input type="email" name="Email" id="" />
-        </label>
+        <input type="text" name="Nome" id="" />
+
+        <input type="email" name="Email" id="" />
+
         <button type="button">Change Password</button>
+
         <select name="Categories" id="">
           <option value="" selected disabled hidden>
             Choose here

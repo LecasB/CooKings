@@ -51,9 +51,14 @@
   border-right: 0.1em;
   border-color: black;
   border-style: solid;
+  max-width: 20em;
 }
 .UserInfo figure {
   text-align: center;
+}
+.UserInfo .Perfil svg {
+  width: 10em;
+  height: auto;
 }
 .UserInfo section {
   display: flex;
@@ -74,18 +79,20 @@ select {
   border-radius: 1em;
   border: none;
 }
-
-.user-options-section {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
+.UserInfo input,
+select {
+  height: 2em;
+  border-radius: 1em;
+  background-color: #d9d9d9;
+  border: none;
 }
-
-.user-options {
-  width: auto;
-  height: 1rem;
+.UserInfo select,
+.UserInfo input {
+  padding: 0 0 0 1rem;
 }
-
-.user-options p {
-  margin: 0;
+.UserInfo button {
+  background-color: #d4eff1;
+  height: 2em;
+  border-radius: 1em;
+  border: none;
 }

@@ -75,7 +75,6 @@ const Profile = () => (
 		viewBox="0 0 46 46"
 		fill="none"
 		xmlns="http://www.w3.org/2000/svg"
-		className="navBarIcon"
 		alt="Profile"
 	>
 		<path

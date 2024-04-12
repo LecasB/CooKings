@@ -17,7 +17,7 @@ const UserInfo = () => {
 					<input type="email" name="Email" id="" />
 				</label>
 				<button type="button">Change Password</button>
-				<select name="Categories" id="">
+				<select title="Categories" name="Categories" id="">
 					<option value="" selected disabled hidden>Choose here</option>
 					<option value="Chinese">Chinese Food</option>
 					<option value="Spicy">Spicy</option>

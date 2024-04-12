@@ -14,6 +14,7 @@ import SearchForm from "./SearchPage/SearchForm";
 import SearchPage from "./SearchPage/SearchPage";
 import IndexPage from "./IndexPage/IndexPage";
 import UserPage from "./UserPage/UserPage";
+import EditRecipePage from "./EditRecipePage/EditRecipePage";
 
 const MenuTeste = () => {
 	return (
@@ -39,6 +40,9 @@ const MenuTeste = () => {
 						<li>
 							<Link to="/UserPage">User page</Link>
 						</li>
+						<li>
+                            <Link to="/EditRecipePage">EditRecipe</Link>
+                        </li>
 					</ul>
 				</nav>
 
@@ -49,6 +53,7 @@ const MenuTeste = () => {
 					<Route path="/SearchPage" element={<SearchPage />} />
 					<Route path="/IndexPage" element={<IndexPage />} />
 					<Route path="/UserPage" element={<UserPage />} />
+					<Route path="/EditRecipePage" element={<EditRecipePage />} />
 				</Routes>
 			</div>
 		</BrowserRouter>

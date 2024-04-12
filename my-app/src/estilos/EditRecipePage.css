@@ -1,0 +1,15 @@
+
+
+.BackEditRecipe {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+    border: none;
+    width: 6em;
+    height: 6em;
+}
+
+.EditRecipePage span {
+    font-size:medium;
+}

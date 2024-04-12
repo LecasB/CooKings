@@ -18,6 +18,7 @@ const UserInfo = () => {
 				</label>
 				<button type="button">Change Password</button>
 				<select name="Categories" id="">
+					<option value="" selected disabled hidden>Choose here</option>
 					<option value="Chinese">Chinese Food</option>
 					<option value="Spicy">Spicy</option>
 					<option value="Vegan">Vegan</option>

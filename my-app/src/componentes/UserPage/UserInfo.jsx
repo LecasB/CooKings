@@ -5,17 +5,17 @@ import { Profile } from "../../imagens/svgs";
 const UserInfo = () => {
 	return (
 		<div className="UserInfo">
-			<section className="">
+			<section className="Perfil">
 				<figure className="">
 					<Profile />
 				</figure>
 
-				<label htmlFor="">
-					<input type="text" name="Nome" id="" />
-				</label>
-				<label htmlFor="">
-					<input type="email" name="Email" id="" />
-				</label>
+				
+					<input type="text" name="Nome" id="" placeholder="Name"/>
+				
+				
+					<input type="email" name="Email" id=""  placeholder="E-mail"/>
+				
 				<button type="button">Change Password</button>
 				<select title="Categories" name="Categories" id="">
 					<option value="" selected disabled hidden>Choose here</option>

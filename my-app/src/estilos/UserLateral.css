@@ -8,7 +8,6 @@
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
-    
 }
 .butoesdiv {
 	display: flex;
@@ -47,15 +46,19 @@
 .UserPage {
 	display: flex;
 }
-.UserInfo{
-    border: 0;
-    border-right: 0.1em;
-    border-color: black;
-    border-style:solid;
-	
+.UserInfo {
+	border: 0;
+	border-right: 0.1em;
+	border-color: black;
+	border-style: solid;
+	max-width: 20em;
 }
 .UserInfo figure {
 	text-align: center;
+}
+.UserInfo .Perfil svg {
+	width: 10em;
+	height: auto;
 }
 .UserInfo section {
 	display: flex;
@@ -63,19 +66,20 @@
 	flex-direction: column;
 	gap: 1em;
 }
-.UserInfo input, select{
-    height: 2em;
-    border-radius: 1em;
-    background-color: #D9D9D9;
-    border: none;;
-	
-
+.UserInfo input,
+select {
+	height: 2em;
+	border-radius: 1em;
+	background-color: #d9d9d9;
+	border: none;
 }
-.UserInfo select{
-	padding:0 0 0 1rem;}
-.UserInfo button{
-    background-color: #D4EFF1;
-    height: 2em;
-    border-radius: 1em;
-    border: none;
+.UserInfo select,
+.UserInfo input {
+	padding: 0 0 0 1rem;
+}
+.UserInfo button {
+	background-color: #d4eff1;
+	height: 2em;
+	border-radius: 1em;
+	border: none;
 }

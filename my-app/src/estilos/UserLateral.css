@@ -1,9 +1,10 @@
 .UserLateral {
 	min-width: 10em;
 	max-width: 15%;
-	height: 665px;
+	height: 41.5625em;
 	background: #d4eff1;
-	padding: 35px 25px;
+	padding: 2.1875em 1.5625em;
+
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
@@ -43,4 +44,44 @@
 .butao svg {
 	width: 3em;
 	height: 3em;
+}
+.UserPage {
+	display: flex;
+}
+.UserInfo {
+	border: 0;
+	border-right: 0.1em;
+	border-color: black;
+	border-style: solid;
+	max-width: 20em;
+}
+.UserInfo figure {
+	text-align: center;
+}
+.UserInfo .Perfil svg {
+	width: 10em;
+	height: auto;
+}
+.UserInfo section {
+	display: flex;
+	margin: 1em;
+	flex-direction: column;
+	gap: 1em;
+}
+.UserInfo input,
+select {
+	height: 2em;
+	border-radius: 1em;
+	background-color: #d9d9d9;
+	border: none;
+}
+.UserInfo select,
+.UserInfo input {
+	padding: 0 0 0 1rem;
+}
+.UserInfo button {
+	background-color: #d4eff1;
+	height: 2em;
+	border-radius: 1em;
+	border: none;
 }

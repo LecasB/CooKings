@@ -1,0 +1,43 @@
+.ingredients-list-main {
+  padding: 0px 10%;
+}
+
+.ingredients-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2em 0 0 0;
+}
+
+.search-div {
+  width: 16rem;
+  height: 2rem;
+}
+
+.ingredients-list-titles p {
+  margin-bottom: 0;
+  margin-top: 0;
+  color: #16c098;
+}
+
+@media screen and (max-width: 560px) {
+  .ingredients-list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ingredients-list-titles {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .ingredients-list-titles h2 {
+    margin-bottom: 0;
+  }
+
+  .ingredients-list-titles p {
+    margin-bottom: 16px;
+  }
+}

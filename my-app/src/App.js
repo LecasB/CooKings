@@ -13,9 +13,9 @@ function App() {
   return (
     <div className="App">
       <header>
-        <NavBar />
+        {/* <NavBar /> */}
+        <MenuTeste />
       </header>
-      <MenuTeste />
       {/* <div className="body">
         <div className="box">
           <h2>Recommended for you</h2>

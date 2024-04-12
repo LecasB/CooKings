@@ -1,0 +1,11 @@
+.card-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding-left: 2rem;
+  box-sizing: content-box;
+}
+
+.card-section .card-procurar {
+  margin: 0 2rem 2rem 0;
+}

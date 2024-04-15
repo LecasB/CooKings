@@ -1,15 +1,89 @@
-
-
 .BackEditRecipe {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background-color: transparent;
-    border: none;
-    width: 6em;
-    height: 6em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: 5em;
+  background-color: transparent;
+  border: none;
+  width: 6em;
+  height: 2em;
+  margin-top: 4em;
 }
 
 .EditRecipePage span {
-    font-size:medium;
+  font-size: medium;
+}
+
+.EditForm {
+  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  
+}
+
+.LeftForm {
+  flex: 1;
+  
+}
+
+.RightForm {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: auto;
+  
+  
+}
+
+.EditRecipePage label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.EditRecipePage input[type="text"],
+.EditRecipePage select,
+.EditRecipePage textarea {
+  width: 90%;
+  height: 3em;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  border-radius: 8px;
+  
+}
+
+.EditRecipePage textarea {
+  height: 12em;
+  resize: none;
+}
+
+#TagsArea {
+  height: 6em;
+
+}
+
+#RecipeImage {
+  object-fit: cover;
+  width: 360PX;
+  height: 360px;
+  margin-bottom: 50px;
+  
+
+}
+
+#PutImage {
+  width: 360px;;
+  height: 140px;
+  border: 2px dashed #aaaaaa;
+  border-radius: 6px; 
+  object-fit: cover;
+  
+  
+  
+  
+  
+  
 }

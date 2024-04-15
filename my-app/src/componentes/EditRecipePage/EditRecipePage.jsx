@@ -52,7 +52,7 @@ const EditRecipePage = () => {
               <img
                 id="RecipeImage"
                 src="https://images.alphacoders.com/276/276861.jpg"
-                alt=""
+                alt="Recipe Image"
               />
               <label htmlFor="">Product Gallery</label>
               <input src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="PutImage" type="image"/>

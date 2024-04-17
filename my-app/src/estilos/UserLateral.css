@@ -14,6 +14,10 @@
   flex-direction: column;
   gap: 2em;
   align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  align-items: flex-start;
 }
 
 .butao {
@@ -32,22 +36,33 @@
   padding-left: 1em;
   padding-right: 1em;
   font-size: 1.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 1.5em;
 }
 
 .butao:active {
+  background-color: black;
+  color: white;
   background-color: black;
   color: white;
 }
 
 .butao:active svg path {
   stroke: white;
+  stroke: white;
 }
+#ingredients:active svg path,
+.EditRecipePage .butao:active svg path {
+  fill: white;
 #ingredients:active svg path,
 .EditRecipePage .butao:active svg path {
   fill: white;
 }
 
 .butao svg {
+  width: 3em;
+  height: 3em;
   width: 3em;
   height: 3em;
 }
@@ -67,6 +82,7 @@
 
 .UserInfo figure {
   text-align: center;
+  text-align: center;
 }
 
 .UserInfo .Perfil svg {
@@ -76,6 +92,10 @@
 }
 
 .UserInfo section {
+  display: flex;
+  margin: 1em;
+  flex-direction: column;
+  gap: 1em;
   display: flex;
   margin: 1em;
   flex-direction: column;
@@ -103,14 +123,23 @@ select {
   border-radius: 1em;
   background-color: #d9d9d9;
   border: none;
+  height: 2em;
+  border-radius: 1em;
+  background-color: #d9d9d9;
+  border: none;
 }
 
 .UserInfo select,
 .UserInfo input {
   padding: 0 0 0 1rem;
+  padding: 0 0 0 1rem;
 }
 
 .UserInfo button {
+  background-color: #d4eff1;
+  height: 2em;
+  border-radius: 1em;
+  border: none;
   background-color: #d4eff1;
   height: 2em;
   border-radius: 1em;
@@ -151,6 +180,28 @@ select {
   .UserInfo figure {
     margin: 0;
   }
+}
+
+.card-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding-left: 2rem;
+  box-sizing: content-box;
+}
+
+.card-section .card-procurar {
+  margin: 0 2rem 2rem 0;
+}
+.cont-text {
+  padding: 0 2rem;
+}
+.cont-text p {
+  /* width: auto; */
+  max-height: 60px;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-section {

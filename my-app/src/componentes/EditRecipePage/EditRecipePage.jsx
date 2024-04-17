@@ -47,7 +47,7 @@ const EditRecipePage = () => {
                 <textarea name="" id="TagsArea" cols="30" rows="10" placeholder="Add tag"></textarea>
             </div>
 
-            <div className="RightForm">´
+            <div className="RightForm">
             <div>
              
               <img

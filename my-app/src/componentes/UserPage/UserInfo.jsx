@@ -1,31 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import "../../estilos/UserLateral.css";
 import { Profile } from "../../imagens/svgs";
+import SelectCategories from "./SelectCategories";
 
 const UserInfo = () => {
-	return (
-		<div className="UserInfo">
-			<section className="Perfil">
-				<figure className="">
-					<Profile />
-				</figure>
+  const [ops, setOps] = useState(["1", "2", "3"]);
 
-				
-					<input type="text" name="Nome" id="" placeholder="Name"/>
-				
-				
-					<input type="email" name="Email" id=""  placeholder="E-mail"/>
-				
-				<button type="button">Change Password</button>
-				<select title="Categories" name="Categories" id="">
-					<option value="" selected disabled hidden>Choose here</option>
-					<option value="Chinese">Chinese Food</option>
-					<option value="Spicy">Spicy</option>
-					<option value="Vegan">Vegan</option>
-				</select>
-			</section>
-		</div>
-	);
+  const [escolhas, setEscolhas] = useState([]);
+
+  const handleSelect = (value) => {
+    setEscolhas([...escolhas, value]);
+  };
+
+  return (
+    <div className="UserInfo">
+      <section className="Perfil">
+        <figure className="">
+          <Profile />
+        </figure>
+
+        <input type="text" name="Nome" id="" placeholder="Name" />
+
+        <input type="email" name="Email" id="" placeholder="Email" />
+
+        <button type="button">Change Password</button>
+
+        <SelectCategories array1={ops} onSelect={handleSelect} />
+
+        <div className="user-options-section">
+          {escolhas.map((op, index) => (
+            <div className="user-options">
+              <p> {op} </p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default UserInfo;

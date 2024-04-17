@@ -3,9 +3,7 @@ import "../estilos/CardInicial.css";
 
 const CardInicial = ({ titulo, texto }) => {
   return (
-    
     <div className="card-pi">
-      
       <div className="cont-img">
         <img src="https://wallpaperaccess.com/full/767093.jpg" alt="" />
       </div>

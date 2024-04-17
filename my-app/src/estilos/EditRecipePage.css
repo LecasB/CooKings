@@ -81,9 +81,14 @@
   border-radius: 6px; 
   object-fit: cover;
   
-  
-  
-  
-  
-  
+}
+
+@media screen and (max-width: 480px) {
+  .EditForm {
+    flex-direction: column;
+  }
+
+  .LeftForm, .RightForm {
+    width: 100%;
+  }
 }

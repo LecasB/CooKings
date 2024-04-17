@@ -30,6 +30,8 @@
 
 .butao span {
   padding-left: 1em;
+  padding-right: 1em;
+  font-size: 1.5em;
 }
 
 .butao:active {
@@ -40,14 +42,14 @@
 .butao:active svg path {
   stroke: white;
 }
-
-#ingredients:active svg path {
+#ingredients:active svg path,
+.EditRecipePage .butao:active svg path {
   fill: white;
 }
 
 .butao svg {
-  width: 12px;
-  height: 12px;
+  width: 3em;
+  height: 3em;
 }
 
 .UserPage {

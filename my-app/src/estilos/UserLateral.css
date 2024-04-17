@@ -5,7 +5,6 @@
   background: #d4eff1;
   padding: 2.1875em 1.5625em;
 
-
   display: flex;
   flex-direction: column;
 }
@@ -88,7 +87,7 @@
 
 .UserInfo .Perfil svg {
   width: 100%;
-  
+
   height: auto;
 }
 
@@ -165,23 +164,44 @@ select {
   margin: 0;
 }
 @media screen and (max-width: 480px) {
- .butao span, .UserInfo { font-size: 1em;}
- 
- 
+  .butao span,
+  .UserInfo {
+    font-size: 1em;
+  }
 }
 @media screen and (max-width: 800px) {
   .UserInfo {
-  
-    max-width: 53.6%;    ;
-    border-right-width:0;
+    max-width: 53.6%;
+    border-right-width: 0;
     border-bottom: #000;
-  border-bottom: 0.1em;
-  border-style: solid;
-
-
-    
+    border-bottom: 0.1em;
+    border-style: solid;
   }
-  .UserInfo figure {margin: 0; }
+  .UserInfo figure {
+    margin: 0;
+  }
+}
+
+.card-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  padding-left: 2rem;
+  box-sizing: content-box;
+}
+
+.card-section .card-procurar {
+  margin: 0 2rem 2rem 0;
+}
+.cont-text {
+  padding: 0 2rem;
+}
+.cont-text p {
+  /* width: auto; */
+  max-height: 60px;
+  /* white-space: nowrap; */
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .card-section {

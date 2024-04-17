@@ -1,11 +1,11 @@
 .UserLateral {
   min-width: 10em;
-  max-width: 15%;
+  max-width: 33%;
   height: 41.5625em;
   background: #d4eff1;
   padding: 2.1875em 1.5625em;
 
-  box-sizing: border-box;
+
   display: flex;
   flex-direction: column;
 }
@@ -26,6 +26,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .butao span {
@@ -61,7 +62,7 @@
   border-right: 0.1em;
   border-color: black;
   border-style: solid;
-  width: 20em;
+  width: 33%;
 }
 
 .UserInfo figure {
@@ -70,6 +71,7 @@
 
 .UserInfo .Perfil svg {
   width: 10em;
+  max-width: 100%;
   height: auto;
 }
 
@@ -132,3 +134,7 @@ select {
 .user-options p {
   margin: 0;
 }
+@media screen and (max-width: 480px) {
+ .butao svg { width: 2em;}
+}
+

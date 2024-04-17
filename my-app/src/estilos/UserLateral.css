@@ -1,20 +1,21 @@
 .UserLateral {
   min-width: 10em;
-  max-width: 15%;
+  max-width: 33%;
   height: 41.5625em;
   background: #d4eff1;
   padding: 2.1875em 1.5625em;
 
-  box-sizing: border-box;
   display: flex;
   flex-direction: column;
 }
+
 .butoesdiv {
   display: flex;
   flex-direction: column;
   gap: 2em;
   align-items: flex-start;
 }
+
 .butao {
   background-color: transparent;
   border-radius: 1em;
@@ -24,7 +25,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
+
 .butao span {
   padding-left: 1em;
   padding-right: 1em;
@@ -35,6 +38,7 @@
   background-color: black;
   color: white;
 }
+
 .butao:active svg path {
   stroke: white;
 }
@@ -42,33 +46,41 @@
 .EditRecipePage .butao:active svg path {
   fill: white;
 }
+
 .butao svg {
   width: 3em;
   height: 3em;
 }
+
 .UserPage {
   display: flex;
 }
+
 .UserInfo {
   border: 0;
   border-right: 0.1em;
   border-color: black;
   border-style: solid;
-  max-width: 20em;
+  width: 33%;
 }
+
 .UserInfo figure {
   text-align: center;
 }
+
 .UserInfo .Perfil svg {
   width: 10em;
+  max-width: 100%;
   height: auto;
 }
+
 .UserInfo section {
   display: flex;
   margin: 1em;
   flex-direction: column;
   gap: 1em;
 }
+
 .UserInfo input,
 select {
   height: 2em;
@@ -76,15 +88,55 @@ select {
   background-color: #d9d9d9;
   border: none;
 }
-.UserInfo select,
-.UserInfo input {
-  padding: 0 0 0 1rem;
-}
+
 .UserInfo button {
   background-color: #d4eff1;
   height: 2em;
   border-radius: 1em;
   border: none;
+}
+
+.UserInfo input,
+select {
+  height: 2em;
+  border-radius: 1em;
+  background-color: #d9d9d9;
+  border: none;
+}
+
+.UserInfo select,
+.UserInfo input {
+  padding: 0 0 0 1rem;
+}
+
+.UserInfo button {
+  background-color: #d4eff1;
+  height: 2em;
+  border-radius: 1em;
+  border: none;
+}
+
+.user-options-section {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user-options {
+  width: fit-content;
+  padding: 1px 10px;
+  border-radius: 50px;
+  background: gray;
+}
+
+.user-options p {
+  margin: 0;
+}
+@media screen and (max-width: 480px) {
+  .butao svg {
+    width: 2em;
+  }
 }
 
 .card-section {

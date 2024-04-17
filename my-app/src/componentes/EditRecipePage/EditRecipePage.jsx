@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../NavBar";
 import "../../estilos/EditRecipePage.css";
-import { BackArrow } from "../../imagens/svgs";
+import { BackArrow, UploadFile } from "../../imagens/svgs";
 import dropImage from "../../imagens/dropImage.PNG";
 
 const EditRecipePage = () => {
@@ -13,14 +13,14 @@ const EditRecipePage = () => {
 
       <main className="EditRecipePage">
         
-          <div>
+          <form className="EditForm">
+            <div className="LeftForm">
+              <div>
             <button className="BackEditRecipe">
               <BackArrow />
               <span>Back</span>
             </button>
           </div>
-          <form className="EditForm">
-            <div className="LeftForm">
                 <label htmlFor="">Recipe Name</label>
                 <input type="text" placeholder="Type here..." />
                 <label htmlFor="">Description</label>
@@ -47,16 +47,17 @@ const EditRecipePage = () => {
                 <textarea name="" id="TagsArea" cols="30" rows="10" placeholder="Add tag"></textarea>
             </div>
 
-            <div className="RightForm">´
+            <div className="RightForm">
             <div>
+             
               <img
                 id="RecipeImage"
                 src="https://images.alphacoders.com/276/276861.jpg"
                 alt="Recipe Image"
               />
-              <label htmlFor="">Product Gallery</label>
-              <input src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7" id="PutImage" type="image"/>
               </div>
+              <label htmlFor="">Product Gallery</label>
+              <input id="PutImage" type="file" accept="image/png, image/jpg, image/jpeg"/>
             </div>
           </form>
         

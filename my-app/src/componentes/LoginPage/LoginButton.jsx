@@ -3,7 +3,7 @@ import "../../estilos/LoginButton.css";
 
 const LoginButton = ({ texto }) => {
   return (
-    <button onClick={() => console.log("click")} id="loginButton">
+    <button onClick={() => console.log("oi")} id="loginButton">
       {texto}
     </button>
   );

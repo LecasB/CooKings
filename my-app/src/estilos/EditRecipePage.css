@@ -1,0 +1,96 @@
+.BackEditRecipe {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: none;
+  width: 6em;
+  height: 2em;
+  margin-left: -25%;
+  cursor: pointer;
+  margin-bottom: 1em;
+}
+
+.EditRecipePage span {
+  font-size: medium;
+}
+
+.EditForm {
+  width: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  margin-top: 3em;
+}
+
+.LeftForm {
+  flex: 1;
+}
+
+.RightForm {
+  flex: 1;
+  padding-top: 3%;
+  
+}
+
+.EditRecipePage label {
+  display: block;
+  margin-bottom: 15px;
+  font-weight: 700;
+  align-self: flex-start;
+}
+
+.EditRecipePage input[type="text"],
+.EditRecipePage select,
+.EditRecipePage textarea {
+  width: 90%;
+  height: 3em;
+  margin-bottom: 15px;
+  border: 1px solid black;
+  border-radius: 8px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.EditRecipePage textarea {
+  height: 12em;
+  resize: none;
+}
+
+#TagsArea {
+  height: 6em;
+}
+
+#RecipeImage {
+  object-fit: cover;
+  width: 80%;
+  height: auto;
+  aspect-ratio: 1/1;
+  margin-bottom: 2em;
+  
+}
+
+#PutImage {
+  max-width: 90%;
+  width: 360px;
+  height: 140px;
+  border: 2px dashed #aaaaaa;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 480px) {
+  .EditForm {
+    flex-direction: column;
+  }
+
+  .LeftForm,
+  .RightForm {
+    width: 100%;
+  }
+
+  .BackEditRecipe {
+    margin-left: -30%;
+    
+  }
+}

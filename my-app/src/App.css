@@ -37,23 +37,23 @@
   }
 }
 
-body{
+.body {
   max-width: 1200px;
   margin: auto auto;
 }
 
-
-.boxcard{
+.boxcard {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 
-.box{
+.box {
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
 }
 
-.box h2{
+.box h2 {
   align-self: center;
 }

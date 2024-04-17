@@ -13,14 +13,14 @@ const EditRecipePage = () => {
 
       <main className="EditRecipePage">
         
-          <div>
+          <form className="EditForm">
+            <div className="LeftForm">
+              <div>
             <button className="BackEditRecipe">
               <BackArrow />
               <span>Back</span>
             </button>
           </div>
-          <form className="EditForm">
-            <div className="LeftForm">
                 <label htmlFor="">Recipe Name</label>
                 <input type="text" placeholder="Type here..." />
                 <label htmlFor="">Description</label>
@@ -55,10 +55,9 @@ const EditRecipePage = () => {
                 src="https://images.alphacoders.com/276/276861.jpg"
                 alt="Recipe Image"
               />
-              
+              </div>
               <label htmlFor="">Product Gallery</label>
               <input id="PutImage" type="file" accept="image/png, image/jpg, image/jpeg"/>
-              </div>
             </div>
           </form>
         

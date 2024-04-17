@@ -1,9 +1,11 @@
 import React from "react";
-import "../estilos/CardInicial.css"
+import "../estilos/cardInicial.css";
 
 const CardInicial = ({ titulo, texto }) => {
   return (
+    
     <div className="card-pi">
+      
       <div className="cont-img">
         <img src="https://wallpaperaccess.com/full/767093.jpg" alt="" />
       </div>

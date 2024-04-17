@@ -1,6 +1,7 @@
 import NavBar from "../NavBar";
 import "../../estilos/IngredientsListPage.css";
 import { SearchInput } from "../SearchInput";
+import BasicEditingGrid from "./List";
 
 const IngredientsListPage = () => {
   return (
@@ -19,7 +20,11 @@ const IngredientsListPage = () => {
             <SearchInput />
           </div>
         </div>
-        <div className="ingredients-itens"></div>
+        <div className="ingredients-itens">
+          <BasicEditingGrid
+            columns={[{ field: "id" }, { field: "name", editable: true }]}
+          />
+        </div>
       </main>
     </>
   );

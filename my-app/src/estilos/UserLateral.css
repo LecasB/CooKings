@@ -1,5 +1,5 @@
 .UserLateral {
-  min-width: 10em;
+  width: 10em;
   max-width: 33%;
   height: 41.5625em;
   background: #d4eff1;
@@ -55,6 +55,7 @@
 
 .UserPage {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .UserInfo {
@@ -62,7 +63,7 @@
   border-right: 0.1em;
   border-color: black;
   border-style: solid;
-  width: 33%;
+  max-width: 33%;
 }
 
 .UserInfo figure {
@@ -70,8 +71,8 @@
 }
 
 .UserInfo .Perfil svg {
-  width: 10em;
-  max-width: 100%;
+  width: 100%;
+  
   height: auto;
 }
 
@@ -135,6 +136,21 @@ select {
   margin: 0;
 }
 @media screen and (max-width: 480px) {
- .butao svg { width: 2em;}
+ .butao span, .UserInfo { font-size: 1em;}
+ 
+ 
 }
+@media screen and (max-width: 800px) {
+  .UserInfo {
+  
+    max-width: 53.6%;    ;
+    border-right-width:0;
+    border-bottom: #000;
+  border-bottom: 0.1em;
+  border-style: solid;
 
+
+    
+  }
+  .UserInfo figure {margin: 0; }
+}

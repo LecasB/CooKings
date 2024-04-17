@@ -6,6 +6,7 @@ import UserInfo from "./UserInfo";
 import "../../estilos/UserLateral.css";
 
 
+
 const UserPage = () => {
 	return (
 		<>
@@ -16,6 +17,8 @@ const UserPage = () => {
 				<div className="UserPage">
 					<UserLateral />
 					<UserInfo />
+					{/* <UserLateral /> */}
+					
 				</div>
 			</main>
 		</>

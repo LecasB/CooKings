@@ -8,8 +8,6 @@ import recipe from "./componentes/ArrayInfo";
 import ListaCard from "./componentes/ListaCards";
 import SearchForm from "./componentes/SearchPage/SearchForm";
 import MenuTeste from "./componentes/MenuTeste";
-import { useState, useEffect  } from "react";
-import { supabase } from "./supabaseClient";
 
 function App() {
   return (

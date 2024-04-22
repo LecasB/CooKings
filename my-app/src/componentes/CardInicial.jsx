@@ -1,5 +1,5 @@
 import React from "react";
-import "../estilos/cardInicial.css";
+import "../estilos/CardInicial.css";
 
 const CardInicial = ({ titulo, texto }) => {
   return (

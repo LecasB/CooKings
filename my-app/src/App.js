@@ -10,13 +10,12 @@ import SearchForm from "./componentes/SearchPage/SearchForm";
 import MenuTeste from "./componentes/MenuTeste";
 import IndexPage from "./componentes/IndexPage/IndexPage";
 
-
 function App() {
   return (
     <div className="App">
       <header>
         {/* <NavBar /> */}
-        <MenuTeste></MenuTeste> */
+        {/* <MenuTeste></MenuTeste> */}
       </header>
       {/* <div className="body">
         <div className="box">

@@ -7,7 +7,7 @@ const BoasText = () => {
 	} else if (horas >= 12 && horas < 18) {
 		return <p className="boas">Good Afternoon, Chef!</p>;
 	} else if (horas >= 18 && horas < 24) {
-		return <p className="boas">GGood Night, Chef!</p>;
+		return <p className="boas">Good Night, Chef!</p>;
 	}
 };
 

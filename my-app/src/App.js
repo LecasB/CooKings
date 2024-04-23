@@ -11,13 +11,13 @@ import MenuTeste from "./componentes/MenuTeste";
 import IndexPage from "./componentes/IndexPage/IndexPage";
 
 function App() {
-  return (
-    <div className="App">
-      <header>
-        {/* <NavBar /> */}
-        {/* <MenuTeste></MenuTeste> */}
-      </header>
-      {/* <div className="body">
+	return (
+		<div className="App">
+			<header>
+				{/*<NavBar />*/}
+				{<MenuTeste></MenuTeste>}
+			</header>
+			{/* { <div className="body">
         <div className="box">
           <h2>Recommended for you</h2>
           <div className="boxcard">
@@ -44,9 +44,9 @@ function App() {
             <CardProcurar titulo={"Titilo 6"} texto={"texto 6"} />
           </div>
         </div>
-      </div> */}
-    </div>
-  );
+      </div> } */}
+		</div>
+	);
 }
 
 export default App;

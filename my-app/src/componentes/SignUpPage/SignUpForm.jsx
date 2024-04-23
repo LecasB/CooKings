@@ -9,7 +9,7 @@ import Text from "./Text";
 const SignUpForm = () => {
   return (
     <div id="page">
-    <div id="SignUpForm">
+    <form id="SignUpForm">
     <img src={Logo}></img>
     <InputText texto={"Username"} />
     <InputText texto={"Password"} />
@@ -17,7 +17,7 @@ const SignUpForm = () => {
     <LoginButton texto={"Create Account"} />
     <Text texto="Or"></Text>
     <LoginButton texto={"Log in"} />
-    </div>
+    </form>
   
     
   </div>

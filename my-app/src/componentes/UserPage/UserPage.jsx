@@ -11,9 +11,6 @@ import recipe from "../ArrayInfo";
 const UserPage = () => {
   return (
     <>
-      <header>
-        <NavBar />
-      </header>
       <main>
         <div className="UserPage">
           <UserLateral />

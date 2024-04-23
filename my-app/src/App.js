@@ -15,7 +15,7 @@ function App() {
     <div className="App">
       <header>
         {/* <NavBar /> */}
-        {/* <MenuTeste></MenuTeste> */}
+        <MenuTeste></MenuTeste>
       </header>
       {/* <div className="body">
         <div className="box">

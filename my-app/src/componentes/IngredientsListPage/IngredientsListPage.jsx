@@ -2,11 +2,10 @@ import NavBar from "../NavBar";
 import "../../estilos/IngredientsListPage.css";
 import { SearchInput } from "../SearchInput";
 import BasicEditingGrid from "./List";
-import { useEffect, useState } from 'react';
-import supabase from '../../supabaseClient';
+import { useEffect, useState } from "react";
+import supabase from "../../supabaseClient";
 
 const IngredientsListPage = () => {
-
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -14,7 +13,7 @@ const IngredientsListPage = () => {
       try {
         // Fetch data from Supabase
         const { data: fetchedData, error } = await supabase
-          .from('Category')
+          .from("Category")
           .select();
 
         if (error) {
@@ -24,7 +23,7 @@ const IngredientsListPage = () => {
         // Set fetched data to state
         setData(fetchedData);
       } catch (error) {
-        console.error('Error fetching data:', error.message);
+        console.error("Error fetching data:", error.message);
       }
     };
 
@@ -34,9 +33,6 @@ const IngredientsListPage = () => {
 
   return (
     <>
-      <header>
-        <NavBar />
-      </header>
       <main className="ingredients-list-main">
         <div className="ingredients-list">
           <div className="ingredients-list-titles">
@@ -55,7 +51,7 @@ const IngredientsListPage = () => {
         </div>
         <div>
           <h2>Data from Supabase:</h2>
-          {data.map(item => (
+          {data.map((item) => (
             <div key={item.id}>
               <p>ID: {item.idcategory}</p>
               <p>Name: {item.name}</p>

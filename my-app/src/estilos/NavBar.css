@@ -17,14 +17,22 @@
 .linksContainer {
   list-style: none;
   margin-right: 2.5em;
+  display: flex;
+  gap:30px;
+  align-items: center;
 }
 
 .linksItems {
-  display: inline-block;
+  display: display;
   margin-left: 20px;
 }
 
 .linksItems svg {
   max-width: 2.5em;
   max-height: 2.5em;
+}
+
+.linkItem{
+  font-weight: bold;
+  text-decoration: none;
 }

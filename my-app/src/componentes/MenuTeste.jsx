@@ -23,36 +23,6 @@ const MenuTeste = () => {
   return (
     <BrowserRouter>
       <div>
-        {/*<nav>
-          <ul>
-            <li>
-              <Link to="/LoadingPage">Loading Page</Link>
-            </li>
-            <li>
-              <Link to="/LoginPage">Login Form</Link>
-            </li>
-            <li>
-              <Link to="/SignUpPage">Sign Up</Link>
-            </li>
-            <li>
-              <Link to="/SearchPage">Search page</Link>
-            </li>
-            <li>
-              <Link to="/IndexPage">Index page</Link>
-            </li>
-            <li>
-              <Link to="/UserPage">User page</Link>
-            </li>
-            <li>
-              <Link to="/EditRecipePage">EditRecipe</Link>
-            </li>
-            <li>
-              <Link to="./IngredientsListPage/IngredientsListPage">
-                IngredientsListPage
-              </Link>
-            </li>
-          </ul>
-        </nav> */}
         <header>
           <NavBar />
         </header>
@@ -62,7 +32,7 @@ const MenuTeste = () => {
           <Route path="/LoginPage" element={<LoginForm />} />
           <Route path="/SignUpPage" element={<SignUpForm />} />
           <Route path="/SearchPage" element={<SearchPage />} />
-          <Route path="/IndexPage" element={<IndexPage />} />
+          <Route index path="/IndexPage" element={<IndexPage />} />
           <Route path="/EditRecipePage" element={<EditRecipePage />} />
           <Route
             path="/IngredientsListPage/IngredientsListPage"

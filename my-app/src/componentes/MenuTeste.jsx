@@ -18,6 +18,7 @@ import IngredientsListPage from "./IngredientsListPage/IngredientsListPage";
 import EditRecipePage from "./EditRecipePage/EditRecipePage";
 import Layout from "./Layout";
 import NavBar from "./NavBar";
+import ErrorPage from "./ErrorPage/errorPage";
 
 const MenuTeste = () => {
   return (
@@ -39,6 +40,7 @@ const MenuTeste = () => {
             element={<IngredientsListPage />}
           />
           <Route path="/UserPage" element={<UserPage />} />
+          <Route path="/ErrorPage" element={<ErrorPage />} />
         </Routes>
       </div>
     </BrowserRouter>

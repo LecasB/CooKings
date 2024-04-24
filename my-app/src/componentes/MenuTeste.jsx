@@ -41,6 +41,7 @@ const MenuTeste = () => {
           />
           <Route path="/UserPage" element={<UserPage />} />
           <Route path="/ErrorPage" element={<ErrorPage />} />
+          <Route path="/dashboardTest" element={<dashboardTeste />} />
         </Routes>
       </div>
     </BrowserRouter>

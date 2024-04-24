@@ -13,6 +13,10 @@ const LoginForm = () => {
     alert("Sucesso");
   };
 
+  const verifyCreateAcc = () => {
+    alert("Sucesso");
+  };
+
   return (
     <div id="page">
       <form id="SignUpForm">
@@ -20,15 +24,15 @@ const LoginForm = () => {
         <InputText texto={"Username"} />
         <InputText texto={"Password"} />
         <div id="checkAndText">
-        <CheckBox></CheckBox>
-        <Text texto="Forgot your Password?"></Text>
+          <CheckBox></CheckBox>
+          <Text texto="Forgot your Password?"></Text>
         </div>
-        
-        <LoginButton texto={"Log in"} />
+
+        <LoginButton texto={"Log in"} onClick={verifyLogin} />
         <Text texto="Or"></Text>
         <Text texto="Dont have a account yet?"></Text>
         {/* Pass verifyLogin as a reference without invoking it */}
-        <LoginButton texto={"Create Account"} onClick={verifyLogin} />
+        <LoginButton texto={"Create Account"} onClick={verifyCreateAcc} />
       </form>
     </div>
   );

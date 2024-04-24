@@ -19,32 +19,56 @@ const NavBar = () => {
       <div>
         <ul className="linksContainer">
           <li>
-            <Link className="linkItem" to="/LoadingPage">Loading Page</Link>
-          </li>
-          <li>
-            <Link className="linkItem" to="/LoginPage">Login Form</Link>
-          </li>
-          <li>
-            <Link className="linkItem" to="/SignUpPage">Sign Up</Link>
-          </li>
-          <li>
-            <Link className="linkItem" to="/SearchPage">Search page</Link>
-          </li>
-          <li>
-            <Link className="linkItem" to="/IndexPage">Index page</Link>
-          </li>
-          <li>
-            <Link className="linkItem" to="/UserPage">User page</Link>
-          </li>
-          <li>
-            <Link className="linkItem" to="/EditRecipePage">EditRecipe</Link>
-          </li>
-          <li>
-            <Link className="linkItem" to="/IngredientsListPage/IngredientsListPage">IngredientsListPage
+            <Link className="linkItem" to="/LoadingPage">
+              Loading Page
             </Link>
           </li>
           <li>
-            <Link className="linkItem" to="/ErrorPage">ErrorPage
+            <Link className="linkItem" to="/LoginPage">
+              Login Form
+            </Link>
+          </li>
+          <li>
+            <Link className="linkItem" to="/SignUpPage">
+              Sign Up
+            </Link>
+          </li>
+          <li>
+            <Link className="linkItem" to="/SearchPage">
+              Search page
+            </Link>
+          </li>
+          <li>
+            <Link className="linkItem" to="/IndexPage">
+              Index page
+            </Link>
+          </li>
+          <li>
+            <Link className="linkItem" to="/UserPage">
+              User page
+            </Link>
+          </li>
+          <li>
+            <Link className="linkItem" to="/EditRecipePage">
+              EditRecipe
+            </Link>
+          </li>
+          <li>
+            <Link
+              className="linkItem"
+              to="/IngredientsListPage/IngredientsListPage"
+            >
+              IngredientsListPage
+            </Link>
+          </li>
+          <li>
+            <Link className="linkItem" to="/ErrorPage">
+              ErrorPage
+            </Link>
+          </li>
+          <li>
+            <Link className="linkItem" to="/dashboardTeste">
+              TesteAdmin
             </Link>
           </li>
           <li className="linksItems">

@@ -54,7 +54,7 @@
 
 .UserPage {
   display: flex;
-  flex-wrap: wrap;
+  
 }
 
 .UserInfo {
@@ -159,11 +159,10 @@ select {
   align-content: flex-start;
   padding-left: 2rem;
   box-sizing: content-box;
+  max-width: 100%;
 }
 
-.card-section .card-procurar {
-  margin: 0 2rem 2rem 0;
-}
+
 .cont-text {
   padding: 0 2rem;
 }
@@ -174,3 +173,4 @@ select {
   overflow: hidden;
   text-overflow: ellipsis;
 }
+

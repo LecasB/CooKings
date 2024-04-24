@@ -13,7 +13,7 @@ const IngredientsListPage = () => {
       try {
         // Fetch data from Supabase
         const { data: fetchedData, error } = await supabase
-          .from("Category")
+          .from("Category_Ingredients")
           .select();
 
         if (error) {

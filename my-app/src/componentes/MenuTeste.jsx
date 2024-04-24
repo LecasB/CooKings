@@ -20,7 +20,6 @@ import Layout from "./Layout";
 import NavBar from "./NavBar";
 import ErrorPage from "./ErrorPage/errorPage";
 import AdminDashboardPage from "./AdminDashboard/AdminDashboardPage";
-import AdminDashboardPage from "./AdminDashboard/AdminDashboardPage";
 import DashboardTeste from "./DasboardTeste/DashboardTeste";
 
 const MenuTeste = () => {

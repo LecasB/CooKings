@@ -7,21 +7,24 @@ import "../../estilos/LoginForm.css";
 import Text from "./Text";
 
 const SignUpForm = () => {
+  const verifyLogin = () => {
+    alert("Logined!");
+  };
+  const verifyCreateAcc = () => {
+    alert("Acc Created");
+  };
   return (
     <div id="page">
-    <form id="SignUpForm">
-    <img src={Logo}></img>
-    <InputText texto={"Username"} />
-    <InputText texto={"Password"} />
-    <InputText texto={"Confirm Password"} />
-    <LoginButton texto={"Create Account"} />
-    <Text texto="Or"></Text>
-    <LoginButton texto={"Log in"} />
-    </form>
-  
-    
-  </div>
-  
+      <form id="SignUpForm">
+        <img src={Logo}></img>
+        <InputText texto={"Username"} />
+        <InputText texto={"Password"} />
+        <InputText texto={"Confirm Password"} />
+        <LoginButton texto={"Create Account"} onClick={verifyCreateAcc} />
+        <Text texto="Or"></Text>
+        <LoginButton texto={"Log In"} onClick={verifyLogin} />
+      </form>
+    </div>
   );
 };
 

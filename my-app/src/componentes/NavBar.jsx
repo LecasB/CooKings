@@ -43,6 +43,10 @@ const NavBar = () => {
             <Link className="linkItem" to="/IngredientsListPage/IngredientsListPage">IngredientsListPage
             </Link>
           </li>
+          <li>
+            <Link className="linkItem" to="/ErrorPage">ErrorPage
+            </Link>
+          </li>
           <li className="linksItems">
             <Storage />
           </li>

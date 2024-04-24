@@ -1,9 +1,9 @@
 import React from "react";
 import "../../estilos/LoginButton.css";
 
-const LoginButton = ({ texto }) => {
+const LoginButton = ({ texto, onClick }) => {
   return (
-    <button onClick={() => console.log("oi")} id="loginButton">
+    <button type="submit" className="loginButton" onClick={onClick}>
       {texto}
     </button>
   );

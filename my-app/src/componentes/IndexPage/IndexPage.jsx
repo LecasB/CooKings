@@ -14,9 +14,9 @@ import recipelogo from "../../imagens/recipe-icon.png";
 const IndexPage = () => {
   return (
     <>
-      <header>
+      {/* <header>
         <NavBar />
-      </header>
+      </header> */}
       <main>
         <div className="IndexPage">
           <div

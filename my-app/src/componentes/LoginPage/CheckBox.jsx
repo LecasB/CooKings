@@ -1,9 +1,12 @@
 import React from "react";
 
-const checkbox = () => {
-    return(
-        <input type="checkbox" name="verify"></input>
-    )
-}
+const CheckBox = () => {
+    return (
+        <div>
+            <input type="checkbox" name="verify" />
+            <label>Remember me</label>
+        </div>
+    );
+};
 
-export default checkbox;
+export default CheckBox;

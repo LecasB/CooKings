@@ -1,16 +1,32 @@
-#SignUpForm{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background: beige;
-    width: 80%;
-    margin: 0 auto;
-    border: 1px solid black;
-    border-radius: 20px;
-    padding: 50px 0px;
+#SignUpForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: beige;
+  margin: 0 auto;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 50px 0px;
+  height: 600px;
+  width: 600px;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  margin: 100px auto;
 }
 
-#SignUpForm img{
-    height: 10vh;
-    width: 30vh;
+#SignUpForm img {
+  height: 10vh;
+  width: 30vh;
+}
+
+#page {
+  background: url(https://cdn.discordapp.com/attachments/1180200254570770432/1231568949825503353/stacked-waves-haikei.png?ex=66376ef7&is=6624f9f7&hm=67b6d0e588195ae4cbc50679b5c1df116e80df7dc054bdfcc7cdb4148883f1b0&);
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

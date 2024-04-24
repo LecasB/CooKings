@@ -74,8 +74,6 @@ const NavBar = () => {
           <li>
             <Link className="linkItem" to="/AdminDashboardPage">
               Admin
-            <Link className="linkItem" to="/AdminDashboardPage">
-              Admin
             </Link>
           </li>
           <li className="linksItems">

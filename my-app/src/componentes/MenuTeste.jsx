@@ -19,6 +19,7 @@ import EditRecipePage from "./EditRecipePage/EditRecipePage";
 import Layout from "./Layout";
 import NavBar from "./NavBar";
 import ErrorPage from "./ErrorPage/errorPage";
+import AdminDashboardPage from "./AdminDashboard/AdminDashboardPage";
 
 const MenuTeste = () => {
   return (
@@ -37,13 +38,14 @@ const MenuTeste = () => {
               element={<IngredientsListPage />}
             />
             <Route path="UserPage" element={<UserPage />} />
-            <Route path="/ErrorPage" element={<ErrorPage />} />
+            <Route path="*" element={<ErrorPage />} />
           </Route>
 
           <Route path="/">
             <Route path="LoadingPage" element={<LoadingScreen />} />
             <Route path="LoginPage" element={<LoginForm />} />
             <Route path="SignUpPage" element={<SignUpForm />} />
+            <Route path="AdminDashboardPage" element={<AdminDashboardPage />} />
           </Route>
         </Routes>
       </div>

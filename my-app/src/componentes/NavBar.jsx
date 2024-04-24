@@ -39,7 +39,7 @@ const NavBar = () => {
             </Link>
           </li>
           <li>
-            <Link className="linkItem" to="/IndexPage">
+            <Link className="linkItem" to="/">
               Index page
             </Link>
           </li>
@@ -64,11 +64,6 @@ const NavBar = () => {
           <li>
             <Link className="linkItem" to="/ErrorPage">
               ErrorPage
-            </Link>
-          </li>
-          <li>
-            <Link className="linkItem" to="/DashboardTeste">
-              TesteAdmin
             </Link>
           </li>
           <li>

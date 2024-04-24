@@ -1,0 +1,20 @@
+.sidenavbar {
+  width: fit-content;
+  height: 100%;
+  background: #d4eff1;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+
+  position: fixed;
+}
+
+.sidenavbar img {
+  max-width: 150px;
+  min-width: 150px;
+  max-height: auto;
+}
+
+.sidenavbar ul {
+}

@@ -23,22 +23,20 @@ const MenuTeste = () => {
   return (
     <BrowserRouter>
       <div>
-        <header>
-          <NavBar />
-        </header>
-
         <Routes>
-          <Route path="/LoadingPage" element={<LoadingScreen />} />
-          <Route path="/LoginPage" element={<LoginForm />} />
-          <Route path="/SignUpPage" element={<SignUpForm />} />
-          <Route path="/SearchPage" element={<SearchPage />} />
-          <Route index path="/IndexPage" element={<IndexPage />} />
-          <Route path="/EditRecipePage" element={<EditRecipePage />} />
-          <Route
-            path="/IngredientsListPage/IngredientsListPage"
-            element={<IngredientsListPage />}
-          />
-          <Route path="/UserPage" element={<UserPage />} />
+          <Route path="/" element={<Layout />}>
+            <Route path="LoadingPage" element={<LoadingScreen />} />
+            <Route path="LoginPage" element={<LoginForm />} />
+            <Route path="SignUpPage" element={<SignUpForm />} />
+            <Route path="SearchPage" element={<SearchPage />} />
+            <Route index path="/" element={<IndexPage />} />
+            <Route path="EditRecipePage" element={<EditRecipePage />} />
+            <Route
+              path="IngredientsListPage/IngredientsListPage"
+              element={<IngredientsListPage />}
+            />
+            <Route path="UserPage" element={<UserPage />} />
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>

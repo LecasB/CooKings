@@ -19,29 +19,36 @@ import EditRecipePage from "./EditRecipePage/EditRecipePage";
 import Layout from "./Layout";
 import NavBar from "./NavBar";
 import ErrorPage from "./ErrorPage/errorPage";
+import AdminDashboardPage from "./AdminDashboard/AdminDashboardPage";
+import DashboardTeste from "./DasboardTeste/DashboardTeste";
 
 const MenuTeste = () => {
   return (
     <BrowserRouter>
       <div>
-        <header>
-          <NavBar />
-        </header>
-
         <Routes>
-          <Route path="/LoadingPage" element={<LoadingScreen />} />
-          <Route path="/LoginPage" element={<LoginForm />} />
-          <Route path="/SignUpPage" element={<SignUpForm />} />
-          <Route path="/SearchPage" element={<SearchPage />} />
-          <Route index path="/IndexPage" element={<IndexPage />} />
-          <Route path="/EditRecipePage" element={<EditRecipePage />} />
-          <Route
-            path="/IngredientsListPage/IngredientsListPage"
-            element={<IngredientsListPage />}
-          />
-          <Route path="/UserPage" element={<UserPage />} />
-          <Route path="/ErrorPage" element={<ErrorPage />} />
-          <Route path="/dashboardTest" element={<dashboardTeste />} />
+          <Route path="/" element={<Layout />}>
+            {/* <Route path="LoadingPage" element={<LoadingScreen />} />
+            <Route path="LoginPage" element={<LoginForm />} />
+            <Route path="SignUpPage" element={<SignUpForm />} /> */}
+            <Route path="SearchPage" element={<SearchPage />} />
+            <Route index path="/" element={<IndexPage />} />
+            <Route path="EditRecipePage" element={<EditRecipePage />} />
+            <Route
+              path="IngredientsListPage/IngredientsListPage"
+              element={<IngredientsListPage />}
+            />
+            <Route path="UserPage" element={<UserPage />} />
+            <Route path="*" element={<ErrorPage />} />
+          </Route>
+
+          <Route path="/">
+            <Route path="LoadingPage" element={<LoadingScreen />} />
+            <Route path="LoginPage" element={<LoginForm />} />
+            <Route path="SignUpPage" element={<SignUpForm />} />
+            <Route path="AdminDashboardPage" element={<AdminDashboardPage />} />
+            <Route path="DashboardTeste" element={<DashboardTeste />} />
+          </Route>
         </Routes>
       </div>
     </BrowserRouter>

@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import supabase from "../../supabaseClient";
-import { Link } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Link,
+    BrowserRouter,
+  } from "react-router-dom";
 
 const EditIngrediente = () =>{
     return(

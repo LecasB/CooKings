@@ -20,9 +20,8 @@ import Layout from "./Layout";
 import NavBar from "./NavBar";
 import ErrorPage from "./ErrorPage/errorPage";
 import AdminDashboardPage from "./AdminDashboard/AdminDashboardPage";
-import DashboardTeste from "./DasboardTeste/DashboardTeste"; 
+import DashboardTeste from "./DasboardTeste/DashboardTeste";
 import NovoIngrediente from "./DasboardTeste/NovoIngrediente";
-
 
 const MenuTeste = () => {
   return (
@@ -50,8 +49,7 @@ const MenuTeste = () => {
             <Route path="SignUpPage" element={<SignUpForm />} />
             <Route path="AdminDashboardPage" element={<AdminDashboardPage />} />
             <Route path="DashboardTeste" element={<DashboardTeste />} />
-            <Route path="DashboardTeste" element={<NovoIngrediente />} />
-            
+            <Route path="NovoIngrediente" element={<NovoIngrediente />} />
           </Route>
         </Routes>
       </div>

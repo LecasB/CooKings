@@ -7,9 +7,6 @@ import "../../estilos/SearchPage.css";
 const SearchPage = () => {
   return (
     <>
-      <header>
-        <NavBar />
-      </header>
       <main>
         <h1>Let's search for recipes</h1>
         <div style={{ display: "flex" }}>

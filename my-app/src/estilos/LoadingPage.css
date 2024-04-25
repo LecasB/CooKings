@@ -1,12 +1,18 @@
-#LoadingPage{
-    background: beige;
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 20px;
-    margin: 0 auto;
-    width: 80%;
-    padding: 20px 0px;
+#LoadingPage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 20px 0px;
+  text-align: center;
+  background: url(https://cdn.discordapp.com/attachments/1180200254570770432/1231568949825503353/stacked-waves-haikei.png?ex=66376ef7&is=6624f9f7&hm=67b6d0e588195ae4cbc50679b5c1df116e80df7dc054bdfcc7cdb4148883f1b0&);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 850px;
+}
+
+body {
+  padding: 0;
+  margin: 0;
 }

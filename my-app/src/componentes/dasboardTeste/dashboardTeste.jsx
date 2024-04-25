@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import supabase from "../../supabaseClient";
+import { Link } from 'react-router-dom';
+
+
 
 const DashboardTeste = () => {
   const [categorias, setCategorias] = useState([]);
@@ -53,6 +56,9 @@ const DashboardTeste = () => {
           </button>
         </div>
       ))}
+      <Link to="/EditIngrediente">
+        <button>Adicionar Receita</button>
+      </Link>
     </>
   );
 };

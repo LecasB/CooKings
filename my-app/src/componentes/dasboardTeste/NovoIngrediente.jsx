@@ -8,19 +8,20 @@ import {
   BrowserRouter,
 } from "react-router-dom";
 
-
 const NovoIngrediente = () => {
   // State variables to hold form data and category options
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [idcategory, setCategoryId] = useState("");
+  const [idcategory, setCategoryId] = useState("2");
   const [image, setImage] = useState(null); // State to hold image data
   const [categories, setCategories] = useState([]);
 
   // Function to fetch categories from Supabase
   const fetchCategories = async () => {
     try {
-      const { data, error } = await supabase.from("Category_Ingredients").select("*");
+      const { data, error } = await supabase
+        .from("Category_Ingredients")
+        .select("*");
       setCategories(data);
     } catch (error) {
       console.error("Error fetching categories:", error.message);
@@ -33,24 +34,26 @@ const NovoIngrediente = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       // Insert data into the "Ingredients" table
-      const { data: insertedData, error } = await supabase.from("Ingredients").insert([
-        {
-          name,
-          description,
-          idcategory,
-          image: image, // Storing image data in the database
-        },
-      ]);
-  
+      const { data: insertedData, error } = await supabase
+        .from("Ingredients")
+        .insert([
+          {
+            name,
+            description,
+            idcategory,
+            image: image, // Storing image data in the database
+          },
+        ]);
+
       if (error) {
         throw error;
       }
-  
+
       console.log("Data inserted successfully:", insertedData);
-  
+
       // Reset form fields after successful submission
       setName("");
       setDescription("");

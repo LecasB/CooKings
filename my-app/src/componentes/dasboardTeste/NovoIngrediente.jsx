@@ -3,13 +3,13 @@ import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
 
 const NovoIngrediente = () => {
-  // State variables to hold form data and category options
+  
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [idcategory, setCategoryId] = useState("2");
-  const [image, setImage] = useState(null); // State to hold image data
+  const [image, setImage] = useState(null); 
   const [categories, setCategories] = useState([]);
-  const [submitted, setSubmitted] = useState(false); // State to track form submission
+  const [submitted, setSubmitted] = useState(false); 
 
   // Function to fetch categories from Supabase
   const fetchCategories = async () => {
@@ -31,7 +31,7 @@ const NovoIngrediente = () => {
     e.preventDefault();
 
     try {
-      // Insert data into the "Ingredients" table
+      
       const { data: insertedData, error } = await supabase
         .from("Ingredients")
         .insert([
@@ -39,7 +39,7 @@ const NovoIngrediente = () => {
             name,
             description,
             idcategory,
-            image: image, // Storing image data in the database
+            image: image, 
           },
         ]);
 
@@ -49,16 +49,16 @@ const NovoIngrediente = () => {
 
       console.log("Data inserted successfully:", insertedData);
 
-      // Reset form fields after successful submission
+  
       setName("");
       setDescription("");
       setCategoryId("");
       setImage(null);
 
-      // Update state to indicate form submission
+      
       setSubmitted(true);
 
-      // Redirect to DashboardTeste
+      
       window.location.href = "/DashboardTeste";
     } catch (error) {
       console.error("Error inserting data:", error.message);
@@ -69,7 +69,7 @@ const NovoIngrediente = () => {
     <div>
       <h1>Novo Ingrediente</h1>
       <form onSubmit={handleSubmit}>
-        {/* Name input */}
+       
         <label>
           Name:
           <input
@@ -81,7 +81,7 @@ const NovoIngrediente = () => {
         </label>
         <br />
 
-        {/* Description input */}
+       
         <label>
           Description:
           <input
@@ -93,7 +93,7 @@ const NovoIngrediente = () => {
         </label>
         <br />
 
-        {/* Category select */}
+      
         <label>
           Category:
           <select
@@ -110,7 +110,7 @@ const NovoIngrediente = () => {
         </label>
         <br />
 
-        {/* Image input */}
+      
         <label>
           Image:
           <input
@@ -125,7 +125,7 @@ const NovoIngrediente = () => {
         <button type="submit">Submit</button>
       </form>
 
-      {/* Redirect immediately after form submission */}
+   
       {submitted && <Link to="/DashboardTeste" />}
     </div>
   );

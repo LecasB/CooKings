@@ -27,7 +27,7 @@ const NovoIngrediente = () => {
     }
   };
 
-  // Function to fetch ingredient data based on the ID
+
   const fetchIngredientData = async () => {
     try {
       const { data, error } = await supabase
@@ -38,7 +38,7 @@ const NovoIngrediente = () => {
       if (error) {
         throw error;
       }
-      // Pre-fill form fields with fetched data
+      
       setName(data.name);
       setDescription(data.description);
       setCategoryId(data.idcategory);
@@ -58,9 +58,9 @@ const NovoIngrediente = () => {
     e.preventDefault();
 
     try {
-      // Insert or update data into the "Ingredients" table based on whether ID exists
+      
       if (idingridients) {
-        // Update data
+        
         const { error } = await supabase
           .from("Ingredients")
           .update({ name, description, idcategory })
@@ -69,7 +69,7 @@ const NovoIngrediente = () => {
           throw error;
         }
       } else {
-        // Insert new data
+       
         const { error } = await supabase
           .from("Ingredients")
           .insert([
@@ -84,7 +84,7 @@ const NovoIngrediente = () => {
         }
       }
 
-      // Redirect to DashboardTeste after successful submission
+      
       window.location.href = "/DashboardTeste";
     } catch (error) {
       console.error("Error inserting/updating data:", error.message);
@@ -95,7 +95,7 @@ const NovoIngrediente = () => {
     <div>
       <h1>Editar Ingrediente</h1>
       <form onSubmit={handleSubmit}>
-        {/* Name input */}
+        
         <label>
           Name:
           <input
@@ -107,7 +107,7 @@ const NovoIngrediente = () => {
         </label>
         <br />
 
-        {/* Description input */}
+        
         <label>
           Description:
           <input
@@ -119,7 +119,7 @@ const NovoIngrediente = () => {
         </label>
         <br />
 
-        {/* Category select */}
+        
         <label>
           Category:
           <select

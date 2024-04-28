@@ -1,12 +1,6 @@
 import React, { useState, useEffect } from "react";
 import supabase from "../../supabaseClient";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  BrowserRouter,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NovoIngrediente = () => {
   // State variables to hold form data and category options
@@ -15,6 +9,7 @@ const NovoIngrediente = () => {
   const [idcategory, setCategoryId] = useState("2");
   const [image, setImage] = useState(null); // State to hold image data
   const [categories, setCategories] = useState([]);
+  const [submitted, setSubmitted] = useState(false); // State to track form submission
 
   // Function to fetch categories from Supabase
   const fetchCategories = async () => {
@@ -59,6 +54,12 @@ const NovoIngrediente = () => {
       setDescription("");
       setCategoryId("");
       setImage(null);
+
+      // Update state to indicate form submission
+      setSubmitted(true);
+
+      // Redirect to DashboardTeste
+      window.location.href = "/DashboardTeste";
     } catch (error) {
       console.error("Error inserting data:", error.message);
     }
@@ -123,6 +124,9 @@ const NovoIngrediente = () => {
 
         <button type="submit">Submit</button>
       </form>
+
+      {/* Redirect immediately after form submission */}
+      {submitted && <Link to="/DashboardTeste" />}
     </div>
   );
 };

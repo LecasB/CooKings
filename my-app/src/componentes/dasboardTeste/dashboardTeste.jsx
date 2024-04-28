@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import supabase from "../../supabaseClient";
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  BrowserRouter,
-} from "react-router-dom";
+import { Link } from "react-router-dom";
+import CardTeste from "./CardTeste"
 
 const DashboardTeste = () => {
   const [categorias, setCategorias] = useState([]);
@@ -35,11 +30,6 @@ const DashboardTeste = () => {
     }
   }
 
-  function editCategoria(id) {
-    return <Link to={`/EditIngrediente?id=${id}`}>Editar</Link>;
-  }
-  
-
   useEffect(() => {
     getCategorias();
   }, []);
@@ -49,14 +39,14 @@ const DashboardTeste = () => {
       <h1>Categorias de Ingredientes</h1>
 
       {categorias.map((categoria) => (
-        <div key={categoria.idingridients} style={{ background: "beige" }}>
-          <h2>{categoria.name}</h2>
-          <h3>{categoria.idcategory}</h3>
-          <p>{categoria.description}</p>
-          <button>{editCategoria(categoria.idingridients)}</button>
-          <button onClick={() => deleteCategoria(categoria.idingridients)}>
-            Apagar
-          </button>
+        <div key={categoria.idingridients}>
+          <CardTeste
+            id={categoria.idingridients}
+            name={categoria.name}
+            category={categoria.category}
+            description={categoria.description}
+            deleteCategoria={deleteCategoria}
+          />
         </div>
       ))}
       <Link to="/NovoIngrediente">
@@ -67,3 +57,4 @@ const DashboardTeste = () => {
 };
 
 export default DashboardTeste;
+

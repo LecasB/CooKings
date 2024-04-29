@@ -3,13 +3,15 @@ import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
 
 const NovoIngrediente = () => {
-  
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [idcategory, setCategoryId] = useState("2");
-  const [image, setImage] = useState(null); 
+  const [image, setImage] = useState(null);
+  const [imageURL, setImageURL] = useState(null);
+  const [imageSalva, setImageSalva] = useState(false);
+
   const [categories, setCategories] = useState([]);
-  const [submitted, setSubmitted] = useState(false); 
+  const [submitted, setSubmitted] = useState(false);
 
   // Function to fetch categories from Supabase
   const fetchCategories = async () => {
@@ -27,41 +29,62 @@ const NovoIngrediente = () => {
     fetchCategories();
   }, []);
 
+  const inserImg = async () => {
+    try {
+      const { data, error } = await supabase.storage
+        .from("cooKingsBucket")
+        .upload(image.name, image);
+
+      if (data) {
+        // saber se colocou a img para inserir o restos na bd
+        setImageSalva(true);
+      }
+    } catch (error) {
+      console.log(error);
+      setImageSalva(false);
+    }
+  };
+
+  useEffect(() => {
+    setImageSalva(true);
+  }, [imageSalva]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+    inserImg();
 
-    try {
-      
-      const { data: insertedData, error } = await supabase
-        .from("Ingredients")
-        .insert([
-          {
-            name,
-            description,
-            idcategory,
-            image: image, 
-          },
-        ]);
+    if (imageSalva) {
+      try {
+        const { data: insertedData, error } = await supabase
+          .from("Ingredients")
+          .insert([
+            {
+              name,
+              description,
+              idcategory,
+              image:
+                "https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/" +
+                image.name,
+            },
+          ]);
 
-      if (error) {
-        throw error;
+        if (error) {
+          throw error;
+        }
+
+        console.log("Data inserted successfully:", insertedData);
+
+        setName("");
+        setDescription("");
+        setCategoryId("");
+        setImage(null);
+
+        setSubmitted(true);
+
+        window.location.href = "/DashboardTeste";
+      } catch (error) {
+        console.error("Error inserting data:", error.message);
       }
-
-      console.log("Data inserted successfully:", insertedData);
-
-  
-      setName("");
-      setDescription("");
-      setCategoryId("");
-      setImage(null);
-
-      
-      setSubmitted(true);
-
-      
-      window.location.href = "/DashboardTeste";
-    } catch (error) {
-      console.error("Error inserting data:", error.message);
     }
   };
 
@@ -69,7 +92,6 @@ const NovoIngrediente = () => {
     <div>
       <h1>Novo Ingrediente</h1>
       <form onSubmit={handleSubmit}>
-       
         <label>
           Name:
           <input
@@ -81,7 +103,6 @@ const NovoIngrediente = () => {
         </label>
         <br />
 
-       
         <label>
           Description:
           <input
@@ -93,7 +114,6 @@ const NovoIngrediente = () => {
         </label>
         <br />
 
-      
         <label>
           Category:
           <select
@@ -110,7 +130,6 @@ const NovoIngrediente = () => {
         </label>
         <br />
 
-      
         <label>
           Image:
           <input
@@ -125,7 +144,6 @@ const NovoIngrediente = () => {
         <button type="submit">Submit</button>
       </form>
 
-   
       {submitted && <Link to="/DashboardTeste" />}
     </div>
   );

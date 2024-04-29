@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
-import CardTeste from "./CardTeste"
+import CardTeste from "./CardTeste";
 
 const DashboardTeste = () => {
   const [categorias, setCategorias] = useState([]);
@@ -45,6 +45,7 @@ const DashboardTeste = () => {
             name={categoria.name}
             category={categoria.category}
             description={categoria.description}
+            imagem={categoria.image}
             deleteCategoria={deleteCategoria}
           />
         </div>
@@ -57,4 +58,3 @@ const DashboardTeste = () => {
 };
 
 export default DashboardTeste;
-

@@ -1,0 +1,22 @@
+.topnavbar {
+  background: #d4eff1;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  align-items: center;
+  height: 95px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.topnavbar select {
+  background: transparent;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 40px;
+  width: 80px;
+  font-size: 1rem;
+  text-align: center;
+}

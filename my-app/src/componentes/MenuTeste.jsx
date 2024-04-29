@@ -25,32 +25,30 @@ import DashboardTeste from "./DasboardTeste/DashboardTeste";
 const MenuTeste = () => {
   return (
     <BrowserRouter>
-      <div>
-        <Routes>
-          <Route path="/" element={<Layout />}>
-            {/* <Route path="LoadingPage" element={<LoadingScreen />} />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          {/* <Route path="LoadingPage" element={<LoadingScreen />} />
             <Route path="LoginPage" element={<LoginForm />} />
             <Route path="SignUpPage" element={<SignUpForm />} /> */}
-            <Route path="SearchPage" element={<SearchPage />} />
-            <Route index path="/" element={<IndexPage />} />
-            <Route path="EditRecipePage" element={<EditRecipePage />} />
-            <Route
-              path="IngredientsListPage/IngredientsListPage"
-              element={<IngredientsListPage />}
-            />
-            <Route path="UserPage" element={<UserPage />} />
-            <Route path="*" element={<ErrorPage />} />
-          </Route>
+          <Route path="SearchPage" element={<SearchPage />} />
+          <Route index path="/" element={<IndexPage />} />
+          <Route path="EditRecipePage" element={<EditRecipePage />} />
+          <Route
+            path="IngredientsListPage/IngredientsListPage"
+            element={<IngredientsListPage />}
+          />
+          <Route path="UserPage" element={<UserPage />} />
+          <Route path="*" element={<ErrorPage />} />
+        </Route>
 
-          <Route path="/">
-            <Route path="LoadingPage" element={<LoadingScreen />} />
-            <Route path="LoginPage" element={<LoginForm />} />
-            <Route path="SignUpPage" element={<SignUpForm />} />
-            <Route path="AdminDashboardPage" element={<AdminDashboardPage />} />
-            <Route path="DashboardTeste" element={<DashboardTeste />} />
-          </Route>
-        </Routes>
-      </div>
+        <Route path="/">
+          <Route path="LoadingPage" element={<LoadingScreen />} />
+          <Route path="LoginPage" element={<LoginForm />} />
+          <Route path="SignUpPage" element={<SignUpForm />} />
+          <Route path="AdminDashboardPage" element={<AdminDashboardPage />} />
+          <Route path="DashboardTeste" element={<DashboardTeste />} />
+        </Route>
+      </Routes>
     </BrowserRouter>
   );
 };

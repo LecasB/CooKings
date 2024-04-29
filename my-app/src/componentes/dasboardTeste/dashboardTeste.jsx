@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
 import supabase from "../../supabaseClient";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link,
+  BrowserRouter,
+} from "react-router-dom";
 
 const DashboardTeste = () => {
   const [categorias, setCategorias] = useState([]);
@@ -29,8 +36,9 @@ const DashboardTeste = () => {
   }
 
   function editCategoria(id) {
-    window.location.href = `/EditCategoria?id=${id}`; // Redirect to edit page with category id
+    return <Link to={`/EditIngrediente?id=${id}`}>Editar</Link>;
   }
+  
 
   useEffect(() => {
     getCategorias();
@@ -45,14 +53,15 @@ const DashboardTeste = () => {
           <h2>{categoria.name}</h2>
           <h3>{categoria.idcategory}</h3>
           <p>{categoria.description}</p>
-          <button onClick={() => editCategoria(categoria.idingridients)}>
-            Editar
-          </button>
+          <button>{editCategoria(categoria.idingridients)}</button>
           <button onClick={() => deleteCategoria(categoria.idingridients)}>
             Apagar
           </button>
         </div>
       ))}
+      <Link to="/NovoIngrediente">
+        <button>Adicionar Receita</button>
+      </Link>
     </>
   );
 };

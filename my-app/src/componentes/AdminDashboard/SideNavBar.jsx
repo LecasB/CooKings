@@ -8,27 +8,39 @@ const SideNavBar = () => {
       <img src={Logo} alt="logo" srcset="" />
       <ul>
         <li>
-          <Link> Dashborad </Link>
+          <div>
+            <Link> Dashborad </Link>
+          </div>
         </li>
 
         <li>
-          <Link> New Recipes </Link>
+          <div>
+            <Link> New Recipes </Link>
+          </div>
         </li>
 
         <li>
-          <Link> Order List </Link>
+          <div>
+            <Link> Order List </Link>
+          </div>
         </li>
 
         <li>
-          <Link> Update Products </Link>
+          <div>
+            <Link> Update Products </Link>
+          </div>
         </li>
 
         <li>
-          <Link> Update Recipes </Link>
+          <div>
+            <Link> Update Recipes </Link>
+          </div>
         </li>
 
         <li>
-          <Link> Insert Products </Link>
+          <div>
+            <Link> Insert Products </Link>
+          </div>
         </li>
       </ul>
     </nav>

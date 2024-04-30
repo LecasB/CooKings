@@ -1,10 +1,10 @@
 import React from "react";
 import "../../estilos/InputText.css";
 
-const InputText = ({ texto, value, onChange }) => {
+const Password = ({ texto, value, onChange }) => {
   return (
     <input
-      type="text"
+      type="password"
       id="inputTextUser"
       value={value}
       placeholder={texto}
@@ -13,5 +13,4 @@ const InputText = ({ texto, value, onChange }) => {
   );
 };
 
-export default InputText;
-
+export default Password;

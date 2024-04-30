@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import supabase from "../../supabaseClient";
+import { Link } from "react-router-dom";
+import CardTeste from "./CardTeste";
 
 const DashboardTeste = () => {
   const [categorias, setCategorias] = useState([]);
@@ -28,10 +30,6 @@ const DashboardTeste = () => {
     }
   }
 
-  function editCategoria(id) {
-    window.location.href = `/EditCategoria?id=${id}`; // Redirect to edit page with category id
-  }
-
   useEffect(() => {
     getCategorias();
   }, []);
@@ -41,18 +39,20 @@ const DashboardTeste = () => {
       <h1>Categorias de Ingredientes</h1>
 
       {categorias.map((categoria) => (
-        <div key={categoria.idingridients} style={{ background: "beige" }}>
-          <h2>{categoria.name}</h2>
-          <h3>{categoria.idcategory}</h3>
-          <p>{categoria.description}</p>
-          <button onClick={() => editCategoria(categoria.idingridients)}>
-            Editar
-          </button>
-          <button onClick={() => deleteCategoria(categoria.idingridients)}>
-            Apagar
-          </button>
+        <div key={categoria.idingridients}>
+          <CardTeste
+            id={categoria.idingridients}
+            name={categoria.name}
+            category={categoria.category}
+            description={categoria.description}
+            imagem={categoria.image}
+            deleteCategoria={deleteCategoria}
+          />
         </div>
       ))}
+      <Link to="/NovoIngrediente">
+        <button>Adicionar Receita</button>
+      </Link>
     </>
   );
 };

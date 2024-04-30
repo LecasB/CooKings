@@ -7,36 +7,36 @@ const EditRecipePage = () => {
   const fileInputRef = useRef();
   const imageRef = useRef();
 
-  const handleDrop = (e) => {
-    e.preventDefault();
-    const files = e.dataTransfer.files;
-    if (files.length) {
-      let reader = new FileReader();
-      reader.onload = (e) => {
-        if (imageRef.current) {
-          imageRef.current.src = e.target.result;
-        }
-      };
-      reader.readAsDataURL(files[0]);
-    }
-  };
+    const handleDrop = (evento) => {
+      evento.preventDefault();
+      const files = evento.dataTransfer.files;
+      if (files.length) {
+        let reader = new FileReader();
+        reader.onload = (evento) => {
+          if (imageRef.current) {
+            imageRef.current.src = evento.target.result;
+          }
+        };
+        reader.readAsDataURL(files[0]);
+      }
+    };
 
-  const handleDragOver = (e) => {
-    e.preventDefault();
-  };
+    const handleDragOver = (evento) => {
+      evento.preventDefault();
+    };
 
-  const handleFileChange = (e) => {
-    const files = e.target.files;
-    if (files.length) {
-      let reader = new FileReader();
-      reader.onload = (e) => {
-        if (imageRef.current) {
-          imageRef.current.src = e.target.result;
-        }
-      };
-      reader.readAsDataURL(files[0]);
-    }
-  };
+    const handleFileChange = (evento) => {
+      const files = evento.target.files;
+      if (files.length) {
+        let reader = new FileReader();
+        reader.onload = (evento) => {
+          if (imageRef.current) {
+            imageRef.current.src = evento.target.result;
+          }
+        };
+        reader.readAsDataURL(files[0]);
+      }
+    };
 
   return (
     <>

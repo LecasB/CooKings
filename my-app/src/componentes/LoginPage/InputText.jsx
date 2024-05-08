@@ -1,23 +1,16 @@
-import React, { useState } from "react";
+import React from "react";
 import "../../estilos/InputText.css";
 
-const InputText = ({ texto }) => {
-  const [value, setValue] = useState(""); 
-
-  const handleChange = (e) => {
-    setValue(e.target.value);
-  };
-
+const InputText = ({ texto, value, onChange }) => {
   return (
     <input
       type="text"
       id="inputTextUser"
       placeholder={texto}
       value={value}
-      onChange={handleChange}
+      onChange={onChange}
     />
   );
 };
 
 export default InputText;
-

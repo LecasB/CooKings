@@ -131,20 +131,47 @@ select {
 .user-options p {
   margin: 0;
 }
+.perfil{
+  display: flex;
+}
+.perfil .card-section .card-procurar {
+  width: 19em;;
+}
 @media screen and (max-width: 480px) {
   .butao span,
-  .UserInfo {
+  .UserInfo, p{
     font-size: 1em;
   }
 
 }
 @media screen and (max-width: 800px) {
+  .perfil{
+    display: block;
+    max-width: 85%;
+    
+    
+  }
+  .card-section{
+    justify-content: center;
+  }
+  .perfil .card-section .card-procurar h2{
+    font-size: 1.4em;
+  }
+  .perfil .card-section .card-procurar p{
+    font-size: 0.9em;
+  }
+
+  .card-section .card-procurar {
+     margin: 0 0rem 2rem 0}
   .UserInfo {
-    max-width: 50%;
+    margin: auto;
+    width: 50%;
+    
     border-right-width: 0;
     border-bottom: #000;
     border-bottom: 0.1em;
     border-style: solid;
+    height: fit-content;
   }
   .UserInfo figure {
     margin: 0;

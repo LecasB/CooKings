@@ -1,17 +1,23 @@
 .navBar {
   display: flex;
+  width: 100%;
   justify-content: space-between;
   align-items: center;
   background: #fffae4;
+  position: sticky;
+  top: 0;
+  
 }
 
 .logoContainer {
-  width: 270px;
   margin-left: 4em;
+ 
 }
 
 .logoContainer img {
-  max-width: 50%;
+  object-fit: cover;
+  height: 2.5em;
+  
 }
 
 .linksContainer {
@@ -20,11 +26,13 @@
   display: flex;
   gap:30px;
   align-items: center;
+ 
 }
 
 .linksItems {
   display: display;
   margin-left: 20px;
+  
 }
 
 .linksItems svg {
@@ -32,7 +40,173 @@
   max-height: 2.5em;
 }
 
-.linkItem{
+
+
+.mobileLinkItem {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fffae4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transform: translateY(-100%);
+  transition: transform 0.5s ease;
+  z-index: 7;
+}
+
+.mobileLinkItem.open {
+  transform: translateY(0);
+}
+
+.mobileLinkItem ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mobileLinkItem ul li {
+  margin: 15px 0;
+}
+
+.mobileLinkItem ul li a {
+  font-size: 20px;
   font-weight: bold;
+  color: black;
   text-decoration: none;
+}
+
+
+
+@media screen and (max-width: 750px) {
+  
+  .logoContainer {
+    margin-left: 2em;
+  }
+
+  .linksContainer {
+    margin-right: 1.5em;
+  }
+}
+
+/*Hamburguer adaptado do https://uiverse.io/3bdel3ziz-T/angry-grasshopper-50*/ 
+
+.burger {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  transition: 300ms;
+  border-radius: 10px;
+  z-index: 8;
+  
+}
+
+
+.burger .line,
+.burger::before,
+.burger::after {
+  content: "";
+  transition: 300ms;
+  transform-origin: center center;
+}
+
+.burger::before {
+  transform: translateY(8px);
+}
+.burger::after {
+  transform: translateY(-8px);
+}
+.burger .line,
+.burger::before,
+.burger::after {
+  width: 25px;
+  height: 2.1px;
+  display: block;
+  background-color: black;
+  border-radius: 5px;
+  position: absolute;
+}
+
+
+
+.burger:hover {
+  background: #aeaeae;
+  border-radius: 50%;
+}
+
+.burger:hover .line,
+.burger:hover::before,
+.burger:hover::after {
+  background: #e8e8e8;
+}
+
+.burger.open .line {
+  background-color: transparent;
+}
+
+.burger.open::before {
+  transform: rotate(-45deg);
+}
+
+.burger.open::after {
+  transform: rotate(45deg);
+}
+
+
+
+
+.dropdown {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 10px;
+  z-index: 100;
+}
+
+
+
+@keyframes animation1 {
+  0% {
+    transform: translateY(8px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(45deg);
+  }
+}
+@keyframes animation2 {
+  0% {
+    transform: translateY(-8px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  100% {
+    transform: translateY(0px) rotate(-45deg);
+  }
+}
+
+
+/*display none*/
+
+.disabled{
+  display: none;
+}
+/*desativar scroll*/
+.noScroll {
+  overflow: hidden;
 }

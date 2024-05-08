@@ -1,10 +1,42 @@
-import React from "react";
-import NavBar from "../NavBar";
+import React, { useRef } from "react";
 import "../../estilos/EditRecipePage.css";
-import { BackArrow, UploadFile } from "../../imagens/svgs";
-import dropImage from "../../imagens/dropImage.PNG";
+import { BackArrow } from "../../imagens/svgs";
 
 const EditRecipePage = () => {
+  const fileInputRef = useRef();
+  const imageRef = useRef();
+
+    const handleDrop = (evento) => {
+      evento.preventDefault();
+      const files = evento.dataTransfer.files;
+      if (files.length) {
+        let reader = new FileReader();
+        reader.onload = (evento) => {
+          if (imageRef.current) {
+            imageRef.current.src = evento.target.result;
+          }
+        };
+        reader.readAsDataURL(files[0]);
+      }
+    };
+
+    const handleDragOver = (evento) => {
+      evento.preventDefault();
+    };
+
+    const handleFileChange = (evento) => {
+      const files = evento.target.files;
+      if (files.length) {
+        let reader = new FileReader();
+        reader.onload = (evento) => {
+          if (imageRef.current) {
+            imageRef.current.src = evento.target.result;
+          }
+        };
+        reader.readAsDataURL(files[0]);
+      }
+    };
+
   return (
     <>
       <main className="EditRecipePage">
@@ -51,17 +83,34 @@ const EditRecipePage = () => {
           <div className="RightForm">
             <div>
               <img
+                ref={imageRef}
                 id="RecipeImage"
                 src="https://images.alphacoders.com/276/276861.jpg"
                 alt="Recipe Image"
               />
             </div>
-            <label htmlFor="">Product Gallery</label>
-            <input
+            <label>Product Gallery</label>
+            <label
+              htmlFor="fileInput"
               id="PutImage"
-              type="file"
-              accept="image/png, image/jpg, image/jpeg"
-            />
+              onDrop={handleDrop}
+              onDragOver={handleDragOver}
+            >
+              <span id="DropImageTitle">Drop your image here, or browse</span>
+              <div>
+                <input
+                  ref={fileInputRef}
+                  id="fileInput"
+                  type="file"
+                  accept="image/png, image/jpg, image/jpeg"
+                  onChange={handleFileChange}
+                />
+              </div>
+            </label>
+            <div className="buttonContainer">
+              <button id="saveButton" className="button">SAVE</button>
+              <button id="deleteButton"className="button">DELETE</button>
+            </div>
           </div>
         </form>
       </main>

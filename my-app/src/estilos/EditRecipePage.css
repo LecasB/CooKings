@@ -8,7 +8,10 @@
   margin-left: -25%;
   cursor: pointer;
   margin-bottom: 1em;
+  
 }
+
+
 
 .EditRecipePage span {
   font-size: medium;
@@ -18,18 +21,21 @@
   width: 60%;
   display: flex;
   justify-content: center;
-  align-items: center;
   margin: auto;
   margin-top: 3em;
+  margin-bottom: 1em;
 }
 
 .LeftForm {
   flex: 1;
+  min-width: 300px;
 }
 
 .RightForm {
   flex: 1;
   padding-top: 3%;
+  padding-left: 5%;
+  min-width: 300px;
   
 }
 
@@ -43,7 +49,7 @@
 .EditRecipePage input[type="text"],
 .EditRecipePage select,
 .EditRecipePage textarea {
-  width: 90%;
+  width: 100%;
   height: 3em;
   margin-bottom: 15px;
   border: 1px solid black;
@@ -63,23 +69,88 @@
 
 #RecipeImage {
   object-fit: cover;
-  width: 80%;
+  width: 100%;
   height: auto;
   aspect-ratio: 1/1;
   margin-bottom: 2em;
   
+  
 }
+
+
+
 
 #PutImage {
-  max-width: 90%;
-  width: 360px;
+  width: 100%;
   height: 140px;
-  border: 2px dashed #aaaaaa;
-  border-radius: 6px;
-  object-fit: cover;
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  border: 2px dashed #555;
+  color: #444;
+  cursor: pointer;
+
+
+  
+  
 }
 
-@media screen and (max-width: 480px) {
+
+#PutImage input {
+  width: 90px;
+  height: 100%;
+  
+}
+#PutImage:hover {
+  background-color: #eee9e9;
+
+  
+}
+
+.buttonContainer{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2em;
+  margin-bottom: 2em;
+
+
+}
+
+.button{
+  width: 100%;
+  height: 3em;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: 600;
+  margin-inline: 5px;
+  
+}
+.button:hover {
+  filter: brightness(80%);
+}
+
+#saveButton {
+  background-color: #000000;
+}
+
+#deleteButton {
+  background-color: rgb(222, 4, 4);
+}
+
+
+
+
+
+
+@media screen and (max-width: 750px) {
   .EditForm {
     flex-direction: column;
   }
@@ -87,6 +158,7 @@
   .LeftForm,
   .RightForm {
     width: 100%;
+    padding-left: 0;
   }
 
   .BackEditRecipe {
@@ -94,3 +166,25 @@
     
   }
 }
+
+
+
+@media screen and (max-width: 480px) {
+  .EditForm {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .LeftForm,
+  .RightForm {
+    width: 100%;
+    padding-left: 0;
+  }
+
+  .BackEditRecipe {
+    margin-left: -10%;
+    
+  }
+}
+
+

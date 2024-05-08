@@ -11,7 +11,7 @@ const CardTeste = ({
   imagem,
 }) => {
   return (
-    <div>
+    /* <div>
       <h2>{name}</h2>
       <h3>{category}</h3>
       <img src={imagem} alt="" srcset="" />
@@ -21,6 +21,24 @@ const CardTeste = ({
           <button>Editar</button>
         </Link>
         <button onClick={() => deleteCategoria(id)}>Apagar</button>
+      </div>
+    </div> */
+    <div className="card-procurar" style={{ margin: 10 }}>
+      <figure className="cont-img-procurar">
+        <img src={imagem} alt="" />
+      </figure>
+      <div className="cont">
+        <div className="cont-text">
+          <h2 style={{ maxWidth: 140 }}>{name}</h2>
+          <p>{description}</p>
+        </div>
+
+        <div className="cont-actions-procurar">
+          <Link to={`/EditIngrediente?id=${id}`}>
+            <button>Editar</button>
+          </Link>
+          <button onClick={() => deleteCategoria(id)}>Apagar</button>
+        </div>
       </div>
     </div>
   );

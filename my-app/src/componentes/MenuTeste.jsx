@@ -17,11 +17,12 @@ import UserPage from "./UserPage/UserPage";
 import IngredientsListPage from "./IngredientsListPage/IngredientsListPage";
 import EditRecipePage from "./EditRecipePage/EditRecipePage";
 import Layout from "./Layout";
+import LayoutAdmin from "./AdminDashboard/LayoutAdmin";
 import NavBar from "./NavBar";
 import ErrorPage from "./ErrorPage/errorPage";
 import AdminDashboardPage from "./AdminDashboard/AdminDashboardPage";
 import DashboardTeste from "./DasboardTeste/DashboardTeste";
-import NovoIngrediente from "./DasboardTeste/NovoIngrediente";
+import NovoIngrediente from "./AdminDashboard/NovoIngrediente";
 import EditIngrediente from "./DasboardTeste/EditIngrediente";
 
 const MenuTeste = () => {
@@ -49,8 +50,15 @@ const MenuTeste = () => {
           <Route path="SignUpPage" element={<SignUpForm />} />
           <Route path="AdminDashboardPage" element={<AdminDashboardPage />} />
           <Route path="DashboardTeste" element={<DashboardTeste />} />
-          <Route path="NovoIngrediente" element={<NovoIngrediente />} />
+          {/* <Route path="NovoIngrediente" element={<NovoIngrediente />} /> */}
           <Route path="EditIngrediente" element={<EditIngrediente />} />
+        </Route>
+
+        <Route path="/AdminDashboardPage" element={<LayoutAdmin />}>
+          <Route
+            path="/AdminDashboardPage/NovoIngrediente"
+            element={<NovoIngrediente />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

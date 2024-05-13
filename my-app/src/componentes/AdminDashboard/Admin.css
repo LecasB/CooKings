@@ -1,0 +1,14 @@
+.contentAdmin {
+  margin: 100px 0 0 0;
+  display: flex;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+#novoIngrediente {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}

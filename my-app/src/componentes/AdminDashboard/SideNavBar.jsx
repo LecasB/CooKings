@@ -33,7 +33,7 @@ const SideNavBar = () => {
 
         <li>
           <div>
-            <Link> Update Recipes </Link>
+            <Link to="NovoIngrediente"> Update Recipes </Link>
           </div>
         </li>
 

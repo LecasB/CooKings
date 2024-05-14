@@ -1,5 +1,6 @@
 .ingredients-list-main {
   padding: 0px 10%;
+  
 }
 
 .ingredients-list {
@@ -8,11 +9,16 @@
   justify-content: space-between;
   align-items: center;
   margin: 2em 0 0 0;
+  z-index: 0;
+  
 }
+
+
 
 .search-div {
   width: 16rem;
   height: 2rem;
+  
 }
 
 .ingredients-list-titles p {

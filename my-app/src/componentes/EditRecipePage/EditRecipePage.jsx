@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import NavBar from "../NavBar";
 import "../../estilos/EditRecipePage.css";
 import { BackArrow } from "../../imagens/svgs";
 
@@ -108,6 +107,10 @@ const EditRecipePage = () => {
                 />
               </div>
             </label>
+            <div className="buttonContainer">
+              <button id="saveButton" className="button">SAVE</button>
+              <button id="deleteButton"className="button">DELETE</button>
+            </div>
           </div>
         </form>
       </main>

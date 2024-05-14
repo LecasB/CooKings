@@ -14,7 +14,7 @@ const NovoIngrediente = () => {
   const [idcategory, setCategoryId] = useState("");
   const [categories, setCategories] = useState([]);
   const [imageFile, setImageFile] = useState(null);
-  const [imageUrl, setImageUrl] = useState("");
+  const [image, setImageUrl] = useState("");
 
   // Fetch categories from Supabase
   const fetchCategories = async () => {
@@ -52,9 +52,9 @@ const NovoIngrediente = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      let imageUrlInDatabase = imageUrl;
+      let imageUrlInDatabase = image;
       
       // Upload image if a new image is selected
       if (imageFile) {
@@ -67,34 +67,29 @@ const NovoIngrediente = () => {
         if (error) {
           throw error;
         }
-        imageUrlInDatabase = data.Location;
+        console.log("Upload response:", data);
+        imageUrlInDatabase = data.Location; // Use data.Location for the image URL
       }
-
+  
       // Insert or update ingredient data
+      const ingredientData = {
+        name,
+        description,
+        idcategory,
+        image: imageUrlInDatabase
+      };
+  
       if (idingridients) {
-        const { error } = await supabase
+        await supabase
           .from("Ingredients")
-          .update({ name, description, idcategory, image: `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/${imageUrlInDatabase}` })
-          .eq("idingridients", idingridients);
-        if (error) {
-          throw error;
-        }
+          .update(ingredientData)
+          .eq("idingredients", idingridients);
       } else {
-        const { error } = await supabase
+        await supabase
           .from("Ingredients")
-          .insert([
-            {
-              name,
-              description,
-              idcategory,
-              image_url: imageUrlInDatabase,
-            },
-          ]);
-        if (error) {
-          throw error;
-        }
+          .insert([ingredientData]);
       }
-
+  
       window.location.href = "/AdminDashboardPage";
     } catch (error) {
       console.error("Error inserting/updating data:", error.message);
@@ -205,7 +200,7 @@ const NovoIngrediente = () => {
               <img
                 ref={imageRef}
                 id="RecipeImage"
-                src={imageUrl || "https://images.alphacoders.com/276/276861.jpg"}
+                src={image || "https://images.alphacoders.com/276/276861.jpg"}
                 alt="Recipe Image"
               />
             </div>

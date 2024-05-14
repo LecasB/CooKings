@@ -1,10 +1,31 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
 
 const NovaCategoriaIngrediente = () => {
   const [name, setName] = useState("");
   const [submitted, setSubmitted] = useState(false); // Define submitted state
+  const [categorias, setCategorias] = useState([]);
+
+  async function getCategorias() {
+    try {
+      const { data, error } = await supabase
+        .from("Category_Ingredients")
+        .select();
+
+      if (error) {
+        throw error;
+      }
+
+      setCategorias(data);
+    } catch (error) {
+      console.error("Error fetching categorias:", error.message);
+    }
+  }
+
+  useEffect(() => {
+    getCategorias();
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -48,6 +69,15 @@ const NovaCategoriaIngrediente = () => {
       </form>
       {submitted && <Link to="/AdminDashboardPage/">Back to Dashboard</Link>}{" "}
       {/* Adjust Link text */}
+      <div>
+        {categorias.map((categoria) => (
+          <ul key={categoria.idcategory}>
+            <li>
+              ID: {categoria.idcategory} Name: {categoria.name}
+            </li>
+          </ul>
+        ))}
+      </div>
     </div>
   );
 };

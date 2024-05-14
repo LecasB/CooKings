@@ -14,9 +14,11 @@ const UserPage = () => {
       <main>
         <div className="UserPage">
           <UserLateral />
+          <div className="perfil">
           <UserInfo />
           <div className="card-section">
             <ListaCardProcurar dados={recipe} />
+          </div>
           </div>
         </div>
       </main>

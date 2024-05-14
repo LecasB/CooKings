@@ -1,0 +1,41 @@
+#novoIngrediente input[type="text"] {
+    width:100%;
+    height: 30px;
+    border-radius:10px;
+    border: 1px solid black;
+    margin: 10px 0px;
+}
+
+#novoIngrediente input[type="file"] {
+    width:100%;
+    height: 30px;
+    margin: 10px 0px;
+}
+
+#novoIngrediente select{
+    width: 100%;
+    color:#000000;
+    text-align: center;
+    font-size: 15px;
+    height: 40px;
+    margin: 10px 0px;
+}
+#novoIngrediente button{
+    width: 40%;
+  height: 45px;
+  border-radius: 50px;
+  border: #ffdb63 solid 1px;
+  background: #fffae4;
+  font-size: 1rem;
+}
+
+#novoIngrediente label::before{
+    content: "*";
+    color:red;
+}
+
+#novoIngrediente form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}

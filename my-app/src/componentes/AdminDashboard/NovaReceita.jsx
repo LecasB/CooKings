@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
+import "./NovoIngrediente.css"
 
 const NovaReceita = () => {
   const [name, setName] = useState("");

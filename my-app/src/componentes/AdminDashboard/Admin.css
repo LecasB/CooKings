@@ -27,6 +27,13 @@
   width: 100%;;
 }
 
+#novaCategoriaIngrediente {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
 #ingridientList h1{
   text-align: center;
 }
@@ -72,5 +79,6 @@
   .topnavbar #menu_label{
     display: block;
   }
+
 
 }

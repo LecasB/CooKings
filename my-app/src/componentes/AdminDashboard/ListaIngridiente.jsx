@@ -3,7 +3,7 @@ import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
 import CardTeste from "./CardTeste";
 
-const DashboardTeste = () => {
+const ListaIngridiente = () => {
   const [categorias, setCategorias] = useState([]);
 
   async function getCategorias() {
@@ -36,8 +36,12 @@ const DashboardTeste = () => {
 
   return (
     <>
-      <h1>Categorias de Ingredientes</h1>
-
+      
+      <div id="ingridientsList">
+        <div>
+      <h1>Ingriedients List</h1>
+      </div>
+      <div className="ingredientsMap">
       {categorias.map((categoria) => (
         <div key={categoria.idingridients}>
           <CardTeste
@@ -50,11 +54,11 @@ const DashboardTeste = () => {
           />
         </div>
       ))}
-      <Link to="/NovoIngrediente">
-        <button>Adicionar Receita</button>
-      </Link>
+      </div>
+      </div>
+      
     </>
   );
 };
 
-export default DashboardTeste;
+export default ListaIngridiente;

@@ -34,10 +34,11 @@ const CardTeste = ({
         </div>
 
         <div className="cont-actions-procurar">
-          <Link to={`/EditIngrediente?id=${id}`}>
-            <button>Editar</button>
+          <Link to={`../EditIngrediente?id=${id}`}>
+           Editar
           </Link>
-          <button onClick={() => deleteCategoria(id)}>Apagar</button>
+          
+          <a id="apagar" onClick={() => deleteCategoria(id)}>Apagar</a>
         </div>
       </div>
     </div>

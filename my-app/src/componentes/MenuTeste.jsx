@@ -21,9 +21,11 @@ import LayoutAdmin from "./AdminDashboard/LayoutAdmin";
 import NavBar from "./NavBar";
 import ErrorPage from "./ErrorPage/errorPage";
 import AdminDashboardPage from "./AdminDashboard/AdminDashboardPage";
-import DashboardTeste from "./DasboardTeste/DashboardTeste";
+import ListaIngridiente from "./AdminDashboard/ListaIngridiente";
 import NovoIngrediente from "./AdminDashboard/NovoIngrediente";
-import EditIngrediente from "./DasboardTeste/EditIngrediente";
+import EditIngrediente from "./AdminDashboard/EditIngrediente";
+import NovaReceita from "./AdminDashboard/NovaReceita";
+import ListaReceitas from "./AdminDashboard/ListaReceitas";
 
 const MenuTeste = () => {
   return (
@@ -49,15 +51,31 @@ const MenuTeste = () => {
           <Route path="LoginPage" element={<LoginForm />} />
           <Route path="SignUpPage" element={<SignUpForm />} />
           <Route path="AdminDashboardPage" element={<AdminDashboardPage />} />
-          <Route path="DashboardTeste" element={<DashboardTeste />} />
+          
           {/* <Route path="NovoIngrediente" element={<NovoIngrediente />} /> */}
-          <Route path="EditIngrediente" element={<EditIngrediente />} />
+          {/* <Route path="EditIngrediente" element={<EditIngrediente />} /> */}
         </Route>
 
         <Route path="/AdminDashboardPage" element={<LayoutAdmin />}>
           <Route
             path="/AdminDashboardPage/NovoIngrediente"
             element={<NovoIngrediente />}
+          />
+          <Route
+            path="/AdminDashboardPage/EditIngrediente"
+            element={<EditIngrediente />}
+          />
+          <Route
+            path="/AdminDashboardPage/ListaIngridiente"
+            element={<ListaIngridiente />}
+          />
+          <Route
+            path="/AdminDashboardPage/NovaReceita"
+            element={<NovaReceita />}
+          />
+          <Route
+            path="/AdminDashboardPage/ListaReceitas"
+            element={<ListaReceitas />}
           />
         </Route>
       </Routes>

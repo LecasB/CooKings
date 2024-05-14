@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const SideNavBar = () => {
   return (
     <nav className="sidenavbar">
-      <img src={Logo} alt="logo" srcset="" />
       <ul>
         <li>
           <div>
@@ -15,25 +14,27 @@ const SideNavBar = () => {
 
         <li>
           <div>
-            <Link> New Recipes </Link>
+            <Link to="NovoIngrediente"> New Ingridient </Link>
           </div>
         </li>
 
         <li>
           <div>
-            <Link> Order List </Link>
+            <Link to="NovaReceita"> New Recipe </Link>
           </div>
         </li>
 
         <li>
           <div>
-            <Link> Update Products </Link>
+            <Link to="ListaIngridiente"> Ingridients List </Link>
           </div>
         </li>
 
+        
+
         <li>
           <div>
-            <Link to="NovoIngrediente"> Update Recipes </Link>
+            <Link to="ListaReceitas"> Recipes List</Link>
           </div>
         </li>
 

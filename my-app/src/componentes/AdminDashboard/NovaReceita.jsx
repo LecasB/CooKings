@@ -2,14 +2,13 @@ import React, { useState, useEffect } from "react";
 import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
 
-const NovoIngrediente = () => {
+const NovaReceita = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [idcategory, setCategoryId] = useState("2");
+  const [idcategory, setCategoryId] = useState(1); 
   const [image, setImage] = useState(null);
   const [imageURL, setImageURL] = useState(null);
   const [imageSalva, setImageSalva] = useState(false);
-
   const [categories, setCategories] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
@@ -17,7 +16,7 @@ const NovoIngrediente = () => {
   const fetchCategories = async () => {
     try {
       const { data, error } = await supabase
-        .from("Category_Ingredients")
+        .from("Category_Recipes")
         .select("*");
       setCategories(data);
     } catch (error) {
@@ -56,12 +55,12 @@ const NovoIngrediente = () => {
     if (imageSalva) {
       try {
         const { data: insertedData, error } = await supabase
-          .from("Ingredients")
+          .from("Recipes")
           .insert([
             {
               name,
-              description,
               idcategory,
+              description,
               image:
                 "https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/" +
                 image.name,
@@ -89,8 +88,8 @@ const NovoIngrediente = () => {
   };
 
   return (
-    <div id="novoIngrediente">
-      <h1>Novo Ingrediente</h1>
+    <div id="novaReceita">
+      <h1>Nova Receita</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Name:
@@ -144,9 +143,9 @@ const NovoIngrediente = () => {
         <button type="submit">Submit</button>
       </form>
 
-      {submitted && <Link to="/AdminDashboardPage" />}
+      {submitted && <Link to="/AdminDashboardPage/" />}
     </div>
   );
 };
 
-export default NovoIngrediente;
+export default NovaReceita;

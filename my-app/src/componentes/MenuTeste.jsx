@@ -26,6 +26,8 @@ import NovoIngrediente from "./AdminDashboard/NovoIngrediente";
 import EditIngrediente from "./AdminDashboard/EditIngrediente";
 import NovaReceita from "./AdminDashboard/NovaReceita";
 import ListaReceitas from "./AdminDashboard/ListaReceitas";
+import NovaCategoriaIngrediente from "./AdminDashboard/NovaCategoriaIngrediente";
+import NovaCategoriaReceita from "./AdminDashboard/NovaCategoriaReceita";
 
 const MenuTeste = () => {
   return (
@@ -51,7 +53,7 @@ const MenuTeste = () => {
           <Route path="LoginPage" element={<LoginForm />} />
           <Route path="SignUpPage" element={<SignUpForm />} />
           <Route path="AdminDashboardPage" element={<AdminDashboardPage />} />
-          
+
           {/* <Route path="NovoIngrediente" element={<NovoIngrediente />} /> */}
           {/* <Route path="EditIngrediente" element={<EditIngrediente />} /> */}
         </Route>
@@ -76,6 +78,15 @@ const MenuTeste = () => {
           <Route
             path="/AdminDashboardPage/ListaReceitas"
             element={<ListaReceitas />}
+          />
+          <Route
+            path="/AdminDashboardPage/NovaCategoriaIngrediente"
+            element={<NovaCategoriaIngrediente />}
+          />
+          x
+          <Route
+            path="/AdminDashboardPage/NovaCategoriaReceita"
+            element={<NovaCategoriaReceita />}
           />
         </Route>
       </Routes>

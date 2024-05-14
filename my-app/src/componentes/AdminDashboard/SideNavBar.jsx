@@ -30,8 +30,6 @@ const SideNavBar = () => {
           </div>
         </li>
 
-        
-
         <li>
           <div>
             <Link to="ListaReceitas"> Recipes List</Link>
@@ -40,7 +38,16 @@ const SideNavBar = () => {
 
         <li>
           <div>
-            <Link> Insert Products </Link>
+            <Link to="NovaCategoriaIngrediente">
+              {" "}
+              New Ingredient's Category{" "}
+            </Link>
+          </div>
+        </li>
+
+        <li>
+          <div>
+            <Link to="NovaCategoriaReceita"> New Recipe's Category </Link>
           </div>
         </li>
       </ul>

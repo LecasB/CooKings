@@ -1,11 +1,29 @@
-.card-section {
+#card-section {
   display: flex;
   flex-wrap: wrap;
   align-content: flex-start;
-  padding-left: 2rem;
+  /* padding-left: 2rem; */
+  padding-top: 0;
   box-sizing: content-box;
+  max-width: 100%;
+  gap: 40px;
 }
 
 .card-section .card-procurar {
   margin: 0 2rem 2rem 0;
+}
+
+.list-cards {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-left: 2rem;
+  /*  padding-right: 50px; */
+}
+
+.search-b-navigation {
+  display: flex;
+  justify-content: end;
+  gap: 30px;
 }

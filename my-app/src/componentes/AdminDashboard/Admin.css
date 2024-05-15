@@ -1,0 +1,84 @@
+.contentAdmin {
+  margin: 100px 0 0 0;
+  display: flex;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+
+#novoIngrediente {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#novaReceita {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#ingridientsList{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;;
+}
+
+#novaCategoriaIngrediente {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+#ingridientList h1{
+  text-align: center;
+}
+
+.topnavbar #menu_label{
+  display: none;
+}
+.ingredientsMap, .recipesMap{
+  gap: 20px;
+  display:grid;
+  grid-template-columns: repeat(4, minmax(240px,1fr)); 
+}
+
+@media only screen and (max-width: 1650px) {
+  .ingredientsMap, .recipesMap {
+      grid-template-columns: repeat(3, minmax(240px,1fr));
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .ingredientsMap, .recipesMap{
+      grid-template-columns: repeat(2, minmax(240px,1fr));
+  }
+}
+@media only screen and (max-width: 1050px) {
+  .ingredientsMap, .recipesMap{
+      grid-template-columns: repeat(1, minmax(240px,1fr));
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .sidenavbar{
+    display: none;
+  }
+
+  .topnavbar select{
+    display: none;
+  }
+
+  .topnavbar img {
+    margin-left:0px;
+  }
+
+  .topnavbar #menu_label{
+    display: block;
+  }
+
+
+}

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import supabase from "../../supabaseClient";
 import Logo from "../../imagens/cooKingsImagev1.png";
 import LoginButton from "../LoginPage/LoginButton";
@@ -7,49 +7,34 @@ import Password from "./Password";
 import Text from "./Text";
 import "../../estilos/SignUpForm.css";
 import "../../estilos/LoginForm.css";
+import { Link } from "react-router-dom";
 
 const SignUpForm = () => {
   const [username, setUsername] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [emailUser, setEmail] = useState("");
+  const [passwordUser, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const signUp = async (event) => {
+    event.preventDefault();
 
-    if (password !== confirmPassword) {
-      alert("Passwords do not match");
-      return;
+    const { user, error } = await supabase.auth.signUp({
+      email: emailUser,
+      password: passwordUser,
+    });
+    debugger;
+    console.log("Sign up error:", error);
+
+    if (error) {
+      console.error("Sign up error:", error.message);
+    } else {
+      console.log("User signed up successfully:", user);
     }
-
-    try {
-      const { data, error } = await supabase
-        .from("Users")
-        .insert([{ username, password, email }]);
-
-      if (error) {
-        throw error;
-      }
-
-      console.log("Data inserted successfully:", data);
-
-      setUsername("");
-      setEmail("");
-      setPassword("");
-      setConfirmPassword("");
-    } catch (error) {
-      console.error("Error inserting data:", error.message);
-      alert("Failed to create account. Please try again later.");
-    }
-  };
-
-  const verifyLogin = () => {
-    alert("Logged in!");
   };
 
   return (
     <div id="page">
-      <form id="SignUpForm" onSubmit={handleSubmit}>
+      <form id="SignUpForm" onSubmit={signUp}>
         <img src={Logo} alt="Logo" />
         <InputText
           texto={"Username"}
@@ -58,12 +43,12 @@ const SignUpForm = () => {
         />
         <InputText
           texto={"Email"}
-          value={email}
+          value={emailUser}
           onChange={(e) => setEmail(e.target.value)}
         />
         <Password
           texto={"Password"}
-          value={password}
+          value={passwordUser}
           onChange={(e) => setPassword(e.target.value)}
         />
         <Password
@@ -73,7 +58,9 @@ const SignUpForm = () => {
         />
         <LoginButton texto={"Create Account"} type="submit" />
         <Text texto="Or" />
-        <LoginButton texto={"Log In"} onClick={verifyLogin} />
+        <Link to="/LoginPage">
+          <LoginButton texto={"Log In"} type="button" />
+        </Link>
       </form>
     </div>
   );

@@ -2,9 +2,9 @@ import React, { useRef, useState, useEffect } from "react";
 import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
 import { BackArrow } from "../../imagens/svgs";
+import "../../estilos/EditRecipePage.css";
 
 const NovoIngrediente = () => {
-
   const fileInputRef = useRef();
   const imageRef = useRef();
 
@@ -19,7 +19,9 @@ const NovoIngrediente = () => {
   // Fetch categories from Supabase
   const fetchCategories = async () => {
     try {
-      const { data, error } = await supabase.from("Category_Ingredients").select("*");
+      const { data, error } = await supabase
+        .from("Category_Ingredients")
+        .select("*");
       if (error) {
         throw error;
       }
@@ -52,16 +54,16 @@ const NovoIngrediente = () => {
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     try {
       let imageUrlInDatabase = image;
-      
+
       // Upload image if a new image is selected
       if (imageFile) {
         const { data, error } = await supabase.storage
           .from("cooKingsBucket")
           .upload(`${imageFile.name}`, imageFile, {
-            cacheControl: '3600',
+            cacheControl: "3600",
             upsert: false,
           });
         if (error) {
@@ -70,26 +72,24 @@ const NovoIngrediente = () => {
         console.log("Upload response:", data);
         imageUrlInDatabase = data.Location; // Use data.Location for the image URL
       }
-  
+
       // Insert or update ingredient data
       const ingredientData = {
         name,
         description,
         idcategory,
-        image: imageUrlInDatabase
+        image: imageUrlInDatabase,
       };
-  
+
       if (idingridients) {
         await supabase
           .from("Ingredients")
           .update(ingredientData)
           .eq("idingredients", idingridients);
       } else {
-        await supabase
-          .from("Ingredients")
-          .insert([ingredientData]);
+        await supabase.from("Ingredients").insert([ingredientData]);
       }
-  
+
       window.location.href = "/AdminDashboardPage";
     } catch (error) {
       console.error("Error inserting/updating data:", error.message);
@@ -142,7 +142,7 @@ const NovoIngrediente = () => {
 
   return (
     <>
-      <main className="EditRecipePage">
+      <main className="EditRecipePage" style={{ width: 100 + "%" }}>
         <form className="EditForm" onSubmit={handleSubmit}>
           <div className="LeftForm">
             <div>
@@ -223,8 +223,12 @@ const NovoIngrediente = () => {
               </div>
             </label>
             <div className="buttonContainer">
-              <button type="submit" id="saveButton" className="button">SAVE</button>
-              <button id="deleteButton" className="button">DELETE</button>
+              <button type="submit" id="saveButton" className="button">
+                SAVE
+              </button>
+              <button id="deleteButton" className="button">
+                DELETE
+              </button>
             </div>
           </div>
         </form>

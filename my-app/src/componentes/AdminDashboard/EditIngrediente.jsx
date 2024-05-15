@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { BackArrow } from "../../imagens/svgs";
 
 const NovoIngrediente = () => {
-
   const fileInputRef = useRef();
   const imageRef = useRef();
 
@@ -14,12 +13,14 @@ const NovoIngrediente = () => {
   const [idcategory, setCategoryId] = useState("");
   const [categories, setCategories] = useState([]);
   const [imageFile, setImageFile] = useState(null);
-  const [image, setImageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
 
   // Fetch categories from Supabase
   const fetchCategories = async () => {
     try {
-      const { data, error } = await supabase.from("Category_Ingredients").select("*");
+      const { data, error } = await supabase
+        .from("Category_Ingredients")
+        .select("*");
       if (error) {
         throw error;
       }
@@ -30,6 +31,7 @@ const NovoIngrediente = () => {
   };
 
   // Fetch ingredient data if editing
+
   const fetchIngredientData = async () => {
     try {
       const { data, error } = await supabase
@@ -43,54 +45,77 @@ const NovoIngrediente = () => {
       setName(data.name);
       setDescription(data.description);
       setCategoryId(data.idcategory);
-      setImageUrl(data.image_url); // Set image URL if exists
+      setImageUrl(data.image); // Set image URL if exists
+      console.log(data.image);
+      console.log(imageUrl);
+      // debugger;
     } catch (error) {
       console.error("Error fetching ingredient data:", error.message);
     }
   };
 
+  useEffect(() => {
+    console.log(imageUrl);
+  }, [imageUrl]);
+
   // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
+    const dataAtual = new Date();
+    const dia = String(dataAtual.getDate()).padStart(2, "0");
+    const mes = String(dataAtual.getMonth() + 1).padStart(2, "0"); // getMonth() começa de 0 para janeiro
+    const ano = dataAtual.getFullYear();
+    const horas = String(dataAtual.getHours()).padStart(2, "0");
+    const minutos = String(dataAtual.getMinutes()).padStart(2, "0");
+    const segundos = String(dataAtual.getSeconds()).padStart(2, "0");
+    const dataHoraFormatada = dia + mes + ano + horas + minutos + segundos;
+
     try {
-      let imageUrlInDatabase = image;
-      
+      console.log(imageUrl);
+      // debugger;
+      let imageUrlInDatabase = imageUrl;
+
       // Upload image if a new image is selected
       if (imageFile) {
         const { data, error } = await supabase.storage
           .from("cooKingsBucket")
-          .upload(`${imageFile.name}`, imageFile, {
-            cacheControl: '3600',
+          .upload(`${dataHoraFormatada}_${imageFile.name}`, imageFile, {
+            cacheControl: "3600",
             upsert: false,
           });
         if (error) {
           throw error;
         }
         console.log("Upload response:", data);
-        imageUrlInDatabase = data.Location; // Use data.Location for the image URL
+        imageUrlInDatabase = data.path; // L
+        console.log(imageUrlInDatabase);
       }
-  
-      // Insert or update ingredient data
+
       const ingredientData = {
         name,
         description,
         idcategory,
-        image: imageUrlInDatabase
+        image:
+          `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/` +
+          imageUrlInDatabase,
       };
-  
+
+      console.log(
+        `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/` +
+          imageUrlInDatabase
+      );
+
       if (idingridients) {
         await supabase
           .from("Ingredients")
           .update(ingredientData)
-          .eq("idingredients", idingridients);
+          .eq("idingridients", idingridients);
       } else {
-        await supabase
-          .from("Ingredients")
-          .insert([ingredientData]);
+        await supabase.from("Ingredients").insert([ingredientData]);
       }
-  
-      window.location.href = "/AdminDashboardPage";
+
+      // window.location.href = "/AdminDashboardPage";
     } catch (error) {
       console.error("Error inserting/updating data:", error.message);
     }
@@ -142,7 +167,7 @@ const NovoIngrediente = () => {
 
   return (
     <>
-      <main className="EditRecipePage">
+      <main className="EditRecipePage" style={{ width: 100 + "%" }}>
         <form className="EditForm" onSubmit={handleSubmit}>
           <div className="LeftForm">
             <div>
@@ -200,7 +225,9 @@ const NovoIngrediente = () => {
               <img
                 ref={imageRef}
                 id="RecipeImage"
-                src={image || "https://images.alphacoders.com/276/276861.jpg"}
+                src={
+                  imageUrl || "https://images.alphacoders.com/276/276861.jpg"
+                }
                 alt="Recipe Image"
               />
             </div>
@@ -223,8 +250,12 @@ const NovoIngrediente = () => {
               </div>
             </label>
             <div className="buttonContainer">
-              <button type="submit" id="saveButton" className="button">SAVE</button>
-              <button id="deleteButton" className="button">DELETE</button>
+              <button type="submit" id="saveButton" className="button">
+                SAVE
+              </button>
+              <button id="deleteButton" className="button">
+                DELETE
+              </button>
             </div>
           </div>
         </form>

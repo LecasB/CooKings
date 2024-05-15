@@ -44,9 +44,9 @@ function App() {
             <CardProcurar titulo={"Titilo 6"} texto={"texto 6"} />
           </div>
         </div>
-      </div> */}
-    </div>
-  );
+      </div> } */}
+		</div>
+	);
 }
 
 export default App;

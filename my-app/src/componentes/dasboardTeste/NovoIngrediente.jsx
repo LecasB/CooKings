@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import supabase from "../../supabaseClient";
+<<<<<<< HEAD
 import {
   BrowserRouter as Router,
   Routes,
@@ -7,14 +8,24 @@ import {
   Link,
   BrowserRouter,
 } from "react-router-dom";
+=======
+import { Link } from "react-router-dom";
+>>>>>>> origin/luish
 
 const NovoIngrediente = () => {
-  // State variables to hold form data and category options
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [idcategory, setCategoryId] = useState("2");
+<<<<<<< HEAD
   const [image, setImage] = useState(null); // State to hold image data
+=======
+  const [image, setImage] = useState(null);
+  const [imageURL, setImageURL] = useState(null);
+  const [imageSalva, setImageSalva] = useState(false);
+
+>>>>>>> origin/luish
   const [categories, setCategories] = useState([]);
+  const [submitted, setSubmitted] = useState(false);
 
   // Function to fetch categories from Supabase
   const fetchCategories = async () => {
@@ -32,8 +43,29 @@ const NovoIngrediente = () => {
     fetchCategories();
   }, []);
 
+  const inserImg = async () => {
+    try {
+      const { data, error } = await supabase.storage
+        .from("cooKingsBucket")
+        .upload(image.name, image);
+
+      if (data) {
+        // saber se colocou a img para inserir o restos na bd
+        setImageSalva(true);
+      }
+    } catch (error) {
+      console.log(error);
+      setImageSalva(false);
+    }
+  };
+
+  useEffect(() => {
+    setImageSalva(true);
+  }, [imageSalva]);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
+<<<<<<< HEAD
 
     try {
       // Insert data into the "Ingredients" table
@@ -61,6 +93,42 @@ const NovoIngrediente = () => {
       setImage(null);
     } catch (error) {
       console.error("Error inserting data:", error.message);
+=======
+    inserImg();
+
+    if (imageSalva) {
+      try {
+        const { data: insertedData, error } = await supabase
+          .from("Ingredients")
+          .insert([
+            {
+              name,
+              description,
+              idcategory,
+              image:
+                "https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/" +
+                image.name,
+            },
+          ]);
+
+        if (error) {
+          throw error;
+        }
+
+        console.log("Data inserted successfully:", insertedData);
+
+        setName("");
+        setDescription("");
+        setCategoryId("");
+        setImage(null);
+
+        setSubmitted(true);
+
+        window.location.href = "/DashboardTeste";
+      } catch (error) {
+        console.error("Error inserting data:", error.message);
+      }
+>>>>>>> origin/luish
     }
   };
 
@@ -68,7 +136,6 @@ const NovoIngrediente = () => {
     <div>
       <h1>Novo Ingrediente</h1>
       <form onSubmit={handleSubmit}>
-        {/* Name input */}
         <label>
           Name:
           <input
@@ -80,7 +147,6 @@ const NovoIngrediente = () => {
         </label>
         <br />
 
-        {/* Description input */}
         <label>
           Description:
           <input
@@ -92,7 +158,6 @@ const NovoIngrediente = () => {
         </label>
         <br />
 
-        {/* Category select */}
         <label>
           Category:
           <select
@@ -109,7 +174,6 @@ const NovoIngrediente = () => {
         </label>
         <br />
 
-        {/* Image input */}
         <label>
           Image:
           <input
@@ -123,6 +187,8 @@ const NovoIngrediente = () => {
 
         <button type="submit">Submit</button>
       </form>
+
+      {submitted && <Link to="/DashboardTeste" />}
     </div>
   );
 };

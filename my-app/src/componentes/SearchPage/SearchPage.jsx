@@ -11,7 +11,7 @@ const SearchPage = () => {
     <>
       <main>
         <h1>Let's search for recipes</h1>
-        <div style={{ display: "flex" }}>
+        <div className="search-page">
           <SearchForm />
           <ListaCards />
         </div>

@@ -27,3 +27,36 @@
   justify-content: end;
   gap: 30px;
 }
+.search-page {
+  display: flex;
+}
+
+.openCategorias {
+  display: none;
+}
+
+@media screen and (max-width: 1030px) {
+  .search-page {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .searchform {
+    display: none;
+    animation: slideDown 0.5s forwards;
+    z-index: -1;
+  }
+
+  .openCategorias {
+    display: flex;
+  }
+
+  @keyframes slideDown {
+    from {
+      transform: translateY(-100%);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+}

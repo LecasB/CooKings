@@ -4,6 +4,8 @@ import supabase from "../../supabaseClient";
 const ListaCards = () => {
   const [item, setItem] = useState([]);
 
+  const [parar, setParar] = useState(false);
+
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(5);
 
@@ -32,6 +34,12 @@ const ListaCards = () => {
 
   useEffect(() => {
     getItems();
+
+    if (item.length < max - min) {
+      setParar(false);
+    } else {
+      setParar(true);
+    }
   }, [max]);
 
   // no onclick de uma pagina
@@ -71,7 +79,7 @@ const ListaCards = () => {
 
       <div className="search-b-navigation">
         {min > 0 && <button onClick={() => updateList(true)}>trás</button>}
-        {item.length > 0 && (
+        {item.length > 0 && parar == false && (
           <button onClick={() => updateList(false)}>Frente</button>
         )}
       </div>

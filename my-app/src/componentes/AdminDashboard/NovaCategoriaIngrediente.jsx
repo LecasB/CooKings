@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
+import TableInfo from "./TableInfo";
 
 const NovaCategoriaIngrediente = () => {
   const [name, setName] = useState("");
@@ -67,16 +68,10 @@ const NovaCategoriaIngrediente = () => {
         </label>
         <button type="submit">Submit</button>
       </form>
-      {submitted && <Link to="/AdminDashboardPage/">Back to Dashboard</Link>}{" "}
-      {/* Adjust Link text */}
+      <br />
+      <br />
       <div>
-        {categorias.map((categoria) => (
-          <ul key={categoria.idcategory}>
-            <li>
-              ID: {categoria.idcategory} Name: {categoria.name}
-            </li>
-          </ul>
-        ))}
+        <TableInfo dados={categorias} />
       </div>
     </div>
   );

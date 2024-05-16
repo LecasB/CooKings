@@ -50,6 +50,7 @@ const ListaReceitas = () => {
                 description={categoria.description}
                 imagem={categoria.image}
                 deleteCategoria={deleteCategoria}
+                editLink={`../EditRecipe?id=`}
               />
             </div>
           ))}

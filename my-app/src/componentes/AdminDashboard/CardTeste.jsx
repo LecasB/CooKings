@@ -9,6 +9,7 @@ const CardTeste = ({
   editCategoria,
   deleteCategoria,
   imagem,
+  editLink,
 }) => {
   return (
     /* <div>
@@ -34,7 +35,7 @@ const CardTeste = ({
         </div>
 
         <div className="cont-actions-procurar">
-          <Link to={`../EditIngrediente?id=${id}`}>
+          <Link to={`${editLink}${id}`}>
            Editar
           </Link>
           

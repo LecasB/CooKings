@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { BackArrow } from "../../imagens/svgs";
 import "../../estilos/EditRecipePage.css";
 
-const NovoIngrediente = () => {
+const EditRecipe = () => {
   const fileInputRef = useRef();
   const imageRef = useRef();
 
@@ -20,7 +20,7 @@ const NovoIngrediente = () => {
   const fetchCategories = async () => {
     try {
       const { data, error } = await supabase
-        .from("Category_Ingredients")
+        .from("Category_Recipes")
         .select("*");
       if (error) {
         throw error;
@@ -36,9 +36,9 @@ const NovoIngrediente = () => {
   const fetchIngredientData = async () => {
     try {
       const { data, error } = await supabase
-        .from("Ingredients")
+        .from("Recipes")
         .select("*")
-        .eq("idingridients", idingridients)
+        .eq("idrecipe", idingridients)
         .single();
       if (error) {
         throw error;
@@ -109,14 +109,14 @@ const NovoIngrediente = () => {
 
       if (idingridients) {
         await supabase
-          .from("Ingredients")
+          .from("Recipes")
           .update(ingredientData)
-          .eq("idingridients", idingridients);
+          .eq("idrecipe", idingridients);
       } else {
-        await supabase.from("Ingredients").insert([ingredientData]);
+        await supabase.from("Recipes").insert([ingredientData]);
       }
 
-      window.location.href = "/AdminDashboardPage/ListaIngridiente";
+      window.location.href = "/AdminDashboardPage/ListaReceitas";
     } catch (error) {
       console.error("Error inserting/updating data:", error.message);
     }
@@ -265,4 +265,4 @@ const NovoIngrediente = () => {
   );
 };
 
-export default NovoIngrediente;
+export default EditRecipe;

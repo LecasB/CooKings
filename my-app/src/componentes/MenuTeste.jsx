@@ -28,6 +28,7 @@ import NovaReceita from "./AdminDashboard/NovaReceita";
 import ListaReceitas from "./AdminDashboard/ListaReceitas";
 import NovaCategoriaIngrediente from "./AdminDashboard/NovaCategoriaIngrediente";
 import NovaCategoriaReceita from "./AdminDashboard/NovaCategoriaReceita";
+import EditRecipe from "./AdminDashboard/EditRecipe";
 
 const MenuTeste = () => {
   return (
@@ -66,6 +67,10 @@ const MenuTeste = () => {
           <Route
             path="/AdminDashboardPage/EditIngrediente"
             element={<EditIngrediente />}
+          />
+          <Route
+            path="/AdminDashboardPage/EditRecipe"
+            element={<EditRecipe />}
           />
           <Route
             path="/AdminDashboardPage/ListaIngridiente"

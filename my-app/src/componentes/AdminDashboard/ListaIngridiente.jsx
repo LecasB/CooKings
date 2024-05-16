@@ -5,6 +5,7 @@ import CardTeste from "./CardTeste";
 
 const ListaIngridiente = () => {
   const [categorias, setCategorias] = useState([]);
+  const [idParaPassar, setId] = useState(1);
 
   async function getCategorias() {
     try {
@@ -51,6 +52,7 @@ const ListaIngridiente = () => {
             description={categoria.description}
             imagem={categoria.image}
             deleteCategoria={deleteCategoria}
+            editLink={`../EditIngrediente?id=`}
           />
         </div>
       ))}

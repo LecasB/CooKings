@@ -48,7 +48,7 @@ const ListaIngridiente = () => {
           <CardTeste
             id={categoria.idingridients}
             name={categoria.name}
-            category={categoria.category}
+            category={categoria.idcategory}
             description={categoria.description}
             imagem={categoria.image}
             deleteCategoria={deleteCategoria}

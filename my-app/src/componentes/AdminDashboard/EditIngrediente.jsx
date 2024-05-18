@@ -20,7 +20,7 @@ const NovoIngrediente = () => {
   const fetchCategories = async () => {
     try {
       const { data, error } = await supabase
-        .from("Category_Recipes")
+        .from("Category_Ingrediente")
         .select("*");
       if (error) {
         throw error;
@@ -36,9 +36,9 @@ const NovoIngrediente = () => {
   const fetchIngredientData = async () => {
     try {
       const { data, error } = await supabase
-        .from("Recipes")
+        .from("Ingredients")
         .select("*")
-        .eq("idrecipe", idingridients)
+        .eq("idingridients", idingridients)
         .single();
       if (error) {
         throw error;
@@ -109,11 +109,11 @@ const NovoIngrediente = () => {
 
       if (idingridients) {
         await supabase
-          .from("Recipes")
+          .from("Ingredients")
           .update(ingredientData)
-          .eq("idrecipe", idingridients);
+          .eq("idingridients", idingridients);
       } else {
-        await supabase.from("Recipes").insert([ingredientData]);
+        await supabase.from("Ingredients").insert([ingredientData]);
       }
 
       window.location.href = "/AdminDashboardPage/ListaIngridiente";

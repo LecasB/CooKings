@@ -1,5 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import supabase from "../../supabaseClient"
+
 
 const CardTeste = ({
   id,
@@ -11,6 +13,24 @@ const CardTeste = ({
   imagem,
   editLink,
 }) => {
+
+  const [categoria, setCategory] = useState("");
+
+  async function getCategoriasNome() {
+    try {
+      const { data, error } = await supabase.from("Ingredients").select();
+
+      if (error) {
+        throw error;
+      }
+
+      setCategory(data);
+    } catch (error) {
+      console.error("Error fetching categorias:", error.message);
+    }
+  }
+
+  
   return (
     /* <div>
       <h2>{name}</h2>
@@ -31,7 +51,9 @@ const CardTeste = ({
       <div className="cont">
         <div className="cont-text">
           <h2 style={{ maxWidth: 140 }}>{name}</h2>
+          <h3></h3>
           <p>{description}</p>
+          
         </div>
 
         <div className="cont-actions-procurar">

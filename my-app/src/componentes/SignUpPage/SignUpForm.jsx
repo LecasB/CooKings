@@ -21,6 +21,13 @@ const SignUpForm = () => {
     const { user, error } = await supabase.auth.signUp({
       email: emailUser,
       password: passwordUser,
+      options: {
+        data: {
+          username: username,
+          photo: null,
+          admin: false,
+        },
+      },
     });
     debugger;
     console.log("Sign up error:", error);

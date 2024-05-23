@@ -1,13 +1,27 @@
 import { useState, useEffect } from "react";
 import supabase from "../../supabaseClient";
 
-const ListaCards = () => {
+const ListaCards = ({ categoriasUser, tagsUser }) => {
   const [item, setItem] = useState([]);
 
   const [parar, setParar] = useState(false);
 
   const [min, setMin] = useState(0);
-  const [max, setMax] = useState(5);
+  const [max, setMax] = useState(12);
+
+  //const [categoriasUser, setCategoriasUser] = useState([]);
+
+  const [frase, setFrase] = useState("");
+
+  useEffect(() => {
+    let stringCompleta = "";
+
+    stringCompleta = categoriasUser.join(" && ");
+
+    setFrase(stringCompleta);
+    console.log(stringCompleta);
+    console.log(frase);
+  }, [categoriasUser]);
 
   const getItems = async () => {
     // 1º pedido
@@ -47,11 +61,11 @@ const ListaCards = () => {
 
   function updateList(update) {
     if (update) {
-      setMin(min - 6);
-      setMax(max - 5);
+      setMin(min - 13);
+      setMax(max - 12);
     } else {
-      setMin(min + 6);
-      setMax(max + 5);
+      setMin(min + 13);
+      setMax(max + 12);
     }
   }
 
@@ -78,9 +92,15 @@ const ListaCards = () => {
       </div>
 
       <div className="search-b-navigation">
-        {min > 0 && <button onClick={() => updateList(true)}>trás</button>}
+        {min > 0 && (
+          <button className="loginButton " onClick={() => updateList(true)}>
+            Back
+          </button>
+        )}
         {item.length > 0 && parar == false && (
-          <button onClick={() => updateList(false)}>Frente</button>
+          <button className="loginButton " onClick={() => updateList(false)}>
+            Next
+          </button>
         )}
       </div>
     </div>

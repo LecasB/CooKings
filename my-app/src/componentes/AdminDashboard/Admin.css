@@ -48,6 +48,20 @@
   grid-template-columns: repeat(4, minmax(240px,1fr)); 
 }
 
+.dashBoardMain{
+  width: 100%;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.dashBoardCards{
+  display: flex;
+  justify-content: space-around;
+  
+}
+
 @media only screen and (max-width: 1650px) {
   .ingredientsMap, .recipesMap {
       grid-template-columns: repeat(3, minmax(240px,1fr));

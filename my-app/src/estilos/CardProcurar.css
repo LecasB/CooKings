@@ -7,6 +7,7 @@
   height: fit-content;
   display: flex;
   flex-direction: row;
+  border: 1px solid black;
 }
 
 .cont-img-procurar {
@@ -18,8 +19,9 @@
 
 .cont-img-procurar img {
   width: 100%;
-  object-fit: cover;
+  object-fit:cover;
   height: 100%;
+  
 }
 
 .cont {
@@ -35,6 +37,17 @@
   padding-top: 0;
   word-wrap: break-word;
 }
+
+.cont-text h2 {
+  
+  padding-top: 0;
+  white-space: nowrap;     
+  overflow: hidden;        
+  text-overflow: ellipsis; 
+  width: 100%;             
+  box-sizing: border-box;  
+}
+
 
 .cont-actions-procurar {
   padding-left: 1em;

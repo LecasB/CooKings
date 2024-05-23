@@ -20,7 +20,7 @@ const NovoIngrediente = () => {
   const fetchCategories = async () => {
     try {
       const { data, error } = await supabase
-        .from("Category_Ingrediente")
+        .from("Category_Ingredients")
         .select("*");
       if (error) {
         throw error;

@@ -9,27 +9,21 @@ const ListaCards = ({ categoriasUser, tagsUser }) => {
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(12);
 
-  //const [categoriasUser, setCategoriasUser] = useState([]);
-
-  const [frase, setFrase] = useState("");
-
-  useEffect(() => {
-    let stringCompleta = "";
-
-    stringCompleta = categoriasUser.join(" && ");
-
-    setFrase(stringCompleta);
-    console.log(stringCompleta);
-    console.log(frase);
-  }, [categoriasUser]);
-
   const getItems = async () => {
     // 1º pedido
-    const { data, error } = await supabase
-      .from("Recipes")
-      .select("*")
-      .order("idrecipe", { ascending: false })
-      .range(min, max);
+    let query = supabase.from("Recipes").select("*");
+
+    if (categoriasUser.length > 0) {
+      query = query.in("idcategory", categoriasUser);
+    }
+
+    if (tagsUser.length > 0) {
+      query = query.overlaps("idtags", tagsUser);
+    }
+
+    query = query.order("idrecipe", { ascending: false }).range(min, max);
+
+    const { data, error } = await query;
 
     if (data) {
       setItem(data);
@@ -37,6 +31,14 @@ const ListaCards = ({ categoriasUser, tagsUser }) => {
       console.log("error");
     }
   };
+
+  useEffect(() => {
+    getItems();
+  }, [categoriasUser]);
+
+  useEffect(() => {
+    getItems();
+  }, [tagsUser]);
 
   useEffect(() => {
     console.log(item);

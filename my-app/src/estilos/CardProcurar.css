@@ -19,9 +19,8 @@
 
 .cont-img-procurar img {
   width: 100%;
-  object-fit:cover;
+  object-fit: cover;
   height: 100%;
-  
 }
 
 .cont {
@@ -39,25 +38,36 @@
 }
 
 .cont-text h2 {
-  
   padding-top: 0;
-  white-space: nowrap;     
-  overflow: hidden;        
-  text-overflow: ellipsis; 
-  width: 100%;             
-  box-sizing: border-box;  
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-
 .cont-actions-procurar {
-  padding-left: 1em;
-  padding-bottom: 1em;
+  padding: 0 2em 1em 1em;
+  justify-content: space-between;
   display: flex;
   flex-direction: row;
   gap: 10px;
 }
 
 .cont-actions-procurar a {
+  text-align: center;
+  width: 55px;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  border-radius: 5em;
+  background: #ffdb63;
+  border: 0;
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+.cont-actions-procurar button {
   text-align: center;
   width: 55px;
   text-decoration: none;

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import supabase from "../../supabaseClient";
+import CardProcurar from "../CardProcurar";
 
 const ListaCards = ({ categoriasUser, tagsUser, inputValue }) => {
   const [item, setItem] = useState([]);
@@ -7,7 +8,7 @@ const ListaCards = ({ categoriasUser, tagsUser, inputValue }) => {
   const [parar, setParar] = useState(false);
 
   const [min, setMin] = useState(0);
-  const [max, setMax] = useState(12);
+  const [max, setMax] = useState(11);
 
   const getItems = async () => {
     // 1º pedido
@@ -75,11 +76,11 @@ const ListaCards = ({ categoriasUser, tagsUser, inputValue }) => {
 
   function updateList(update) {
     if (update) {
-      setMin(min - 13);
-      setMax(max - 12);
+      setMin(min - 12);
+      setMax(max - 11);
     } else {
-      setMin(min + 13);
-      setMax(max + 12);
+      setMin(min + 12);
+      setMax(max + 11);
     }
   }
 
@@ -87,7 +88,7 @@ const ListaCards = ({ categoriasUser, tagsUser, inputValue }) => {
     <div className="list-cards">
       <div id="card-section">
         {item.map((card) => (
-          <div className="card-procurar">
+          /* <div className="card-procurar">
             <figure className="cont-img-procurar">
               <img src={card.image} alt="" />
             </figure>
@@ -104,7 +105,13 @@ const ListaCards = ({ categoriasUser, tagsUser, inputValue }) => {
                 </svg>
               </div>
             </div>
-          </div>
+          </div> */
+
+          <CardProcurar
+            titulo={card.name}
+            texto={card.description}
+            image={card.image}
+          />
         ))}
       </div>
 

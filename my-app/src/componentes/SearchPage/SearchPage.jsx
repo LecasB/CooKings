@@ -15,6 +15,7 @@ const SearchPage = () => {
   const verificarLocalStorage = () => {
     if (localStorage.getItem("valueIndexPage")) {
       setValue(localStorage.getItem("valueIndexPage"));
+      localStorage.removeItem("valueIndexPage");
     }
   };
 

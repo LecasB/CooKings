@@ -6,3 +6,32 @@
     gap:10px;
     padding-top: 30px;
 }
+
+.listaIngredienteClient{
+    display: flex;
+    flex-direction: column;
+    width: 55%;
+    margin: 0 auto;
+    padding-top: 30px;
+    text-align: center;
+}
+
+.listaIngredienteClient table{
+    border: 1px solid black;
+}
+
+tbody tr td{
+    padding: 0;
+    margin: 0;
+    border: 1px solid black;
+    padding: 10px;
+}
+tr{
+
+    padding: 10px;
+}
+
+svg{
+    height: 30px;
+    width: 30px;
+}

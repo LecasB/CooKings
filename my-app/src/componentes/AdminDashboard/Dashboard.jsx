@@ -3,6 +3,7 @@ import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
 import "./Admin.css";
 
+
 const Dashboard = () => {
   const [date, setDate] = useState("");
   const [ingredients, setIngredients] = useState(0);
@@ -55,7 +56,9 @@ const Dashboard = () => {
           <Link to="../ListaIngridiente">
             <button>View All</button>
           </Link>
+          
         </div>
+
       </div>
     </div>
   );

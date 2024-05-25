@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import supabase from '../../supabaseClient';
 
 const ListaIngredienteClient = () => {
-
     const [nomes, setNomes] = useState([]);
     const [userId, setUserId] = useState(null);
+    const [pesquisa, setPesquisa] = useState("");
 
     async function getIngredient(userId) {
         try {
@@ -57,8 +57,28 @@ const ListaIngredienteClient = () => {
         }
     };
 
+    const handleSearchChange = (e) => {
+        setPesquisa(e.target.value);
+    };
+
+    const filteredNomes = nomes.filter(nome => 
+        nome.unity.toLowerCase().includes(pesquisa.toLowerCase()) ||
+        nome.quantity.toString().includes(pesquisa) ||
+        nome.date_expire.toLowerCase().includes(pesquisa.toLowerCase())
+    );
+
     return (
         <div className='listaIngredienteClient'>
+            <div>
+                <h2>Filter your ingredients here :)</h2>
+                <input 
+                    type='text' 
+                    placeholder='Example: Cake' 
+                    id="SearchListaIngrediente" 
+                    value={pesquisa} 
+                    onChange={handleSearchChange} 
+                />
+            </div>
             <table>
                 <thead>
                     <tr>
@@ -72,7 +92,7 @@ const ListaIngredienteClient = () => {
                     </tr>
                 </thead>
                 <tbody>
-                    {nomes.map((nome) => (
+                    {filteredNomes.map((nome) => (
                         <tr key={nome.id}>
                             <td>{nome.idIng}</td>
                             <td>{nome.unity}</td>

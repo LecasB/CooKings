@@ -48,7 +48,7 @@ const NovoIngredienteClient = () => {
             const { data, error } = await supabase.from("Product_User").insert([
                 {
                     idIng: selectedIngredient,
-                    idUser: userId, 
+                    iduser: userId, 
                     quantity,
                     unity,
                     date_expire,

@@ -2,11 +2,11 @@ import react from 'react';
 import supabaseClient from '../../supabaseClient';
 import { useEffect, useState } from 'react';
 
-const EditIngredienteClient = () =>{
+const FavoritosClient = () =>{
     return (
-        <h1>Ingredients:</h1>
+        <h1>Favoritos:</h1>
 
     )
 }
 
-export default EditIngredienteClient;
+export default FavoritosClient;

@@ -7,29 +7,27 @@ const SideBar = () => {
     <nav className="sidenavbar">
       <ul>
         <li>
-          <Link to="Dashboard"> Dashboard </Link>
+          <Link to="ClientDashboard"> Dashboard </Link>
         </li>
 
         <li>
-          <Link to="NovaReceita"> New Recipe </Link>
+          <Link to="NovaReceitaClient"> New Recipe </Link>
         </li>
 
         <li>
-          <Link to="NovoIngredienteClient"> My Ingriedients </Link>
+          <Link to="ListaIngredienteClient"> My Ingriedients </Link>
         </li>
 
         <li>
-          <Link to="ListaReceitas"> Edit Ingridients </Link>
+          <Link to="EditIngredienteClient"> Edit Ingridients </Link>
         </li>
 
         <li>
-          <Link to="NovaCategoriaIngrediente"> Add Ingridient </Link>
+          <Link to="NovoIngredienteClient"> Add Ingridient </Link>
         </li>
 
         <li>
-          <div>
-            <Link to="NovaCategoriaReceita"> My Favourites </Link>
-          </div>
+            <Link to="FavoritosClient"> My Favourites </Link>
         </li>
       </ul>
     </nav>

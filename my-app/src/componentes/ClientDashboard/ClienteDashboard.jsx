@@ -1,7 +1,11 @@
 import react from "react";
 
 const ClientDashboard = () => {
-    console.log("teste");
+    return(
+        <div>
+            <h1>DashBoard:</h1>
+        </div>
+    )
 }
 
 export default ClientDashboard;

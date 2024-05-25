@@ -32,6 +32,11 @@ import NovaCategoriaReceita from "./AdminDashboard/NovaCategoriaReceita";
 import EditRecipe from "./AdminDashboard/EditRecipe";
 import Dashboard from "./AdminDashboard/Dashboard";
 import NovoIngredienteClient from "./ClientDashboard/NovoIngredienteClient";
+import FavoritosClient from "./ClientDashboard/FavoritosClient";
+import ListaIngredienteClient from "./ClientDashboard/ListaIngredienteClient";
+import EditIngredienteClient from "./ClientDashboard/EditIngredienteClient";
+import NovaReceitaClient from "./ClientDashboard/NovaReceitaClient";
+import ClientDashboard from "./ClientDashboard/ClienteDashboard";
 
 const MenuTeste = () => {
   return (
@@ -67,10 +72,7 @@ const MenuTeste = () => {
             path="/AdminDashboardPage/NovoIngrediente"
             element={<NovoIngrediente />}
           />
-          <Route
-            path="/AdminDashboardPage/Dashboard"
-            element={<Dashboard />}
-          />
+          <Route path="/AdminDashboardPage/Dashboard" element={<Dashboard />} />
           <Route
             path="/AdminDashboardPage/EditIngrediente"
             element={<EditIngrediente />}
@@ -104,10 +106,34 @@ const MenuTeste = () => {
 
         <Route path="/ClientDashboard" element={<LayoutClient />}>
 
-        <Route path="/ClientDashboard/NovoIngredienteClient" element={<NovoIngredienteClient />}/>
+        <Route path="/ClientDashboard/ClientDashboard" element={<ClientDashboard />} />
+
+          <Route
+            path="/ClientDashboard/NovoIngredienteClient"
+            element={<NovoIngredienteClient />}
+          />
+
+          <Route
+            path="/ClientDashboard/FavoritosClient"
+            element={<FavoritosClient />}
+          />
+
+          <Route
+            path="/ClientDashboard/ListaIngredienteClient"
+            element={<ListaIngredienteClient />}
+          />
+
+          <Route
+            path="/ClientDashboard/EditIngredienteClient"
+            element={<EditIngredienteClient />}
+          />
+
+          <Route
+            path="/ClientDashboard/NovaReceitaClient"
+            element={<NovaReceitaClient />}
+          />
 
         </Route>
-
       </Routes>
     </BrowserRouter>
   );

@@ -6,41 +6,35 @@
   background: #fffae4;
   position: sticky;
   top: 0;
-  
+  z-index: 10;
 }
 
 .logoContainer {
   margin-left: 4em;
- 
 }
 
 .logoContainer img {
   object-fit: cover;
   height: 2.5em;
-  
 }
 
 .linksContainer {
   list-style: none;
   margin-right: 2.5em;
   display: flex;
-  gap:30px;
+  gap: 30px;
   align-items: center;
- 
 }
 
 .linksItems {
   display: display;
   margin-left: 20px;
-  
 }
 
 .linksItems svg {
   max-width: 2.5em;
   max-height: 2.5em;
 }
-
-
 
 .mobileLinkItem {
   position: fixed;
@@ -79,10 +73,7 @@
   text-decoration: none;
 }
 
-
-
 @media screen and (max-width: 750px) {
-  
   .logoContainer {
     margin-left: 2em;
   }
@@ -92,7 +83,7 @@
   }
 }
 
-/*Hamburguer adaptado do https://uiverse.io/3bdel3ziz-T/angry-grasshopper-50*/ 
+/*Hamburguer adaptado do https://uiverse.io/3bdel3ziz-T/angry-grasshopper-50*/
 
 .burger {
   display: flex;
@@ -107,9 +98,7 @@
   transition: 300ms;
   border-radius: 10px;
   z-index: 8;
-  
 }
-
 
 .burger .line,
 .burger::before,
@@ -136,8 +125,6 @@
   position: absolute;
 }
 
-
-
 .burger:hover {
   background: #aeaeae;
   border-radius: 50%;
@@ -161,9 +148,6 @@
   transform: rotate(45deg);
 }
 
-
-
-
 .dropdown {
   display: none;
   position: absolute;
@@ -174,8 +158,6 @@
   padding: 10px;
   z-index: 100;
 }
-
-
 
 @keyframes animation1 {
   0% {
@@ -200,10 +182,9 @@
   }
 }
 
-
 /*display none*/
 
-.disabled{
+.disabled {
   display: none;
 }
 /*desativar scroll*/

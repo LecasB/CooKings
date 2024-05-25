@@ -1,11 +1,12 @@
 .searchform {
-  width: 390px;
+  width: 30%;
   height: 665px;
   background: #d4eff1;
   padding: 35px 25px;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
+  border-radius: 0px 20px 20px 0px;
 }
 
 .searchinput {
@@ -39,6 +40,7 @@
 }
 
 .item-container label {
+  width: 100%;
   font-size: 1.4rem;
   margin-left: 5px;
   align-self: center;

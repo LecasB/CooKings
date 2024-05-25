@@ -13,10 +13,8 @@ import IndexPage from "./componentes/IndexPage/IndexPage";
 function App() {
   return (
     <div className="App">
-      <header>
-        {/* <NavBar /> */}
-        <MenuTeste></MenuTeste>
-      </header>
+      {/* <NavBar /> */}
+      <MenuTeste></MenuTeste>
       {/* <div className="body">
         <div className="box">
           <h2>Recommended for you</h2>
@@ -45,8 +43,8 @@ function App() {
           </div>
         </div>
       </div> } */}
-		</div>
-	);
+    </div>
+  );
 }
 
 export default App;

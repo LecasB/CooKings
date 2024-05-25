@@ -1,19 +1,33 @@
 import { useState, useEffect } from "react";
 import supabase from "../../supabaseClient";
 
-const ListaCards = () => {
+const ListaCards = ({ categoriasUser, tagsUser, inputValue }) => {
   const [item, setItem] = useState([]);
 
+  const [parar, setParar] = useState(false);
+
   const [min, setMin] = useState(0);
-  const [max, setMax] = useState(5);
+  const [max, setMax] = useState(12);
 
   const getItems = async () => {
     // 1º pedido
-    const { data, error } = await supabase
-      .from("Recipes")
-      .select("*")
-      .order("idrecipe", { ascending: false })
-      .range(min, max);
+    let query = supabase.from("Recipes").select("*");
+
+    if (categoriasUser.length > 0) {
+      query = query.in("idcategory", categoriasUser);
+    }
+
+    if (tagsUser.length > 0) {
+      query = query.overlaps("idtags", tagsUser);
+    }
+
+    if (inputValue || inputValue != " ") {
+      query = query.ilike("name", `%${inputValue}%`); // por motivos que apenas deus sabe eu n posso colocar apenas inputValue, tem que ser obrigatoriamente `%${inputValue}%` 😢
+    }
+
+    query = query.order("idrecipe", { ascending: false }).range(min, max);
+
+    const { data, error } = await query;
 
     if (data) {
       setItem(data);
@@ -21,6 +35,22 @@ const ListaCards = () => {
       console.log("error");
     }
   };
+
+  useEffect(() => {
+    getItems();
+  }, [categoriasUser]);
+
+  useEffect(() => {
+    getItems();
+  }, [inputValue]);
+
+  useEffect(() => {
+    console.log("aquii");
+  }, [localStorage]);
+
+  useEffect(() => {
+    getItems();
+  }, [tagsUser]);
 
   useEffect(() => {
     console.log(item);
@@ -32,6 +62,12 @@ const ListaCards = () => {
 
   useEffect(() => {
     getItems();
+
+    if (item.length < max - min) {
+      setParar(false);
+    } else {
+      setParar(true);
+    }
   }, [max]);
 
   // no onclick de uma pagina
@@ -39,11 +75,11 @@ const ListaCards = () => {
 
   function updateList(update) {
     if (update) {
-      setMin(min - 6);
-      setMax(max - 5);
+      setMin(min - 13);
+      setMax(max - 12);
     } else {
-      setMin(min + 6);
-      setMax(max + 5);
+      setMin(min + 13);
+      setMax(max + 12);
     }
   }
 
@@ -70,9 +106,15 @@ const ListaCards = () => {
       </div>
 
       <div className="search-b-navigation">
-        {min > 0 && <button onClick={() => updateList(true)}>trás</button>}
-        {item.length > 0 && (
-          <button onClick={() => updateList(false)}>Frente</button>
+        {min > 0 && (
+          <button className="loginButton " onClick={() => updateList(true)}>
+            Back
+          </button>
+        )}
+        {item.length > 0 && parar == false && (
+          <button className="loginButton " onClick={() => updateList(false)}>
+            Next
+          </button>
         )}
       </div>
     </div>

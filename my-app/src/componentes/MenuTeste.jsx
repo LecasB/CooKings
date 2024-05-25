@@ -17,12 +17,19 @@ import UserPage from "./UserPage/UserPage";
 import IngredientsListPage from "./IngredientsListPage/IngredientsListPage";
 import EditRecipePage from "./EditRecipePage/EditRecipePage";
 import Layout from "./Layout";
+import LayoutAdmin from "./AdminDashboard/LayoutAdmin";
 import NavBar from "./NavBar";
 import ErrorPage from "./ErrorPage/errorPage";
 import AdminDashboardPage from "./AdminDashboard/AdminDashboardPage";
-import DashboardTeste from "./DasboardTeste/DashboardTeste";
-import NovoIngrediente from "./DasboardTeste/NovoIngrediente";
-import EditIngrediente from "./DasboardTeste/EditIngrediente";
+import ListaIngridiente from "./AdminDashboard/ListaIngridiente";
+import NovoIngrediente from "./AdminDashboard/NovoIngrediente";
+import EditIngrediente from "./AdminDashboard/EditIngrediente";
+import NovaReceita from "./AdminDashboard/NovaReceita";
+import ListaReceitas from "./AdminDashboard/ListaReceitas";
+import NovaCategoriaIngrediente from "./AdminDashboard/NovaCategoriaIngrediente";
+import NovaCategoriaReceita from "./AdminDashboard/NovaCategoriaReceita";
+import EditRecipe from "./AdminDashboard/EditRecipe";
+import Dashboard from "./AdminDashboard/Dashboard";
 
 const MenuTeste = () => {
   return (
@@ -48,9 +55,49 @@ const MenuTeste = () => {
           <Route path="LoginPage" element={<LoginForm />} />
           <Route path="SignUpPage" element={<SignUpForm />} />
           <Route path="AdminDashboardPage" element={<AdminDashboardPage />} />
-          <Route path="DashboardTeste" element={<DashboardTeste />} />
-          <Route path="NovoIngrediente" element={<NovoIngrediente />} />
-          <Route path="EditIngrediente" element={<EditIngrediente />} />
+
+          {/* <Route path="NovoIngrediente" element={<NovoIngrediente />} /> */}
+          {/* <Route path="EditIngrediente" element={<EditIngrediente />} /> */}
+        </Route>
+
+        <Route path="/AdminDashboardPage" element={<LayoutAdmin />}>
+          <Route
+            path="/AdminDashboardPage/NovoIngrediente"
+            element={<NovoIngrediente />}
+          />
+          <Route
+            path="/AdminDashboardPage/Dashboard"
+            element={<Dashboard />}
+          />
+          <Route
+            path="/AdminDashboardPage/EditIngrediente"
+            element={<EditIngrediente />}
+          />
+          <Route
+            path="/AdminDashboardPage/EditRecipe"
+            element={<EditRecipe />}
+          />
+          <Route
+            path="/AdminDashboardPage/ListaIngridiente"
+            element={<ListaIngridiente />}
+          />
+          <Route
+            path="/AdminDashboardPage/NovaReceita"
+            element={<NovaReceita />}
+          />
+          <Route
+            path="/AdminDashboardPage/ListaReceitas"
+            element={<ListaReceitas />}
+          />
+          <Route
+            path="/AdminDashboardPage/NovaCategoriaIngrediente"
+            element={<NovaCategoriaIngrediente />}
+          />
+          x
+          <Route
+            path="/AdminDashboardPage/NovaCategoriaReceita"
+            element={<NovaCategoriaReceita />}
+          />
         </Route>
       </Routes>
     </BrowserRouter>

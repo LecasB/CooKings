@@ -1,5 +1,5 @@
 .sidenavbar {
-  width: fit-content;
+  width: 300px;
   height: 100%;
   background: #d4eff1;
   display: flex;
@@ -7,7 +7,7 @@
   padding: 10px 25px;
   box-sizing: border-box;
   align-items: center;
-  position: fixed;
+  /*   position: fixed; */
 }
 
 .sidenavbar img {
@@ -17,16 +17,21 @@
 
 .sidenavbar ul {
   list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 0;
 }
 
 .sidenavbar ul li {
   height: 48px;
-  border-radius: 15px;
-  margin-bottom: 15px;
+  margin: 20px 0px;
   padding: 0 10px;
   box-sizing: border-box;
+  display: flex;
+  align-items: center;
   width: 200px;
+  color: #000000;
 }
 
 .sidenavbar ul li div {
@@ -37,12 +42,19 @@
   align-items: center;
 }
 
-.sidenavbar ul li:hover {
-  background: #78999b;
-}
-
 .sidenavbar ul li a {
   width: 100%;
+  height: 100%;
   text-decoration: none;
-  color: black;
+  display: flex;
+  align-items: center;
+  transition: all 0.5s ease;
+  padding: 3px 5px 3px 20px;
+  border-radius: 5px;
+  color: #000;
+}
+
+.sidenavbar ul li a:hover {
+  background-color: #000000;
+  color: white;
 }

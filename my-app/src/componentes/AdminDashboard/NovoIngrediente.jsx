@@ -1,29 +1,16 @@
 import React, { useState, useEffect } from "react";
 import supabase from "../../supabaseClient";
-<<<<<<< HEAD
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Link,
-  BrowserRouter,
-} from "react-router-dom";
-=======
 import { Link } from "react-router-dom";
->>>>>>> origin/luish
+import "./NovoIngrediente.css"
 
 const NovoIngrediente = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [idcategory, setCategoryId] = useState("2");
-<<<<<<< HEAD
-  const [image, setImage] = useState(null); // State to hold image data
-=======
   const [image, setImage] = useState(null);
   const [imageURL, setImageURL] = useState(null);
   const [imageSalva, setImageSalva] = useState(false);
 
->>>>>>> origin/luish
   const [categories, setCategories] = useState([]);
   const [submitted, setSubmitted] = useState(false);
 
@@ -65,35 +52,6 @@ const NovoIngrediente = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-<<<<<<< HEAD
-
-    try {
-      // Insert data into the "Ingredients" table
-      const { data: insertedData, error } = await supabase
-        .from("Ingredients")
-        .insert([
-          {
-            name,
-            description,
-            idcategory,
-            image: image, // Storing image data in the database
-          },
-        ]);
-
-      if (error) {
-        throw error;
-      }
-
-      console.log("Data inserted successfully:", insertedData);
-
-      // Reset form fields after successful submission
-      setName("");
-      setDescription("");
-      setCategoryId("");
-      setImage(null);
-    } catch (error) {
-      console.error("Error inserting data:", error.message);
-=======
     inserImg();
 
     if (imageSalva) {
@@ -124,16 +82,15 @@ const NovoIngrediente = () => {
 
         setSubmitted(true);
 
-        window.location.href = "/DashboardTeste";
+        
       } catch (error) {
         console.error("Error inserting data:", error.message);
       }
->>>>>>> origin/luish
     }
   };
 
   return (
-    <div>
+    <div id="novoIngrediente">
       <h1>Novo Ingrediente</h1>
       <form onSubmit={handleSubmit}>
         <label>
@@ -188,7 +145,7 @@ const NovoIngrediente = () => {
         <button type="submit">Submit</button>
       </form>
 
-      {submitted && <Link to="/DashboardTeste" />}
+      {submitted && <Link to="/AdminDashboardPage" />}
     </div>
   );
 };

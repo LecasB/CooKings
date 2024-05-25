@@ -5,41 +5,34 @@ import { Link } from "react-router-dom";
 const SideNavBar = () => {
   return (
     <nav className="sidenavbar">
-      <img src={Logo} alt="logo" srcset="" />
       <ul>
         <li>
-          <div>
-            <Link> Dashborad </Link>
-          </div>
+          <Link to="Dashboard"> Dashboard </Link>
+        </li>
+
+        <li>
+          <Link to="NovoIngrediente"> New Ingridient </Link>
+        </li>
+
+        <li>
+          <Link to="NovaReceita"> New Recipe </Link>
+        </li>
+
+        <li>
+          <Link to="ListaIngridiente"> Ingridients List </Link>
+        </li>
+
+        <li>
+          <Link to="ListaReceitas"> Recipes List</Link>
+        </li>
+
+        <li>
+          <Link to="NovaCategoriaIngrediente"> New Ingredient's Category </Link>
         </li>
 
         <li>
           <div>
-            <Link> New Recipes </Link>
-          </div>
-        </li>
-
-        <li>
-          <div>
-            <Link> Order List </Link>
-          </div>
-        </li>
-
-        <li>
-          <div>
-            <Link> Update Products </Link>
-          </div>
-        </li>
-
-        <li>
-          <div>
-            <Link> Update Recipes </Link>
-          </div>
-        </li>
-
-        <li>
-          <div>
-            <Link> Insert Products </Link>
+            <Link to="NovaCategoriaReceita"> New Recipe's Category </Link>
           </div>
         </li>
       </ul>

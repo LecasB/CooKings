@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../estilos/LoginForm.css";
 import "../../estilos/SignUpForm.css";
 import Logo from "../../imagens/cooKingsImagev1.png";
@@ -7,48 +7,40 @@ import InputText from "./InputText";
 import CheckBox from "./CheckBox";
 import Text from "./Text";
 import supabase from "../../supabaseClient";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
-  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  const verifyLogin = async () => {
+  const handleLogin = async () => {
     try {
-      
-      const { data, error } = await supabase
-        .from("Users")
-        .select("*")
-        .eq("username", username)
-        .eq("password", password)
-        .single();
-
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email: email,
+        password: password,
+      });
       if (error) {
-        throw error;
-      }
-
-      if (data) {
-        // Redirect to UserPage
-        window.location.href = "/UserPage";
+        alert(error.message);
+        console.error("Error signing in:", error.message);
       } else {
-        throw new Error("Invalid username or password");
+        console.log("User signed in successfully:", data);
+        navigate("/");
       }
     } catch (error) {
-      alert(error.message);
+      console.log(error);
     }
-  };
-
-  const redirectToSignup = () => {
-    window.location.href = "/SignUpPage";
   };
 
   return (
     <div id="page">
-      <form id="SignUpForm">
+      <div id="SignUpForm">
         <img src={Logo} alt="Logo" />
         <InputText
-          texto={"Username"}
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
+          texto={"Email"}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <InputText
           texto={"Password"}
@@ -60,12 +52,13 @@ const LoginForm = () => {
           <CheckBox />
           <Text texto="Forgot your Password?" />
         </div>
-
-        <LoginButton texto={"Log in"} onClick={verifyLogin} />
+        <LoginButton texto={"Log in"} type="submit" onClick={handleLogin} />
         <Text texto="Or" />
         <Text texto="Don't have an account yet?" />
-        <LoginButton texto={"Create Account"} onClick={redirectToSignup} />
-      </form>
+        <Link to="/SignUpPage">
+          <LoginButton texto={"Create Account"} type="button" />
+        </Link>
+      </div>
     </div>
   );
 };

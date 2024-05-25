@@ -4,6 +4,7 @@ import CardProcurar from "../CardProcurar";
 import NavBar from "../NavBar";
 import ListaCards from "./ListaCards";
 import supabase from "../../supabaseClient";
+import "../../estilos/EstilosDoCardInicial.css";
 import "../../estilos/SearchPage.css";
 
 const SearchPage = () => {

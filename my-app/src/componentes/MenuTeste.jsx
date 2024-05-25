@@ -18,6 +18,7 @@ import IngredientsListPage from "./IngredientsListPage/IngredientsListPage";
 import EditRecipePage from "./EditRecipePage/EditRecipePage";
 import Layout from "./Layout";
 import LayoutAdmin from "./AdminDashboard/LayoutAdmin";
+import LayoutClient from "./ClientDashboard/LayoutClient";
 import NavBar from "./NavBar";
 import ErrorPage from "./ErrorPage/errorPage";
 import AdminDashboardPage from "./AdminDashboard/AdminDashboardPage";
@@ -30,6 +31,7 @@ import NovaCategoriaIngrediente from "./AdminDashboard/NovaCategoriaIngrediente"
 import NovaCategoriaReceita from "./AdminDashboard/NovaCategoriaReceita";
 import EditRecipe from "./AdminDashboard/EditRecipe";
 import Dashboard from "./AdminDashboard/Dashboard";
+import NovoIngredienteClient from "./ClientDashboard/NovoIngredienteClient";
 
 const MenuTeste = () => {
   return (
@@ -99,6 +101,13 @@ const MenuTeste = () => {
             element={<NovaCategoriaReceita />}
           />
         </Route>
+
+        <Route path="/ClientDashboard" element={<LayoutClient />}>
+
+        <Route path="/ClientDashboard/NovoIngredienteClient" element={<NovoIngredienteClient />}/>
+
+        </Route>
+
       </Routes>
     </BrowserRouter>
   );

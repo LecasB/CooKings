@@ -15,7 +15,6 @@ const OverlayMenu = ({ isOpen, onClose}) => {
           <li><Link to="/EditRecipePage">Edit Recipe</Link></li>
           <li><Link to="/IngredientsListPage/IngredientsListPage">Ingredients List Page</Link></li>
           <li><Link to="/ErrorPage">Error Page</Link></li>
-          <li><Link to="/DashboardTeste">Teste Admin</Link></li>
           <li><Link to="/AdminDashboardPage/Dashboard">Admin</Link></li>
         </ul>
       </div>

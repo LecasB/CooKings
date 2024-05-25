@@ -7,15 +7,19 @@ import supabase from "../../supabaseClient";
 import "../../estilos/SearchPage.css";
 
 const SearchPage = () => {
-  //limpa sempre q a pagina n está renderizada
-  /*  useEffect(() => {
-    return () => {
-      localStorage.clear();
-    };
-  }, []); */
-
   const [categoriasUser, setCategoriasUser] = useState([]);
   const [tagsUser, setTagsUser] = useState([]);
+  const [value, setValue] = useState("");
+
+  const verificarLocalStorage = () => {
+    if (localStorage.getItem("valueIndexPage")) {
+      setValue(localStorage.getItem("valueIndexPage"));
+    }
+  };
+
+  useEffect(() => {
+    verificarLocalStorage();
+  }, []);
 
   return (
     <>
@@ -27,8 +31,14 @@ const SearchPage = () => {
             setCategoriasUser={setCategoriasUser}
             tagsUser={tagsUser}
             setTagsUser={setTagsUser}
+            inputValue={value}
+            setInputValue={setValue}
           />
-          <ListaCards categoriasUser={categoriasUser} tagsUser={tagsUser} />
+          <ListaCards
+            categoriasUser={categoriasUser}
+            tagsUser={tagsUser}
+            inputValue={value}
+          />
         </div>
       </main>
     </>

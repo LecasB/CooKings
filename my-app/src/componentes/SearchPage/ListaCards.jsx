@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import supabase from "../../supabaseClient";
 
-const ListaCards = ({ categoriasUser, tagsUser }) => {
+const ListaCards = ({ categoriasUser, tagsUser, inputValue }) => {
   const [item, setItem] = useState([]);
 
   const [parar, setParar] = useState(false);
@@ -21,6 +21,10 @@ const ListaCards = ({ categoriasUser, tagsUser }) => {
       query = query.overlaps("idtags", tagsUser);
     }
 
+    if (inputValue || inputValue != " ") {
+      query = query.ilike("name", `%${inputValue}%`); // por motivos que apenas deus sabe eu n posso colocar apenas inputValue, tem que ser obrigatoriamente `%${inputValue}%` 😢
+    }
+
     query = query.order("idrecipe", { ascending: false }).range(min, max);
 
     const { data, error } = await query;
@@ -35,6 +39,14 @@ const ListaCards = ({ categoriasUser, tagsUser }) => {
   useEffect(() => {
     getItems();
   }, [categoriasUser]);
+
+  useEffect(() => {
+    getItems();
+  }, [inputValue]);
+
+  useEffect(() => {
+    console.log("aquii");
+  }, [localStorage]);
 
   useEffect(() => {
     getItems();

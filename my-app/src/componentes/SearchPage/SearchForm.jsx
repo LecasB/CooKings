@@ -8,6 +8,8 @@ const SearchForm = ({
   setCategoriasUser,
   tagsUser,
   setTagsUser,
+  inputValue,
+  setInputValue,
 }) => {
   const [open, setOpen] = useState(false);
   let mediaQuery = window.matchMedia("(max-width: 1030px)");
@@ -59,7 +61,7 @@ const SearchForm = ({
       </button>
       <div className="searchform" id="searchform">
         <div className="searchform-input">
-          <SearchInput />
+          <SearchInput inputValue={inputValue} setInputValue={setInputValue} />
         </div>
         <div>
           <hr />

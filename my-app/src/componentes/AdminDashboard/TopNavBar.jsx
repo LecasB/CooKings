@@ -68,11 +68,7 @@ const TopNavBar = () => {
               <div className="line"></div>
             </label>
           </div>
-      <select name="" id="">
-        <option value="Admin" selected>
-          Admin
-        </option>
-      </select>
+      
       
           <OverlayMenu isOpen={isOpen} onClose={fecharMenu}/>
     </div>

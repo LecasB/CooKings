@@ -18,6 +18,7 @@ import IngredientsListPage from "./IngredientsListPage/IngredientsListPage";
 import EditRecipePage from "./EditRecipePage/EditRecipePage";
 import Layout from "./Layout";
 import LayoutAdmin from "./AdminDashboard/LayoutAdmin";
+import LayoutClient from "./ClientDashboard/LayoutClient";
 import NavBar from "./NavBar";
 import ErrorPage from "./ErrorPage/errorPage";
 import AdminDashboardPage from "./AdminDashboard/AdminDashboardPage";
@@ -98,6 +99,10 @@ const MenuTeste = () => {
             path="/AdminDashboardPage/NovaCategoriaReceita"
             element={<NovaCategoriaReceita />}
           />
+        </Route>
+
+        <Route path="/ClientDashboard" element={<LayoutClient />}>
+
         </Route>
       </Routes>
     </BrowserRouter>

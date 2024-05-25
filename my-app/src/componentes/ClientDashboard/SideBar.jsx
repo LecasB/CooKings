@@ -15,7 +15,7 @@ const SideBar = () => {
         </li>
 
         <li>
-          <Link to="ListaIngridiente"> My Ingriedients </Link>
+          <Link to="NovoIngredienteClient"> My Ingriedients </Link>
         </li>
 
         <li>

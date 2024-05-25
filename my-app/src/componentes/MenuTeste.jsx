@@ -31,6 +31,7 @@ import NovaCategoriaIngrediente from "./AdminDashboard/NovaCategoriaIngrediente"
 import NovaCategoriaReceita from "./AdminDashboard/NovaCategoriaReceita";
 import EditRecipe from "./AdminDashboard/EditRecipe";
 import Dashboard from "./AdminDashboard/Dashboard";
+import NovoIngredienteClient from "./ClientDashboard/NovoIngredienteClient";
 
 const MenuTeste = () => {
   return (
@@ -103,7 +104,10 @@ const MenuTeste = () => {
 
         <Route path="/ClientDashboard" element={<LayoutClient />}>
 
+        <Route path="/ClientDashboard/NovoIngredienteClient" element={<NovoIngredienteClient />}/>
+
         </Route>
+
       </Routes>
     </BrowserRouter>
   );

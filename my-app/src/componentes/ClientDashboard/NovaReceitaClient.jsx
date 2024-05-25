@@ -17,6 +17,7 @@ const NovaReceitaClient = () =>{
   const [categories, setCategories] = useState([]);
   const [imageFile, setImageFile] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
+  const [userId, setUserId] = useState(null);
 
   // Fetch categories from Supabase
   const fetchCategories = async () => {
@@ -32,6 +33,19 @@ const NovaReceitaClient = () =>{
       console.error("Error fetching categories:", error.message);
     }
   };
+
+  async function getUser() {
+    const { data, error } = await supabase.auth.getSession();
+    
+    if (error) {
+        console.error("Error fetching user session:", error.message);
+        return;
+    }
+
+    if (data.session) {
+        setUserId(data.session.user.id);
+    }
+}
 
   // Fetch ingredient data if editing
 
@@ -102,6 +116,9 @@ const NovaReceitaClient = () =>{
         image:
           `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/` +
           imageUrlInDatabase,
+          iduser: userId,
+          state: false,
+
       };
 
       console.log(
@@ -162,6 +179,7 @@ const NovaReceitaClient = () =>{
   const idingridients = match ? match[1] : null;
 
   useEffect(() => {
+    getUser();
     fetchCategories();
     if (idingridients) {
       fetchIngredientData();

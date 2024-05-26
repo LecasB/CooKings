@@ -75,7 +75,7 @@ const ViewRecipePage = () => {
           <div className="boxcard">
             {recommendedRecipes.map((recipe) => (
               <CardProcurar
-                key={recipe.idrecipe} // Using recipe.idrecipe as the unique key
+                key={recipe.idrecipe} 
                 titulo={recipe.name}
                 texto={recipe.description}
 				image={recipe.image}

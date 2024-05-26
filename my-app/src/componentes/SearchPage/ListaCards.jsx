@@ -10,6 +10,26 @@ const ListaCards = ({ categoriasUser, tagsUser, inputValue }) => {
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(11);
 
+  const [user, setUser] = useState();
+
+  const verificarlogin = async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (user) {
+      setUser(user);
+    } else {
+      setUser(null);
+    }
+    console.log("User: ");
+    console.warn(user);
+  };
+
+  useEffect(() => {
+    verificarlogin();
+  }, []);
+
   const getItems = async () => {
     // 1º pedido
     let query = supabase.from("Recipes").select("*");
@@ -111,6 +131,7 @@ const ListaCards = ({ categoriasUser, tagsUser, inputValue }) => {
             titulo={card.name}
             texto={card.description}
             image={card.image}
+            iduser={user ? user.id : null}
           />
         ))}
       </div>

@@ -48,6 +48,10 @@
   flex-wrap: wrap;
 }
 
+.boxcard > * {
+  margin: 10px;
+}
+
 .box {
   display: flex;
   flex-direction: column;

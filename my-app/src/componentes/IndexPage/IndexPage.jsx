@@ -32,9 +32,6 @@ const IndexPage = () => {
 
   return (
     <>
-      {/* <header>
-        <NavBar />
-      </header> */}
       <main>
         <div className="IndexPage">
           <div

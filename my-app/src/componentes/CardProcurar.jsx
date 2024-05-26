@@ -5,12 +5,12 @@ import { Link } from "react-router-dom";
 import FavoriteButton from "./SearchPage/FavoriteButton";
 
 const CardProcurar = ({ titulo, texto, image, iduser, id }) => {
-  
-
   function refreshPage() {
     window.parent.location();
   }
 
+  const idForUser = iduser.id;
+  //alert(idForUser);
 
   return (
     <div className="card-procurar">
@@ -27,7 +27,7 @@ const CardProcurar = ({ titulo, texto, image, iduser, id }) => {
           <Link onClick={refreshPage} to={`/ViewRecipePage?=${id}`}>
             <buton>View</buton>
           </Link>
-          {iduser && <FavoriteButton />}
+          {iduser && <FavoriteButton idRecipes={id} idUser={idForUser} />}
         </div>
       </div>
     </div>

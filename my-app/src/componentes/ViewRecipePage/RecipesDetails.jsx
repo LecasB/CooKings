@@ -1,9 +1,8 @@
 import React from "react";
-import "../../estilos/RecipeDetails.css";
+import "./RecipesDetails.css";
 
 const RecipeDetails = () => {
 	return (
-		<>
 			<main>
 				<div className="ViewRecipePage">
 					<div class="Recipe">
@@ -20,7 +19,6 @@ const RecipeDetails = () => {
 					</div>
 				</div>
 			</main>
-		</>
 	);
 };
 

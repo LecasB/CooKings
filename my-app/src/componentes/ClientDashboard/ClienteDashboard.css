@@ -35,6 +35,12 @@ tbody tr td{
     border: 1px solid black;
     padding: 10px;
 }
+
+tbody tr td img{
+    height: 100px;
+    width: 100px;
+}
+
 tr{
 
     padding: 10px;

@@ -57,6 +57,19 @@ const ListaIngredienteClient = () => {
     }
   };
 
+  const abc = async (idPassado) => {
+    const { data, error } = await supabase
+      .from("Ingredients")
+      .select("name")
+      .eq("idingridients", idPassado).single;
+
+    if (data) {
+      setNomes(data);
+    } else {
+      console.warn(error);
+    }
+  };
+
   const handleSearchChange = (e) => {
     setPesquisa(e.target.value);
   };

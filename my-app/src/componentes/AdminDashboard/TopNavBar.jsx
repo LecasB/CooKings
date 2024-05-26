@@ -61,7 +61,9 @@ const TopNavBar = () => {
   return (
     <div className="topnavbar">
       <div>
+        <Link to="/">
         <img src={Logo} alt="logo" srcSet="" />
+        </Link>
       </div>
       <div id="burger-icon" onClick={ativarMenu}>
             <label className={`burger ${isOpen ? "open" : ""}`} for="burger">

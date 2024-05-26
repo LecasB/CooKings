@@ -38,6 +38,7 @@ import EditIngredienteClient from "./ClientDashboard/EditIngredienteClient";
 import NovaReceitaClient from "./ClientDashboard/NovaReceitaClient";
 import ClientDashboard from "./ClientDashboard/ClienteDashboard";
 import ViewRecipePage from "./ViewRecipePage/ViewRecipePage";
+import CategoriesChoice from "./CategoriesChoice";
 
 const MenuTeste = () => {
   return (
@@ -60,6 +61,7 @@ const MenuTeste = () => {
         </Route>
 
         <Route path="/">
+          <Route path="CategoriesChoice" element={<CategoriesChoice />} />
           <Route path="LoadingPage" element={<LoadingScreen />} />
           <Route path="LoginPage" element={<LoginForm />} />
           <Route path="SignUpPage" element={<SignUpForm />} />

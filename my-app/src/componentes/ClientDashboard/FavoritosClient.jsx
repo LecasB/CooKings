@@ -4,7 +4,17 @@ import { useEffect, useState } from 'react';
 
 const FavoritosClient = () =>{
     return (
-        <h1>Favoritos:</h1>
+        <div className='favoritosClient'>
+            <div>
+        <h2>Favoritos :)</h2>
+        <input 
+            type='text' 
+            placeholder='Example: Francesinha' 
+            id="SearchListaIngrediente" 
+            
+        />
+        </div>
+    </div>
 
     )
 }

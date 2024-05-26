@@ -63,7 +63,7 @@ const IndexPage = () => {
         </div>
 
         <div className="box">
-          <h2>Recommended for you</h2>
+          <h2>Based on your preferences</h2>
           <div className="boxcard">
             <ListaCard dados={recipe} />
           </div>

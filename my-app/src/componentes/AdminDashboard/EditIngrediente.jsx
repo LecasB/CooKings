@@ -158,6 +158,7 @@ const NovoIngrediente = () => {
   const url = window.location.href;
   const match = url.match(/[?&]id=(\d+)/);
   const idingridients = match ? match[1] : null;
+  
 
   useEffect(() => {
     fetchCategories();

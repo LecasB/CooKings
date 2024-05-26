@@ -37,6 +37,7 @@ import ListaIngredienteClient from "./ClientDashboard/ListaIngredienteClient";
 import EditIngredienteClient from "./ClientDashboard/EditIngredienteClient";
 import NovaReceitaClient from "./ClientDashboard/NovaReceitaClient";
 import ClientDashboard from "./ClientDashboard/ClienteDashboard";
+import ViewRecipePage from "./ViewRecipePage/ViewRecipePage";
 
 const MenuTeste = () => {
   return (
@@ -53,6 +54,7 @@ const MenuTeste = () => {
             path="IngredientsListPage/IngredientsListPage"
             element={<IngredientsListPage />}
           />
+          <Route path="ViewRecipePage" element={<ViewRecipePage />} />
           <Route path="UserPage" element={<UserPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>
@@ -105,8 +107,10 @@ const MenuTeste = () => {
         </Route>
 
         <Route path="/ClientDashboard" element={<LayoutClient />}>
-
-        <Route path="/ClientDashboard/ClientDashboard" element={<ClientDashboard />} />
+          <Route
+            path="/ClientDashboard/ClientDashboard"
+            element={<ClientDashboard />}
+          />
 
           <Route
             path="/ClientDashboard/NovoIngredienteClient"
@@ -132,7 +136,6 @@ const MenuTeste = () => {
             path="/ClientDashboard/NovaReceitaClient"
             element={<NovaReceitaClient />}
           />
-
         </Route>
       </Routes>
     </BrowserRouter>

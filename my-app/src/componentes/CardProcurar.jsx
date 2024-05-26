@@ -1,9 +1,14 @@
 import React, { useEffect, useState } from "react";
 import "../estilos/CardProcurar.css";
 import supabase from "../supabaseClient";
+import { Link } from "react-router-dom";
 
-const CardProcurar = ({ titulo, texto, image, iduser }) => {
+const CardProcurar = ({ titulo, texto, image, iduser, id }) => {
   const [isClicked, setIsClicked] = useState(false);
+
+  function refreshPage() {
+    window.parent.location();
+  }
 
   const handleSvgClick = () => {
     setIsClicked(!isClicked);
@@ -21,7 +26,9 @@ const CardProcurar = ({ titulo, texto, image, iduser }) => {
         </div>
 
         <div className="cont-actions-procurar">
-          <button type="button">View</button>
+          <Link onClick={refreshPage} to={`/ViewRecipePage?=${id}`}>
+            <buton>View</buton>
+          </Link>
           {iduser && (
             <svg
               onClick={handleSvgClick}

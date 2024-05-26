@@ -37,7 +37,7 @@ import ListaIngredienteClient from "./ClientDashboard/ListaIngredienteClient";
 import EditIngredienteClient from "./ClientDashboard/EditIngredienteClient";
 import NovaReceitaClient from "./ClientDashboard/NovaReceitaClient";
 import ClientDashboard from "./ClientDashboard/ClienteDashboard";
-import RecipesDetails from "./ViewRecipePage/RecipesDetails";
+import ViewRecipePage from "./ViewRecipePage/ViewRecipePage";
 
 const MenuTeste = () => {
   return (
@@ -54,7 +54,7 @@ const MenuTeste = () => {
             path="IngredientsListPage/IngredientsListPage"
             element={<IngredientsListPage />}
           />
-          <Route path="RecipesDetails" element={<RecipesDetails />} />
+          <Route path="ViewRecipePage" element={<ViewRecipePage />} />
           <Route path="UserPage" element={<UserPage />} />
           <Route path="*" element={<ErrorPage />} />
         </Route>

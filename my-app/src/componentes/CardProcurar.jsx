@@ -5,15 +5,12 @@ import { Link } from "react-router-dom";
 import FavoriteButton from "./SearchPage/FavoriteButton";
 
 const CardProcurar = ({ titulo, texto, image, iduser, id }) => {
-  const [isClicked, setIsClicked] = useState(false);
+  
 
   function refreshPage() {
     window.parent.location();
   }
 
-  const handleSvgClick = () => {
-    setIsClicked(!isClicked);
-  };
 
   return (
     <div className="card-procurar">

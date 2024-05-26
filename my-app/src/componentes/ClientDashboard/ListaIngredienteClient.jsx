@@ -10,7 +10,7 @@ const ListaIngredienteClient = () => {
     try {
       const { data, error } = await supabase
         .from("Product_User")
-        .select()
+        .select("name")
         .eq("iduser", userId);
 
       if (error) {
@@ -74,6 +74,19 @@ const ListaIngredienteClient = () => {
     setPesquisa(e.target.value);
   };
 
+  const abc = async (idPassado) => {
+    const { data, error } = await supabase
+      .from("Ingredients")
+      .select("name")
+      .eq("idingridients", idPassado).single;
+
+    if (data) {
+      setNomes(data);
+    } else {
+      console.warn(error);
+    }
+  };
+
   const filteredNomes = nomes.filter(
     (nome) =>
       nome.unity.toLowerCase().includes(pesquisa.toLowerCase()) ||
@@ -111,8 +124,10 @@ const ListaIngredienteClient = () => {
           {filteredNomes.map((nome) => (
             <tr key={nome.id}>
               <td>{nome.idIng}</td>
-              <td>(●'◡'●)</td>
-              <td><img srcSet="https://media.discordapp.net/attachments/624014259751485441/787147697215111168/755982278949077003.gif?ex=66549c2b&is=66534aab&hm=d74256f597c568bcc64967e81c76df38b00091e70083b99451be34dd9ccf77ac&"></img></td>
+              <td>{abc(nome.idIng)}</td>
+              <td>
+                <img srcSet="https://media.discordapp.net/attachments/624014259751485441/787147697215111168/755982278949077003.gif?ex=66549c2b&is=66534aab&hm=d74256f597c568bcc64967e81c76df38b00091e70083b99451be34dd9ccf77ac&"></img>
+              </td>
               <td>{nome.unity}</td>
               <td>{nome.quantity}</td>
               <td>{nome.date_expire}</td>

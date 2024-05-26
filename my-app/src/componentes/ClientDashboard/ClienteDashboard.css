@@ -5,6 +5,11 @@
     margin: 0 auto;
     gap:10px;
     padding-top: 30px;
+    
+}
+
+.novoIngredienteClient h1, .novoIngredienteClient p{
+    text-align: center;
 }
 
 .novoIngredienteClient{
@@ -43,4 +48,12 @@ svg{
 #SearchListaIngrediente{
     margin-bottom: 20px;
     padding: 10px 20px;
+}
+
+.favoritosClient{
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    
+    width: 100%;
 }

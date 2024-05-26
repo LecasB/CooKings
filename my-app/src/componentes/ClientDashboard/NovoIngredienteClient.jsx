@@ -74,6 +74,9 @@ const NovoIngredienteClient = () => {
 
     return (
         <div className='novoIngredienteClient'>
+            <div>
+                <h1>Adicione o Seu Ingrediente</h1>
+            </div>
             <form onSubmit={handleSubmit}>
                 <select 
                     value={selectedIngredient}
@@ -103,6 +106,9 @@ const NovoIngredienteClient = () => {
                 />
                 <button type="submit">Submit</button>
             </form>
+            <div>
+                <p>*Caso nao exista o ingrediente que procura clique aqui para sugerir a sua adição*</p>
+            </div>
         </div>
     );
 };

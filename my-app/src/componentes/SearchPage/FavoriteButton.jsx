@@ -1,18 +1,62 @@
 import React, { useEffect, useState } from "react";
 import supabase from "../../supabaseClient";
 
-const FavoriteButton = () => {
+const FavoriteButton = ({ idRecipes, idUser }) => {
   const [isClicked, setIsClicked] = useState(false);
 
-  const handleSvgClick = () => {
-    setIsClicked(!isClicked);
+  const handleSvgClick = async () => {
+    try {
+      if (isClicked) {
+        // If already clicked (favorited), remove from favorites
+        const { error } = await supabase
+          .from("User_Favourites")
+          .delete()
+          .match({ idRecipes, idUser });
+
+        if (error) throw error;
+      } else {
+        // If not clicked (not favorited), add to favorites
+        const { error } = await supabase
+          .from("User_Favourites")
+          .insert([{ idRecipes, idUser }]);
+
+        if (error) throw error;
+      }
+
+      setIsClicked(!isClicked);
+    } catch (error) {
+      console.error("Error updating favorite status:", error.message);
+    }
   };
+
+  const checkFavorite = async () => {
+    try {
+      const { data, error } = await supabase
+        .from("User_Favourites")
+        .select("*")
+        .match({ idRecipes, idUser })
+        .single();
+
+      if (error && error.code !== "PGRST116") {
+        throw error;
+      }
+
+      setIsClicked(!!data);
+    } catch (error) {
+      console.error("Error checking favorite status:", error.message);
+    }
+  };
+
+  useEffect(() => {
+    checkFavorite();
+  }, [idRecipes, idUser]);
 
   return (
     <svg
       onClick={handleSvgClick}
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 576 512"
+      style={{ cursor: "pointer" }}
     >
       <path
         fill={isClicked ? "#FFD43B" : "currentColor"}

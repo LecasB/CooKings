@@ -1,65 +1,101 @@
-.novoIngredienteClient form{
-    display: flex;
-    flex-direction: column;
-    width: 35%;
-    margin: 0 auto;
-    gap:10px;
-    padding-top: 30px;
-    
+.novoIngredienteClient form {
+  display: flex;
+  flex-direction: column;
+  width: 35%;
+  margin: 0 auto;
+  gap: 10px;
+  padding-top: 30px;
 }
 
-.novoIngredienteClient h1, .novoIngredienteClient p{
-    text-align: center;
+.novoIngredienteClient h1,
+.novoIngredienteClient p {
+  text-align: center;
 }
 
-.novoIngredienteClient{
-    width: 100%;
+.novoIngredienteClient {
+  width: 100%;
 }
 
-.listaIngredienteClient{
-    display: flex;
-    flex-direction: column;
-    width: 55%;
-    margin: 0 auto;
-    padding-top: 30px;
-    text-align: center;
+.listaIngredienteClient {
+  display: flex;
+  flex-direction: column;
+  width: 55%;
+  margin: 0 auto;
+  padding-top: 30px;
+  text-align: center;
 }
 
-.listaIngredienteClient table{
-    border: 1px solid black;
+.listaIngredienteClient table {
+  border: 1px solid black;
 }
 
-tbody tr td{
-    padding: 0;
-    margin: 0;
-    border: 1px solid black;
-    padding: 10px;
+tbody tr td {
+  padding: 0;
+  margin: 0;
+  border: 1px solid black;
+  padding: 10px;
 }
 
-tbody tr td img{
-    height: 100px;
-    width: 100px;
+tbody tr td img {
+  height: 100px;
+  width: 100px;
 }
 
-tr{
-
-    padding: 10px;
+tr {
+  padding: 10px;
 }
 
-svg{
-    height: 30px;
-    width: 30px;
+svg {
+  height: 30px;
+  width: 30px;
 }
 
-#SearchListaIngrediente{
-    margin-bottom: 20px;
-    padding: 10px 20px;
+#SearchListaIngrediente {
+  margin-bottom: 20px;
+  padding: 10px 20px;
 }
 
-.favoritosClient{
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    
-    width: 100%;
+.favoritosClient {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+}
+
+#productListPage {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+}
+.NormalProdCard {
+  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(240px, 1fr));
+  margin: 0 auto;
+}
+.bodyProdCard {
+  width: 240px;
+  margin: 0 auto;
+}
+.displayAllShoes {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+@media only screen and (max-width: 1650px) {
+  .NormalProdCard {
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+  }
+}
+@media only screen and (max-width: 1400px) {
+  .NormalProdCard {
+    grid-template-columns: repeat(2, minmax(240px, 1fr));
+  }
+}
+@media only screen and (max-width: 1050px) {
+  .NormalProdCard {
+    grid-template-columns: repeat(1, minmax(240px, 1fr));
+  }
 }

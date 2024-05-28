@@ -8,6 +8,7 @@ const ClientDashboard = () => {
   const [expire, setExpire] = useState(0);
   const [expiring, setExpiring] = useState(0);
   const [valid, setValid] = useState(0);
+  const [fav, setFav] = useState(0);
 
   const getUser = async () => {
     const { data, error } = await supabase.auth.getSession();
@@ -21,6 +22,7 @@ const ClientDashboard = () => {
       const userId = data.session.user.id;
       setUserId(userId);
       getIngredient(userId);
+      countFavorites(userId);
     }
   };
 
@@ -39,6 +41,19 @@ const ClientDashboard = () => {
       countStatuses(data);
     } catch (error) {
       console.error("Error fetching ingredients:", error.message);
+    }
+  };
+
+  const countFavorites = async (userId) => {
+    const { data, error } = await supabase
+      .from("User_Favourites")
+      .select()
+      .eq("idUser", userId);
+
+    if (data) {
+      setFav(data.length);
+    } else {
+      console.error("erro:", error.message);
     }
   };
 
@@ -77,7 +92,7 @@ const ClientDashboard = () => {
       <h3>You have {expire} Ingredients Expired</h3>
       <h3>You have {expiring} Ingredients Expiring</h3>
       <h3>You have {valid} Ingredients Valid</h3>
-      <h3>You got X favourites</h3>
+      <h3>You got {fav} favourites</h3>
       <h3>You have {produtos.length} Ingredients</h3>
       <div className=""></div>
     </div>

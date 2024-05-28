@@ -76,7 +76,7 @@ const MenuTeste = () => {
             path="/AdminDashboardPage/NovoIngrediente"
             element={<NovoIngrediente />}
           />
-          <Route path="/AdminDashboardPage/Dashboard" element={<Dashboard />} />
+          <Route index path="/AdminDashboardPage/" element={<Dashboard />} />
           <Route
             path="/AdminDashboardPage/EditIngrediente"
             element={<EditIngrediente />}
@@ -94,6 +94,7 @@ const MenuTeste = () => {
             element={<NovaReceita />}
           />
           <Route
+            index
             path="/AdminDashboardPage/ListaReceitas"
             element={<ListaReceitas />}
           />
@@ -109,10 +110,7 @@ const MenuTeste = () => {
         </Route>
 
         <Route path="/ClientDashboard" element={<LayoutClient />}>
-          <Route
-            path="/ClientDashboard/ClientDashboard"
-            element={<ClientDashboard />}
-          />
+          <Route index path="/ClientDashboard/" element={<ClientDashboard />} />
 
           <Route path="UserPage" element={<UserPage />} />
 

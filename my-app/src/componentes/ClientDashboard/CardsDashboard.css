@@ -1,0 +1,40 @@
+.card-clientdashboard {
+  width: 250px;
+  height: 150px;
+  border: 1px solid rgba(0, 0, 0, 0.26);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  transition: transform 0.3s ease 0.1s;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.card-clientdashboard:hover {
+  transform: scale(1.1);
+  border: 1px solid rgba(255, 0, 0, 0.788);
+  box-shadow: 0 0 5px rgba(255, 0, 0, 0.788);
+  /* color: rgba(255, 0, 0, 0.788); */
+}
+
+.card-clientdashboard-icon {
+}
+
+.card-clientdashboard-text {
+  display: flex;
+  gap: 10px;
+  font-size: 1.1em;
+  justify-content: space-around;
+}
+
+.card-clientdashboard-p {
+  margin: 0;
+}
+
+.card-clientdashboard-total {
+  margin-bottom: 0;
+  font-size: 2rem;
+  color: red;
+}

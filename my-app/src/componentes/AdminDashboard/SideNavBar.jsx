@@ -7,7 +7,7 @@ const SideNavBar = () => {
     <nav className="sidenavbar">
       <ul>
         <li>
-          <Link to="Dashboard"> Dashboard </Link>
+          <Link to="/AdminDashboardPage/"> Dashboard </Link>
         </li>
 
         <li>

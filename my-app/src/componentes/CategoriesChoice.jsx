@@ -56,7 +56,7 @@ const CategoriesChoice = () => {
     };
 
     return (
-        <div>
+        <div className='categoriesChoice'>
             {step === 1 && (
                 <div id="part1">
                     <h1>Bem-vindo ao CooKings!</h1>

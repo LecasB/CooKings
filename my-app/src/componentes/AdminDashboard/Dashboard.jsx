@@ -43,14 +43,14 @@ const Dashboard = () => {
     <div className="dashBoardMain">
       <h1>{date} Admin :)</h1>
       <div className="dashBoardCards">
-        <div>
+        <div className="cardDashboard">
           <h2>Total Recipes:</h2>
           <h3>Recipes: {recipes}</h3>
           <Link to="../ListaReceitas">
             <button>View All</button>
           </Link>
         </div>
-        <div>
+        <div className="cardDashboard">
           <h2>Total Ingredients:</h2>
           <h3>Ingredients: {ingredients}</h3>
           <Link to="../ListaIngridiente">

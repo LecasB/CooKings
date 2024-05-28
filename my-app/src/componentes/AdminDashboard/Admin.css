@@ -42,6 +42,37 @@
   width: 100%;
 }
 
+.cardDashboard{
+  background-color: rgb(252, 252, 252);
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid black;
+  width: 200px;
+  box-shadow: 0 0 4px 1px;
+  transition: transform 0.3s ease 0.1s;
+}
+
+.cardDashboard:hover{
+  transform: scale(1.1);
+}
+
+.cardDashboard button{
+  background-color: rgb(252, 252, 252);
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid black;
+  width: 50%;
+  transition: background-color 0.6s;
+}
+
+.cardDashboard button:hover{
+  background-color: #a1998884;
+  padding: 10px;
+  border-radius: 15px;
+  border: 1px solid black;
+  width: 50%;
+}
+
 
 .listaReceita, .listaIngrediente{
   display: flex;
@@ -78,6 +109,9 @@
 .dashBoardCards {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+  gap:20px;
+
 }
 
 @media only screen and (max-width: 1650px) {

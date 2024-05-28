@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import supabase from "../../supabaseClient";
+import "./NovoIngrediente.css"
 
 
 const ListaReceitaClient = () => {

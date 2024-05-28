@@ -18,16 +18,16 @@ const IndexPage = () => {
     const fetchRandomRecipes = async () => {
       try {
         const { data: allIds, error: allIdsError } = await supabase
-          .from('Recipes')
-          .select('idrecipe');
+          .from("Recipes")
+          .select("idrecipe");
 
         if (allIdsError) {
-          console.error('Error fetching all ids:', allIdsError);
+          console.error("Error fetching all ids:", allIdsError);
           return;
         }
 
         if (!allIds || allIds.length === 0) {
-          console.error('No recipe ids found');
+          console.error("No recipe ids found");
           return;
         }
 
@@ -36,13 +36,13 @@ const IndexPage = () => {
 
         const recipePromises = shuffledIds.map(async (row) => {
           const { data: recipe, error: recipeError } = await supabase
-            .from('Recipes')
-            .select('*')
-            .eq('idrecipe', row.idrecipe)
+            .from("Recipes")
+            .select("*")
+            .eq("idrecipe", row.idrecipe)
             .single();
 
           if (recipeError) {
-            console.error('Error fetching recipe:', recipeError);
+            console.error("Error fetching recipe:", recipeError);
             return null;
           }
 
@@ -50,9 +50,9 @@ const IndexPage = () => {
         });
 
         const recipes = await Promise.all(recipePromises);
-        setRecommendedRecipes(recipes.filter(recipe => recipe !== null));
+        setRecommendedRecipes(recipes.filter((recipe) => recipe !== null));
       } catch (error) {
-        console.error('Unexpected error:', error);
+        console.error("Unexpected error:", error);
       }
     };
 
@@ -79,13 +79,7 @@ const IndexPage = () => {
     <>
       <main>
         <div className="IndexPage">
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
+          <div id="indexBanner">
             <BoasText nome={username} />
             <figure>
               <img src={chefimage} alt="" />

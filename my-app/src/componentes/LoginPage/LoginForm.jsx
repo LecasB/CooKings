@@ -40,6 +40,7 @@ const LoginForm = () => {
         <InputText
           texto={"Email"}
           value={email}
+          type="text"
           onChange={(e) => setEmail(e.target.value)}
         />
         <InputText

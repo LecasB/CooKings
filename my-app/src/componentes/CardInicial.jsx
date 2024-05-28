@@ -1,11 +1,11 @@
 import React from "react";
 import "../estilos/EstilosDoCardInicial.css";
 
-const CardInicial = ({ titulo, texto }) => {
+const CardInicial = ({ titulo, texto, img  }) => {
   return (
     <div className="card-pi">
       <div className="cont-img">
-        <img src="https://wallpaperaccess.com/full/767093.jpg" alt="" />
+        <img src={img} alt="" />
       </div>
       <div className="cont">
         <div className="cont-text">

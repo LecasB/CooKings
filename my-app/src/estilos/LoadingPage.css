@@ -3,17 +3,17 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: url(https://cdn.discordapp.com/attachments/1180200254570770432/1231568949825503353/stacked-waves-haikei.png?ex=66376ef7&is=6624f9f7&hm=67b6d0e588195ae4cbc50679b5c1df116e80df7dc054bdfcc7cdb4148883f1b0&);
+  background: url("../imagens/backgroundColors.png");
   background-repeat: no-repeat;
   background-size: cover;
 
   height: 100vh;
-            width: 100vw;
-            font-size: 20px;
-            margin: 0px;
-      
-            text-align: center;
-            color: white;
+  width: 100vw;
+  font-size: 20px;
+  margin: 0px;
+
+  text-align: center;
+  color: #8d8777;
 }
 
 body {

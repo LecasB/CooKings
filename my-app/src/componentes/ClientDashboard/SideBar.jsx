@@ -26,6 +26,9 @@ const SideBar = () => {
         <li>
             <Link to="FavoritosClient"> My Favourites </Link>
         </li>
+        <li>
+            <Link to="UserPage"> My Profile </Link>
+        </li>
       </ul>
     </nav>
   );

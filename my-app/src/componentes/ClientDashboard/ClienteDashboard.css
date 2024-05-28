@@ -63,6 +63,16 @@ svg {
   width: 100%;
 }
 
+.perfilUser{
+  width: 100%;
+  justify-content: center;
+  display: flex;
+}
+
+.UserInfo{
+  width: 100%;
+}
+
 #productListPage {
   width: 80%;
   margin: 0 auto;
@@ -99,3 +109,5 @@ svg {
     grid-template-columns: repeat(1, minmax(240px, 1fr));
   }
 }
+
+

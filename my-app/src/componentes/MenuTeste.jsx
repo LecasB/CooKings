@@ -56,7 +56,7 @@ const MenuTeste = () => {
             element={<IngredientsListPage />}
           />
           <Route path="ViewRecipePage" element={<ViewRecipePage />} />
-          <Route path="UserPage" element={<UserPage />} />
+
           <Route path="*" element={<ErrorPage />} />
         </Route>
 
@@ -113,6 +113,8 @@ const MenuTeste = () => {
             path="/ClientDashboard/ClientDashboard"
             element={<ClientDashboard />}
           />
+
+          <Route path="UserPage" element={<UserPage />} />
 
           <Route
             path="/ClientDashboard/NovoIngredienteClient"

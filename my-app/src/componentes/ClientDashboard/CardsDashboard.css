@@ -1,4 +1,30 @@
-.card-clientdashboard {
+#root {
+  --expire: rgba(255, 0, 0, 0.788);
+  --expiring: rgba(255, 153, 0, 0.788);
+  --valid: rgba(6, 192, 37, 0.788);
+  --fav: rgba(219, 223, 0, 0.788);
+  --normal: black;
+}
+
+#client-dashboard {
+  width: 100%;
+  overflow: auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.cards-display {
+  display: flex;
+  /* gap: 10px; */
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card-clientdashboard,
+.card-clientdashboard-expire,
+.card-clientdashboard-expiring,
+.card-clientdashboard-valid,
+.card-clientdashboard-fav {
   width: 250px;
   height: 150px;
   border: 1px solid rgba(0, 0, 0, 0.26);
@@ -9,24 +35,45 @@
   flex-direction: column;
   padding: 10px;
   box-sizing: border-box;
+  margin: 15px;
   cursor: pointer;
 }
 
 .card-clientdashboard:hover {
   transform: scale(1.1);
-  border: 1px solid rgba(255, 0, 0, 0.788);
-  box-shadow: 0 0 5px rgba(255, 0, 0, 0.788);
-  /* color: rgba(255, 0, 0, 0.788); */
+  border: 1px solid var(--normal);
+  box-shadow: 0 0 5px var(--normal);
 }
 
-.card-clientdashboard-icon {
+.card-clientdashboard-expire:hover {
+  transform: scale(1.1);
+  border: 1px solid var(--expire);
+  box-shadow: 0 0 5px var(--expire);
+}
+
+.card-clientdashboard-expiring:hover {
+  transform: scale(1.1);
+  border: 1px solid var(--expiring);
+  box-shadow: 0 0 5px var(--expiring);
+}
+
+.card-clientdashboard-valid:hover {
+  transform: scale(1.1);
+  border: 1px solid var(--valid);
+  box-shadow: 0 0 5px var(--valid);
+}
+
+.card-clientdashboard-fav:hover {
+  transform: scale(1.1);
+  border: 1px solid var(--fav);
+  box-shadow: 0 0 5px var(--fav);
 }
 
 .card-clientdashboard-text {
   display: flex;
   gap: 10px;
   font-size: 1.1em;
-  justify-content: space-around;
+  justify-content: space-between;
 }
 
 .card-clientdashboard-p {
@@ -36,5 +83,29 @@
 .card-clientdashboard-total {
   margin-bottom: 0;
   font-size: 2rem;
-  color: red;
+  color: var(--normal);
+}
+
+.card-clientdashboard-expire .card-clientdashboard-total {
+  margin-bottom: 0;
+  font-size: 2rem;
+  color: var(--expire);
+}
+
+.card-clientdashboard-expiring .card-clientdashboard-total {
+  margin-bottom: 0;
+  font-size: 2rem;
+  color: var(--expiring);
+}
+
+.card-clientdashboard-valid .card-clientdashboard-total {
+  margin-bottom: 0;
+  font-size: 2rem;
+  color: var(--valid);
+}
+
+.card-clientdashboard-fav .card-clientdashboard-total {
+  margin-bottom: 0;
+  font-size: 2rem;
+  color: var(--fav);
 }

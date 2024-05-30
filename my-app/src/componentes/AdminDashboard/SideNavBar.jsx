@@ -35,6 +35,9 @@ const SideNavBar = () => {
             <Link to="NovaCategoriaReceita"> New Recipe's Category </Link>
           </div>
         </li>
+        <li>
+          <Link to="AprovarReceita"> Aprove Recipe </Link>
+        </li>
       </ul>
     </nav>
   );

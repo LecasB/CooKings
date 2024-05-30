@@ -39,6 +39,7 @@ import NovaReceitaClient from "./ClientDashboard/NovaReceitaClient";
 import ClientDashboard from "./ClientDashboard/ClienteDashboard";
 import ViewRecipePage from "./ViewRecipePage/ViewRecipePage";
 import CategoriesChoice from "./CategoriesChoice";
+import AprovarReceitas from "./AdminDashboard/AprovarReceitas";
 
 const MenuTeste = () => {
   return (
@@ -102,7 +103,11 @@ const MenuTeste = () => {
             path="/AdminDashboardPage/NovaCategoriaIngrediente"
             element={<NovaCategoriaIngrediente />}
           />
-          x
+          <Route
+            path="/AdminDashboardPage/AprovarReceita"
+            element={<AprovarReceitas />}
+          />
+
           <Route
             path="/AdminDashboardPage/NovaCategoriaReceita"
             element={<NovaCategoriaReceita />}

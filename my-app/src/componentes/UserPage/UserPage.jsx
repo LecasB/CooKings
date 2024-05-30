@@ -11,9 +11,7 @@ import recipe from "../ArrayInfo";
 const UserPage = () => {
   return (
     <main className="perfilUser">
-      <div className="perfil">
         <UserInfo />
-      </div>
     </main>
   );
 };

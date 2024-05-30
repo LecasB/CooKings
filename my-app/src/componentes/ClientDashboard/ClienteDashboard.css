@@ -64,9 +64,10 @@ svg {
 }
 
 .perfilUser{
-  width: 100%;
+  width: 20%;
   justify-content: center;
   display: flex;
+  margin: 0 auto;
 }
 
 .UserInfo{

@@ -3,7 +3,6 @@
   height: 41.5625em;
   background: #d4eff1;
   padding: 2.1875em 1.5625em;
-
   display: flex;
   flex-direction: column;
 }
@@ -59,22 +58,25 @@
   
 }
 
-.UserInfo {
-  border: 0;
-  border-right: 0.1em;
-  border-color: black;
-  border-style: solid;
-  width: 25%;
-}
-
 .UserInfo figure {
   text-align: center;
 }
 
-.UserInfo .Perfil svg {
-  width: 100%;
+.foto {
+  margin: 0;
 
+}
+.UserInfo .Perfil .foto svg {
+  width: 100%;
   height: auto;
+  transition: opacity 0.5s;
+}
+
+.UserInfo .Perfil .foto svg:hover {
+
+  opacity: 50%;
+  cursor: pointer;
+
 }
 
 .UserInfo section {
@@ -84,35 +86,31 @@
   gap: 1em;
 }
 
-.UserInfo input,
-select {
+.UserInfo select.inputsProfile{
   height: 4em;
   border-radius: 1em;
   background-color: #d9d9d9;
   border: none;
 }
 
-.UserInfo button {
-  background-color: #d4eff1;
-  height: 3em;
-  border-radius: 1em;
-  border: none;
-}
-
-.UserInfo input,
-select {
+.UserInfo .inputsProfile{
   height: 3em;
   border-radius: 1em;
   background-color: #d9d9d9;
   border: none;
 }
 
-.UserInfo select,
-.UserInfo input {
-  padding: 0 0 0 1rem;
+.UserInfo .inputsProfile{
+  padding: 0 1rem 0 1rem;
 }
 
-
+.UserInfo button.inputsProfile {
+  background-color: #d4eff1;
+  height: 3em;
+  border-radius: 1em;
+  border: none;
+  cursor: pointer;
+}
 
 .user-options-section {
   width: 100%;
@@ -124,8 +122,9 @@ select {
 .user-options {
   
   padding: 1px 10px;
+  margin: 2px;
   border-radius: 50px;
-  background: gray;
+  background: rgb(199, 197, 197);
 }
 
 .user-options p {
@@ -137,60 +136,8 @@ select {
 .perfil .card-section .card-procurar {
   width: 19em;;
 }
-@media screen and (max-width: 480px) {
-  .butao span,
-  .UserInfo, p{
-    font-size: 1em;
-  }
 
-}
-@media screen and (max-width: 800px) {
-  .perfil{
-    display: block;
-    max-width: 85%;
-    
-    
-  }
-  .card-section{
-    justify-content: center;
-  }
-  .perfil .card-section .card-procurar h2{
-    font-size: 1.4em;
-  }
-  .perfil .card-section .card-procurar p{
-    font-size: 0.9em;
-  }
 
-  .card-section .card-procurar {
-     margin: 0 0rem 2rem 0}
-  .UserInfo {
-    margin: auto;
-    width: 50%;
-    
-    border-right-width: 0;
-    border-bottom: #000;
-    border-bottom: 0.1em;
-    border-style: solid;
-    height: fit-content;
-  }
-  .UserInfo figure {
-    margin: 0;
-  }
-  .butao{
-    flex-direction: column;
-  }
-  .butao svg {
-    width: 2em;
-    height: 2em;
-  }
-  .butoesdiv {
-    
-    align-items:center
-  }
-  .butoesdiv:last-child span{
-    padding-right: 1em;
-  }
-}
 
 .card-section {
   display: flex;

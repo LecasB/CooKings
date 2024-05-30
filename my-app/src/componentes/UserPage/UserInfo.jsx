@@ -40,6 +40,7 @@ const UserInfo = () => {
   }, []);
 
   return (
+    
     <div className="UserInfo">
       <section className="Perfil">
         <figure className="foto">
@@ -63,6 +64,7 @@ const UserInfo = () => {
         </div>
       </section>
     </div>
+    
   );
 };
 

@@ -9,7 +9,7 @@ export const SearchInput = ({ inputValue, setInputValue }) => {
 
   const handleInputChange = (e) => {
     setInputValue(e.target.value);
-    localStorage.setItem("valueIndexPage", inputValue);
+    localStorage.setItem("valueIndexPage", e.target.value);
   };
 
   const handleSubmit = (e) => {
@@ -33,3 +33,5 @@ export const SearchInput = ({ inputValue, setInputValue }) => {
     </div>
   );
 };
+
+export default SearchInput;

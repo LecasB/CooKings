@@ -86,12 +86,12 @@ const IndexPage = () => {
             </figure>
           </div>
         </div>
-        <div className="boxcard">
+        <div className="boxcard fundoazul" >
           <UserPossibility logo={recipelogo} texto={"Creative Recipes!"} />
           <UserPossibility logo={recipelogo} texto={"Creative Recipes!"} />
           <UserPossibility logo={recipelogo} texto={"Creative Recipes!"} />
         </div>
-        <div>
+        <div >          
           <RecipeSearch />
         </div>
         <div className="box">

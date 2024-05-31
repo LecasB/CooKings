@@ -116,7 +116,7 @@ const ListaIngredienteClient = () => {
   );
 
   return (
-    <div style={{ width: "100%", overflow: "scroll" }}>
+    <div className="listaIngredienteBack"style={{ width: "100%", overflow: "scroll" }}>
       <div className="listaIngredienteClient" style={{ paddingBottom: 150 }}>
         <div>
           <h2>Filter your ingredients here :)</h2>

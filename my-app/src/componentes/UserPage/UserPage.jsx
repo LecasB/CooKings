@@ -10,19 +10,9 @@ import recipe from "../ArrayInfo";
 
 const UserPage = () => {
   return (
-    <>
-      <main>
-        <div className="UserPage">
-          <UserLateral />
-          <div className="perfil">
-          <UserInfo />
-          <div className="card-section">
-            <ListaCardProcurar dados={recipe} />
-          </div>
-          </div>
-        </div>
-      </main>
-    </>
+    <main className="perfilUser">
+        <UserInfo />
+    </main>
   );
 };
 

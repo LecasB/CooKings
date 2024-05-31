@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import supabase from "../../supabaseClient";
 
-const CardTeste = ({
+const AprovarReceitas = ({
   id,
   name,
   category,
@@ -45,6 +45,7 @@ const CardTeste = ({
   }, []);
 
   return (
+    <div className="aproveRecipes">
     <div className="card-procurar" style={{ margin: 10 }}>
       <figure className="cont-img-procurar">
         <img src={imagem} alt="" />
@@ -65,7 +66,8 @@ const CardTeste = ({
         </div>
       </div>
     </div>
+    </div>
   );
 };
 
-export default CardTeste;
+export default AprovarReceitas;

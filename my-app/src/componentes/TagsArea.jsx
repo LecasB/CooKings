@@ -4,14 +4,14 @@ import TextField from "@mui/material/TextField";
 import supabase from "../supabaseClient";
 
 export default function Tags() {
-  const [setData, data] = useState("");
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         // Fetch data from Supabase
         const { data: fetchedData, error } = await supabase
-          .from("Category_Ingredients")
+          .from("Tags")
           .select();
 
         if (error) {
@@ -31,13 +31,13 @@ export default function Tags() {
 
   return (
     <Autocomplete
-      style={{ border: "1px solid", borderRadius: "8px" }}
+      style={{ border: "1px solid", borderRadius: "8px", padding: "4px"}}
       multiple
       id="tags-standard"
-      options=""
-      // getOptionLabel={}
+      options={data}
+      getOptionLabel={(option) => option.tag} // Adjust based on your data structure
       renderInput={(params) => (
-        <TextField {...params} variant="standard" label="Choose here" />
+        <TextField {...params} variant="standard" label="" />
       )}
     />
   );

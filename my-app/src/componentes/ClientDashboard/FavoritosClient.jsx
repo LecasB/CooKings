@@ -72,6 +72,7 @@ const FavoritosClient = () => {
 
   return (
     <div
+    className="userFavoritos"
       style={{
         width: 100 + "%",
         padding: "10px 10px 150px 10px",

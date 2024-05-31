@@ -42,6 +42,7 @@ import CategoriesChoice from "./CategoriesChoice";
 import AprovarReceitas from "./AdminDashboard/AprovarReceitas";
 import PasswordReset from "./PasswordReset";
 import EmailPasswordReset from "./EmailPasswordReset";
+import ListaAprovarReceitas from "./AdminDashboard/ListaAprovarReceitas";
 
 const MenuTeste = () => {
   return (
@@ -109,7 +110,7 @@ const MenuTeste = () => {
           />
           <Route
             path="/AdminDashboardPage/AprovarReceita"
-            element={<AprovarReceitas />}
+            element={<ListaAprovarReceitas />}
           />
 
           <Route

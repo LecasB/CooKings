@@ -1,41 +1,42 @@
 import React, { useRef } from "react";
 import "../../estilos/EditRecipePage.css";
 import { BackArrow } from "../../imagens/svgs";
+import TagsArea from "../TagsArea";
 
 const EditRecipePage = () => {
   const fileInputRef = useRef();
   const imageRef = useRef();
 
-    const handleDrop = (evento) => {
-      evento.preventDefault();
-      const files = evento.dataTransfer.files;
-      if (files.length) {
-        let reader = new FileReader();
-        reader.onload = (evento) => {
-          if (imageRef.current) {
-            imageRef.current.src = evento.target.result;
-          }
-        };
-        reader.readAsDataURL(files[0]);
-      }
-    };
+  const handleDrop = (evento) => {
+    evento.preventDefault();
+    const files = evento.dataTransfer.files;
+    if (files.length) {
+      let reader = new FileReader();
+      reader.onload = (evento) => {
+        if (imageRef.current) {
+          imageRef.current.src = evento.target.result;
+        }
+      };
+      reader.readAsDataURL(files[0]);
+    }
+  };
 
-    const handleDragOver = (evento) => {
-      evento.preventDefault();
-    };
+  const handleDragOver = (evento) => {
+    evento.preventDefault();
+  };
 
-    const handleFileChange = (evento) => {
-      const files = evento.target.files;
-      if (files.length) {
-        let reader = new FileReader();
-        reader.onload = (evento) => {
-          if (imageRef.current) {
-            imageRef.current.src = evento.target.result;
-          }
-        };
-        reader.readAsDataURL(files[0]);
-      }
-    };
+  const handleFileChange = (evento) => {
+    const files = evento.target.files;
+    if (files.length) {
+      let reader = new FileReader();
+      reader.onload = (evento) => {
+        if (imageRef.current) {
+          imageRef.current.src = evento.target.result;
+        }
+      };
+      reader.readAsDataURL(files[0]);
+    }
+  };
 
   return (
     <>
@@ -49,14 +50,13 @@ const EditRecipePage = () => {
               </button>
             </div>
             <label htmlFor="">Recipe Name</label>
-            <input type="text" placeholder="Type here..." />
+            <input id="recipeName" type="text"/>
             <label htmlFor="">Description</label>
             <textarea
               name=""
               id=""
               cols="30"
               rows="10"
-              placeholder="Type here..."
             ></textarea>
             <label htmlFor="">Category</label>
             <select name="" id="">
@@ -71,13 +71,7 @@ const EditRecipePage = () => {
               <option value="Snack">Snack</option>
             </select>
             <label htmlFor="">Tag</label>
-            <textarea
-              name=""
-              id="TagsArea"
-              cols="30"
-              rows="10"
-              placeholder="Add tag"
-            ></textarea>
+            <TagsArea></TagsArea>
           </div>
 
           <div className="RightForm">
@@ -108,8 +102,12 @@ const EditRecipePage = () => {
               </div>
             </label>
             <div className="buttonContainer">
-              <button id="saveButton" className="button">SAVE</button>
-              <button id="deleteButton"className="button">DELETE</button>
+              <button id="saveButton" className="button">
+                SAVE
+              </button>
+              <button id="deleteButton" className="button">
+                DELETE
+              </button>
             </div>
           </div>
         </form>

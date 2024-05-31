@@ -7,7 +7,7 @@ const SideNavBar = () => {
     <nav className="sidenavbar">
       <ul>
         <li>
-          <Link to="Dashboard"> Dashboard </Link>
+          <Link to="/AdminDashboardPage/"> Dashboard </Link>
         </li>
 
         <li>
@@ -34,6 +34,9 @@ const SideNavBar = () => {
           <div>
             <Link to="NovaCategoriaReceita"> New Recipe's Category </Link>
           </div>
+        </li>
+        <li>
+          <Link to="AprovarReceita"> Aprove Recipe </Link>
         </li>
       </ul>
     </nav>

@@ -46,7 +46,7 @@
   align-self: flex-start;
 }
 
-.EditRecipePage input[type="text"],
+.EditRecipePage #recipeName,
 .EditRecipePage select,
 .EditRecipePage textarea {
   width: 100%;
@@ -63,9 +63,7 @@
   resize: none;
 }
 
-#TagsArea {
-  height: 6em;
-}
+
 
 #RecipeImage {
   object-fit: cover;

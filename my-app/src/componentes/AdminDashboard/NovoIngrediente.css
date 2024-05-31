@@ -1,4 +1,4 @@
-#novoIngrediente input[type="text"] {
+#novoIngrediente input[type="text"], #novaReceita input[type="text"] {
     width:100%;
     height: 30px;
     border-radius:10px;
@@ -6,13 +6,13 @@
     margin: 10px 0px;
 }
 
-#novoIngrediente input[type="file"] {
+#novoIngrediente input[type="file"], #novaReceita input[type="file"] {
     width:100%;
     height: 30px;
     margin: 10px 0px;
 }
 
-#novoIngrediente select{
+#novoIngrediente select, #novaReceita select{
     width: 100%;
     color:#000000;
     text-align: center;
@@ -20,7 +20,7 @@
     height: 40px;
     margin: 10px 0px;
 }
-#novoIngrediente button{
+#novoIngrediente button, #novaReceita button{
     width: 40%;
   height: 45px;
   border-radius: 50px;
@@ -29,12 +29,12 @@
   font-size: 1rem;
 }
 
-#novoIngrediente label::before{
+#novoIngrediente label::before, #novaReceita label::before{
     content: "*";
     color:red;
 }
 
-#novoIngrediente form{
+#novoIngrediente form, #novaReceita form{
     display: flex;
     flex-direction: column;
     justify-content: center;

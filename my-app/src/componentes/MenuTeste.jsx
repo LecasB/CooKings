@@ -39,6 +39,9 @@ import NovaReceitaClient from "./ClientDashboard/NovaReceitaClient";
 import ClientDashboard from "./ClientDashboard/ClienteDashboard";
 import ViewRecipePage from "./ViewRecipePage/ViewRecipePage";
 import CategoriesChoice from "./CategoriesChoice";
+import AprovarReceitas from "./AdminDashboard/AprovarReceitas";
+import PasswordReset from "./PasswordReset";
+import EmailPasswordReset from "./EmailPasswordReset";
 
 const MenuTeste = () => {
   return (
@@ -56,7 +59,9 @@ const MenuTeste = () => {
             element={<IngredientsListPage />}
           />
           <Route path="ViewRecipePage" element={<ViewRecipePage />} />
-          <Route path="UserPage" element={<UserPage />} />
+          <Route path="PasswordReset" element={<PasswordReset />} />
+          <Route path="EmailPasswordReset" element={<EmailPasswordReset />} />
+
           <Route path="*" element={<ErrorPage />} />
         </Route>
 
@@ -76,7 +81,7 @@ const MenuTeste = () => {
             path="/AdminDashboardPage/NovoIngrediente"
             element={<NovoIngrediente />}
           />
-          <Route path="/AdminDashboardPage/Dashboard" element={<Dashboard />} />
+          <Route index path="/AdminDashboardPage/" element={<Dashboard />} />
           <Route
             path="/AdminDashboardPage/EditIngrediente"
             element={<EditIngrediente />}
@@ -94,6 +99,7 @@ const MenuTeste = () => {
             element={<NovaReceita />}
           />
           <Route
+            index
             path="/AdminDashboardPage/ListaReceitas"
             element={<ListaReceitas />}
           />
@@ -101,7 +107,11 @@ const MenuTeste = () => {
             path="/AdminDashboardPage/NovaCategoriaIngrediente"
             element={<NovaCategoriaIngrediente />}
           />
-          x
+          <Route
+            path="/AdminDashboardPage/AprovarReceita"
+            element={<AprovarReceitas />}
+          />
+
           <Route
             path="/AdminDashboardPage/NovaCategoriaReceita"
             element={<NovaCategoriaReceita />}
@@ -109,10 +119,9 @@ const MenuTeste = () => {
         </Route>
 
         <Route path="/ClientDashboard" element={<LayoutClient />}>
-          <Route
-            path="/ClientDashboard/ClientDashboard"
-            element={<ClientDashboard />}
-          />
+          <Route index path="/ClientDashboard/" element={<ClientDashboard />} />
+
+          <Route path="UserPage" element={<UserPage />} />
 
           <Route
             path="/ClientDashboard/NovoIngredienteClient"

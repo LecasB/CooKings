@@ -72,47 +72,47 @@ const NovoIngredienteClient = () => {
 
   return (
     <div className="novoIngredienteClient">
-      <div>
-        <h1>Add your Ingredient</h1>
-      </div>
-      <form onSubmit={handleSubmit}>
-        <select
-          value={selectedIngredient}
-          onChange={(e) => setSelectedIngredient(e.target.value)}
-        >
-          <option value="" disabled>
-            Select an ingredient
-          </option>
-          {nomes.map((nome) => (
-            <option key={nome.idingridients} value={nome.idingridients}>
-              {nome.name}
+      <div className="novoIngredienteForm">
+        <div></div>
+        <form onSubmit={handleSubmit}>
+          <h1>Add your Ingredient</h1>
+          <select
+            value={selectedIngredient}
+            onChange={(e) => setSelectedIngredient(e.target.value)}
+          >
+            <option value="" disabled>
+              Select an ingredient
             </option>
-          ))}
-        </select>
-        <input
-          type="number"
-          placeholder="Quantity"
-          value={quantity}
-          onChange={(e) => setQuantidade(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Unity"
-          value={unity}
-          onChange={(e) => setUnidade(e.target.value)}
-        />
-        <input
-          type="date"
-          value={date_expire}
-          onChange={(e) => setCalendario(e.target.value)}
-        />
-        <button type="submit">Submit</button>
-      </form>
-      <div>
-        <p>
-          *If the ingredient you are looking for does not exist, click here to
-          suggest it.*
-        </p>
+            {nomes.map((nome) => (
+              <option key={nome.idingridients} value={nome.idingridients}>
+                {nome.name}
+              </option>
+            ))}
+          </select>
+          <input
+            type="number"
+            placeholder="Quantity"
+            value={quantity}
+            onChange={(e) => setQuantidade(e.target.value)}
+          />
+          <input
+            type="text"
+            placeholder="Unity"
+            value={unity}
+            onChange={(e) => setUnidade(e.target.value)}
+          />
+          <input
+            type="date"
+            value={date_expire}
+            onChange={(e) => setCalendario(e.target.value)}
+          />
+          <button type="submit">Submit</button>
+          <p>
+            *If the ingredient you are looking for does not exist, click here to
+            suggest it.*
+          </p>
+        </form>
+        <div></div>
       </div>
     </div>
   );

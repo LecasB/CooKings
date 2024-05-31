@@ -1,15 +1,24 @@
 .novoIngredienteClient form {
   display: flex;
   flex-direction: column;
-  width: 35%;
   margin: 0 auto;
   gap: 10px;
-  padding-top: 30px;
+  padding: 20px;
+  background: white;
+
+  border: 1px solid black;
+  margin-bottom: 70px;
 }
 
 .novoIngredienteClient h1,
 .novoIngredienteClient p {
   text-align: center;
+}
+
+.novoIngredienteClient {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .novoIngredienteClient,

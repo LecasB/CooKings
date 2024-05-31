@@ -46,6 +46,11 @@
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
+  background-image: url(./imagens/waves.svg);
+  background-position-y: -200px;
+
+  background-size:  100%;
+  background-repeat: no-repeat;
 }
 
 .boxcard > * {

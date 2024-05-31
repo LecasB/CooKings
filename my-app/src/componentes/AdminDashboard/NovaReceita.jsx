@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
-import "./NovoIngrediente.css"
+import "./NovoIngrediente.css";
 
 const NovaReceita = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
-  const [idcategory, setCategoryId] = useState(1); 
+  const [idcategory, setCategoryId] = useState(1);
   const [image, setImage] = useState(null);
   const [imageURL, setImageURL] = useState(null);
   const [imageSalva, setImageSalva] = useState(false);
@@ -80,8 +80,6 @@ const NovaReceita = () => {
         setImage(null);
 
         setSubmitted(true);
-
-        
       } catch (error) {
         console.error("Error inserting data:", error.message);
       }
@@ -90,61 +88,63 @@ const NovaReceita = () => {
 
   return (
     <div id="novaReceita">
-      <h1>Nova Receita</h1>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Name:
-          <input
-            type="text"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-          />
-        </label>
-        <br />
+      <div id="formReceita">
+        <h1>Nova Receita</h1>
+        <form onSubmit={handleSubmit}>
+          <label>
+            Name:
+            <input
+              type="text"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </label>
+          <br />
 
-        <label>
-          Description:
-          <input
-            type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            required
-          />
-        </label>
-        <br />
+          <label>
+            Description:
+            <input
+              type="text"
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              required
+            />
+          </label>
+          <br />
 
-        <label>
-          Category:
-          <select
-            value={idcategory}
-            onChange={(e) => setCategoryId(e.target.value)}
-            required
-          >
-            {categories.map((categ) => (
-              <option key={categ.idcategory} value={categ.idcategory}>
-                {categ.name}
-              </option>
-            ))}
-          </select>
-        </label>
-        <br />
+          <label>
+            Category:
+            <select
+              value={idcategory}
+              onChange={(e) => setCategoryId(e.target.value)}
+              required
+            >
+              {categories.map((categ) => (
+                <option key={categ.idcategory} value={categ.idcategory}>
+                  {categ.name}
+                </option>
+              ))}
+            </select>
+          </label>
+          <br />
 
-        <label>
-          Image:
-          <input
-            type="file"
-            onChange={(e) => setImage(e.target.files[0])}
-            accept="image/*"
-            required
-          />
-        </label>
-        <br />
+          <label>
+            Image:
+            <input
+              type="file"
+              onChange={(e) => setImage(e.target.files[0])}
+              accept="image/*"
+              required
+            />
+          </label>
+          <br />
 
-        <button type="submit">Submit</button>
-      </form>
+          <button type="submit">Submit</button>
+        </form>
 
-      {submitted && <Link to="/AdminDashboardPage/" />}
+        {submitted && <Link to="/AdminDashboardPage/" />}
+      </div>
     </div>
   );
 };

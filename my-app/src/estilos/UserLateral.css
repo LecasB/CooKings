@@ -73,10 +73,8 @@
 }
 
 .UserInfo .Perfil .foto svg:hover {
-
   opacity: 50%;
   cursor: pointer;
-
 }
 
 .UserInfo section {

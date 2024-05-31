@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import "../../estilos/EditRecipePage.css";
-import { BackArrow } from "../../imagens/svgs";
 import TagsArea from "../TagsArea";
 
 const EditRecipePage = () => {
@@ -43,12 +42,6 @@ const EditRecipePage = () => {
       <main className="EditRecipePage">
         <form className="EditForm">
           <div className="LeftForm">
-            <div>
-              <button className="BackEditRecipe">
-                <BackArrow />
-                <span>Back</span>
-              </button>
-            </div>
             <label htmlFor="">Recipe Name</label>
             <input id="recipeName" type="text"/>
             <label htmlFor="">Description</label>
@@ -106,7 +99,7 @@ const EditRecipePage = () => {
                 SAVE
               </button>
               <button id="deleteButton" className="button">
-                DELETE
+                CANCEL
               </button>
             </div>
           </div>

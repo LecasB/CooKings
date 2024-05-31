@@ -84,9 +84,7 @@ const IndexPage = () => {
             <figure>
               <img src={chefimage} alt="" />
             </figure>
-            
           </div>
-          
         </div>
         <div className="boxcard fundoazul">
           <UserPossibility

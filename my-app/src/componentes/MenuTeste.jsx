@@ -40,6 +40,8 @@ import ClientDashboard from "./ClientDashboard/ClienteDashboard";
 import ViewRecipePage from "./ViewRecipePage/ViewRecipePage";
 import CategoriesChoice from "./CategoriesChoice";
 import AprovarReceitas from "./AdminDashboard/AprovarReceitas";
+import PasswordReset from "./PasswordReset";
+import EmailPasswordReset from "./EmailPasswordReset";
 
 const MenuTeste = () => {
   return (
@@ -57,6 +59,8 @@ const MenuTeste = () => {
             element={<IngredientsListPage />}
           />
           <Route path="ViewRecipePage" element={<ViewRecipePage />} />
+          <Route path="PasswordReset" element={<PasswordReset />} />
+          <Route path="EmailPasswordReset" element={<EmailPasswordReset />} />
 
           <Route path="*" element={<ErrorPage />} />
         </Route>

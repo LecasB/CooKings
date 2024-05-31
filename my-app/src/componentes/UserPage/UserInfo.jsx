@@ -5,6 +5,7 @@ import supabase from "../../supabaseClient";
 import TagsArea from "../TagsArea";
 
 
+
 const UserInfo = () => {
   const [ops, setOps] = useState([]);
 
@@ -53,6 +54,8 @@ const UserInfo = () => {
 
         <button className="inputsProfile" type="button">Change Password</button>
 
+        
+
         <TagsArea />
 
         <div className="user-options-section">
@@ -62,6 +65,9 @@ const UserInfo = () => {
             </div>
           ))}
         </div>
+
+        
+        
       </section>
     </div>
     

@@ -54,6 +54,7 @@ const LoginForm = () => {
           <Text texto="Forgot your Password?" />
         </div>
         <LoginButton texto={"Log in"} type="submit" onClick={handleLogin} />
+        <Link to="/EmailPasswordReset"><p>Forgot ur password?</p></Link>
         <Text texto="Or" />
         <Text texto="Don't have an account yet?" />
         <Link to="/SignUpPage">

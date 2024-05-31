@@ -10,6 +10,10 @@ import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
+
+let { error } = await supabase.auth.signOut()
+
+
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

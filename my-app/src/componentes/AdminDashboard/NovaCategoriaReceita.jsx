@@ -1,18 +1,17 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import supabase from "../../supabaseClient";
-import "./NovoIngrediente.css"
+import "./NovoIngrediente.css";
 
-
-const ListaReceitaClient = () => {
+const ListaIngredienteClient = () => {
   const [categorias, setCategorias] = useState([]);
   const [pesquisa, setPesquisa] = useState("");
   const [name, setName] = useState("");
+  const [editingCategory, setEditingCategory] = useState(null);
 
-  // Fetch categories
   async function getCategorias() {
     try {
       const { data, error } = await supabase
-        .from("Category_Recipes")
+        .from("Category_Ingredients")
         .select();
 
       if (error) {
@@ -30,18 +29,16 @@ const ListaReceitaClient = () => {
     getCategorias();
   }, []);
 
-  // Handle search input change
   const handleSearchChange = (e) => {
     setPesquisa(e.target.value);
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const { data, error } = await supabase
-        .from("Category_Recipes")
+        .from("Category_Ingredients")
         .insert([{ name }]);
 
       if (error) {
@@ -56,16 +53,69 @@ const ListaReceitaClient = () => {
     }
   };
 
-  // Filtered categories based on search
+  const handleEditSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const { data, error } = await supabase
+        .from("Category_Ingredients")
+        .update({ name: editingCategory.name })
+        .eq("idcategory", editingCategory.idcategory);
+
+      if (error) {
+        throw error;
+      }
+
+      console.log("Data updated successfully:", data);
+      setEditingCategory(null);
+      getCategorias();
+    } catch (error) {
+      console.error("Error updating data:", error.message);
+    }
+  };
+
+  // Handle edit button click
+  const handleEditClick = (category) => {
+    setEditingCategory(category);
+  };
+
+  // Handle edit input change
+  const handleEditChange = (e) => {
+    setEditingCategory({ ...editingCategory, name: e.target.value });
+  };
+
+  const handleDeleteClick = async (id) => {
+    if (window.confirm("Are you sure you want to delete this category?")) {
+      try {
+        const { error } = await supabase
+          .from("Category_Ingredients")
+          .delete()
+          .eq("idcategory", id);
+
+        if (error) {
+          throw error;
+        }
+
+        console.log("Category deleted successfully");
+        getCategorias();
+      } catch (error) {
+        console.error("Error deleting category:", error.message);
+      }
+    }
+  };
+
   const filteredCategorias = categorias.filter((categoria) =>
     categoria.name.toLowerCase().includes(pesquisa.toLowerCase())
   );
 
   return (
-    <div className="novaCategoriaReceitaBack" style={{ width: "100%", overflow: "scroll" }}>
-      <div className="listaReceita" style={{ paddingBottom: 150 }}>
-        <div id="novaCategoriaReceita">
-          <h1>New Recipe's Category</h1>
+    <div
+      className="novaCategoriaIngredienteBack"
+      style={{ width: "100%", overflow: "scroll" }}
+    >
+      <div className="listaIngrediente" style={{ paddingBottom: 150 }}>
+        <div id="novaCategoriaIngrediente">
+          <h1>New Ingredient's Category</h1>
           <form onSubmit={handleSubmit}>
             <label>
               Name:
@@ -80,11 +130,11 @@ const ListaReceitaClient = () => {
           </form>
         </div>
         <div>
-          <h2>Filter your recipe categories here :)</h2>
+          <h2>Filter your ingredient categories here :)</h2>
           <input
             type="text"
-            placeholder="Example: Dessert"
-            id="SearchListaReceita"
+            placeholder="Example: Cake"
+            id="SearchListaIngrediente"
             value={pesquisa}
             onChange={handleSearchChange}
           />
@@ -105,6 +155,7 @@ const ListaReceitaClient = () => {
                 <td>{categoria.name}</td>
                 <td>
                   <svg
+                    onClick={() => handleEditClick(categoria)}
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
                     style={{ width: "20px", height: "20px", cursor: "pointer" }}
@@ -114,6 +165,7 @@ const ListaReceitaClient = () => {
                 </td>
                 <td>
                   <svg
+                    onClick={() => handleDeleteClick(categoria.idcategory)}
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 448 512"
                     style={{ width: "20px", height: "20px", cursor: "pointer" }}
@@ -125,9 +177,29 @@ const ListaReceitaClient = () => {
             ))}
           </tbody>
         </table>
+        {editingCategory && (
+          <div id="editCategoryForm">
+            <h2>Edit Category</h2>
+            <form onSubmit={handleEditSubmit}>
+              <label>
+                Name:
+                <input
+                  type="text"
+                  value={editingCategory.name}
+                  onChange={handleEditChange}
+                  required
+                />
+              </label>
+              <button type="submit">Save</button>
+              <button type="button" onClick={() => setEditingCategory(null)}>
+                Cancel
+              </button>
+            </form>
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
-export default ListaReceitaClient;
+export default ListaIngredienteClient;

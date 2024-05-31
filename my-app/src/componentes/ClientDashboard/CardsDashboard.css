@@ -24,8 +24,8 @@
 
 .cards-display {
   display: flex;
-  /* gap: 10px; */
-  justify-content: space-between;
+  gap: 10px 50px;
+  justify-content: start;
   flex-wrap: wrap;
 }
 

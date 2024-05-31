@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import "./Admin.css";
 import "../ClientDashboard/CardsDashboard.css";
 
-
 const Dashboard = () => {
   const [date, setDate] = useState("");
   const [ingredients, setIngredients] = useState(0);
   const [recipes, setRecipes] = useState(0);
+  const [pending, setPending] = useState(0);
 
   function getGreeting() {
     const now = new Date();
@@ -35,9 +35,23 @@ const Dashboard = () => {
     setRecipes(recipeCount);
   }
 
+  const getPendingRecipes = async () => {
+    const { data, error } = await supabase
+      .from("Recipes")
+      .select("*")
+      .eq("state", false);
+
+    if (data) {
+      setPending(data.length);
+    } else {
+      console.error(error);
+    }
+  };
+
   useEffect(() => {
     setDate(getGreeting());
     getData();
+    getPendingRecipes();
   }, []);
 
   return (
@@ -60,6 +74,7 @@ const Dashboard = () => {
             <p className="card-clientdashboard-p">Total Ingredientes</p>
           </div>
         </div>
+
         <div className="card-clientdashboard-valid">
           <div className="card-clientdashboard-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
@@ -74,10 +89,23 @@ const Dashboard = () => {
             <p className="card-clientdashboard-p">Total Receitas</p>
           </div>
         </div>
-        
+
+        <div className="card-clientdashboard-expiring">
+          <div className="card-clientdashboard-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+              <path
+                fill="#ff9900"
+                d="M256 0a256 256 0 1 1 0 512A256 256 0 1 1 256 0zM232 120V256c0 8 4 15.5 10.7 20l96 64c11 7.4 25.9 4.4 33.3-6.7s4.4-25.9-6.7-33.3L280 243.2V120c0-13.3-10.7-24-24-24s-24 10.7-24 24z"
+              />
+            </svg>
+          </div>
+          <div className="card-clientdashboard-text">
+            <p className="card-clientdashboard-total">{pending}</p>
+            <p className="card-clientdashboard-p">Total Receitas</p>
+          </div>
         </div>
       </div>
-  
+    </div>
   );
 };
 

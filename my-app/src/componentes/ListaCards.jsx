@@ -1,11 +1,15 @@
 import CardInicial from "./CardInicial";
 
-const ListaCard = ({ dados }) => {
+const ListaCard = ({ dados, user }) => {
   return dados.map((dado) => (
-    <CardInicial key={dado.id} titulo={dado.name} texto={dado.description} img={dado.image} />
+    <CardInicial
+      id={dado.idrecipe}
+      titulo={dado.name}
+      texto={dado.description}
+      img={dado.image}
+      user={user}
+    />
   ));
-
-  /* console.log(dados); */
 };
 
 export default ListaCard;

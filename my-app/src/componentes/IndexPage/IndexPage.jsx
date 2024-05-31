@@ -84,7 +84,9 @@ const IndexPage = () => {
             <figure>
               <img src={chefimage} alt="" />
             </figure>
+            
           </div>
+          
         </div>
         <div className="boxcard">
           <UserPossibility logo={recipelogo} texto={"Creative Recipes!"} />

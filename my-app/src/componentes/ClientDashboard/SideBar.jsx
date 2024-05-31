@@ -18,13 +18,15 @@ const SideBar = () => {
           <Link to="ListaIngredienteClient"> My Ingriedients </Link>
         </li>
 
-
         <li>
           <Link to="NovoIngredienteClient"> Add Ingridient </Link>
         </li>
 
         <li>
-            <Link to="FavoritosClient"> My Favourites </Link>
+          <Link to="FavoritosClient"> My Favourites </Link>
+        </li>
+        <li>
+          <Link to="UserPage"> My Profile </Link>
         </li>
       </ul>
     </nav>

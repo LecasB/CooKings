@@ -7,7 +7,7 @@ const ListaIngredienteClient = () => {
   const [name, setName] = useState("");
   const [editingCategory, setEditingCategory] = useState(null);
 
-  // Fetch categories
+ 
   async function getCategorias() {
     try {
       const { data, error } = await supabase
@@ -29,12 +29,12 @@ const ListaIngredienteClient = () => {
     getCategorias();
   }, []);
 
-  // Handle search input change
+
   const handleSearchChange = (e) => {
     setPesquisa(e.target.value);
   };
 
-  // Handle form submission for new category
+ 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -55,7 +55,7 @@ const ListaIngredienteClient = () => {
     }
   };
 
-  // Handle form submission for editing category
+  
   const handleEditSubmit = async (e) => {
     e.preventDefault();
 
@@ -77,7 +77,7 @@ const ListaIngredienteClient = () => {
     }
   };
 
-  // Handle delete button click
+ 
   const handleDeleteClick = async (id) => {
     if (window.confirm("Are you sure you want to delete this category?")) {
       try {
@@ -98,17 +98,17 @@ const ListaIngredienteClient = () => {
     }
   };
 
-  // Handle edit button click
+
   const handleEditClick = (category) => {
     setEditingCategory(category);
   };
 
-  // Handle edit input change
+ 
   const handleEditChange = (e) => {
     setEditingCategory({ ...editingCategory, name: e.target.value });
   };
 
-  // Filtered categories based on search
+
   const filteredCategorias = categorias.filter((categoria) =>
     categoria.name.toLowerCase().includes(pesquisa.toLowerCase())
   );

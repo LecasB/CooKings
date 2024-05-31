@@ -86,7 +86,7 @@ const IndexPage = () => {
             </figure>
           </div>
         </div>
-        <div className="boxcard">
+        <div className="boxcard fundoazul">
           <UserPossibility
             logo={
               <svg

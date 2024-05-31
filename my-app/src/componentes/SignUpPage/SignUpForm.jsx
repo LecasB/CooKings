@@ -17,7 +17,8 @@ const SignUpForm = () => {
 
   const signUp = async (event) => {
     event.preventDefault();
-
+    
+    if (passwordUser.length >= 6){
     const { user, error } = await supabase.auth.signUp({
       email: emailUser,
       password: passwordUser,
@@ -29,7 +30,7 @@ const SignUpForm = () => {
         },
       },
     });
-    debugger;
+    
     console.log("Sign up error:", error);
 
     if (error) {
@@ -37,7 +38,11 @@ const SignUpForm = () => {
     } else {
       console.log("User signed up successfully:", user);
     }
-  };
+  }else{
+    alert("Password must be atleast 6 characters");
+  }
+}
+
 
   return (
     <div id="page">
@@ -54,7 +59,7 @@ const SignUpForm = () => {
           onChange={(e) => setEmail(e.target.value)}
         />
         <Password
-          texto={"Password"}
+          texto={"Password: Required Atleast 6 Char"}
           value={passwordUser}
           onChange={(e) => setPassword(e.target.value)}
         />

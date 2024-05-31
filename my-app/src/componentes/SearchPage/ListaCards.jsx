@@ -42,7 +42,7 @@ const ListaCards = ({ categoriasUser, tagsUser, inputValue }) => {
       query = query.overlaps("idtags", tagsUser);
     }
 
-    if (inputValue || inputValue != " ") {
+    if (inputValue) {
       query = query.ilike("name", `%${inputValue}%`); // por motivos que apenas deus sabe eu n posso colocar apenas inputValue, tem que ser obrigatoriamente `%${inputValue}%` 😢
     }
 
@@ -69,7 +69,7 @@ const ListaCards = ({ categoriasUser, tagsUser, inputValue }) => {
   }, [inputValue]);
 
   useEffect(() => {
-    console.log("aquii");
+    getItems();
   }, [localStorage]);
 
   useEffect(() => {

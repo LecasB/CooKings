@@ -2,62 +2,72 @@ import React, { useEffect, useState } from "react";
 import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
 import CardTeste from "./CardTeste";
+import AprovarReceitas from "./AprovarReceitas";
 
-const ListaReceitas = () => {
+const ListaAprovarReceitas = () => {
   const [receitas, setReceitas] = useState([]);
 
   const getReceitas = async () => {
     try {
-      const { data, error } = await supabase.from("Recipes").select();
+      const { data, error } = await supabase
+        .from("Recipes")
+        .select()
+        .eq("state", false);
 
       if (error) {
         throw error;
       }
 
-      setCategorias(data);
+      setReceitas(data);
     } catch (error) {
       console.error("Error fetching categorias:", error.message);
     }
+  };
+
+  const updateReceitas = async (id) => {
+    const { data, error } = await supabase
+      .from("Recipes")
+      .update({ state: true })
+      .eq("idrecipe", id);
+
+    getReceitas();
   };
 
   const deleteReceitas = async (id) => {
     try {
       await supabase.from("Recipes").delete().eq("idrecipe", id);
 
-      getCategorias();
+      getReceitas();
     } catch (error) {
       console.error("Error deleting categoria:", error.message);
     }
   };
 
   useEffect(() => {
-    getCategorias();
+    getReceitas();
   }, []);
 
   return (
-    <>
-      <div id="ingridientsList">
-        <div>
-          <h1>Recipes List</h1>
-        </div>
-        <div className="recipesMap">
-          {categorias.map((categoria) => (
-            <div key={categoria.idrecipe}>
-              <CardTeste
-                id={categoria.idrecipe}
-                name={categoria.name}
-                category={categoria.idcategory}
-                description={categoria.description}
-                imagem={categoria.image}
-                deleteCategoria={deleteCategoria}
-                editLink={`../EditRecipe?id=`}
-              />
-            </div>
-          ))}
-        </div>
+    <div style={{ width: "100%", overflow: "auto", padding: "5px 10px" }}>
+      <div>
+        <h1>Recipes List</h1>
       </div>
-    </>
+      <div className="recipesMap">
+        {receitas.map((receitas) => (
+          <div key={receitas.idrecipe}>
+            <AprovarReceitas
+              id={receitas.idrecipe}
+              name={receitas.name}
+              description={receitas.description}
+              imagem={receitas.image}
+              updateReceitas={updateReceitas}
+              deleteCategoria={deleteReceitas}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 
-export default ListaReceitas;
+export default ListaAprovarReceitas;

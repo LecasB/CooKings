@@ -3,6 +3,7 @@ import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
 import { BackArrow } from "../../imagens/svgs";
 import "../../estilos/EditRecipePage.css";
+import EditRecipePage from '../EditRecipePage/EditRecipePage';
 
 const EditRecipe = () => {
   const fileInputRef = useRef();
@@ -168,99 +169,7 @@ const EditRecipe = () => {
 
   return (
     <>
-      <main className="EditRecipePage" style={{ width: 100 + "%" }}>
-        <form className="EditForm" onSubmit={handleSubmit}>
-          <div className="LeftForm">
-            <div>
-              <button className="BackEditRecipe">
-                <BackArrow />
-                <span>Back</span>
-              </button>
-            </div>
-            <label htmlFor="">Recipe Name</label>
-            <input
-              type="text"
-              placeholder="Type here..."
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-            <label htmlFor="">Description</label>
-            <textarea
-              name=""
-              id=""
-              cols="30"
-              rows="10"
-              placeholder="Type here..."
-              value={description}
-              onChange={(e) => setDescription(e.target.value)}
-              required
-            ></textarea>
-            <label htmlFor="">Category</label>
-            <select
-              name=""
-              id=""
-              value={idcategory}
-              onChange={(e) => setCategoryId(e.target.value)}
-              required
-            >
-              <option value="">Select category</option>
-              {categories.map((categ) => (
-                <option key={categ.idcategory} value={categ.idcategory}>
-                  {categ.name}
-                </option>
-              ))}
-            </select>
-            <label htmlFor="">Tag</label>
-            <textarea
-              name=""
-              id="TagsArea"
-              cols="30"
-              rows="10"
-              placeholder="Add tag"
-            ></textarea>
-          </div>
-
-          <div className="RightForm">
-            <div>
-              <img
-                ref={imageRef}
-                id="RecipeImage"
-                src={
-                  imageUrl || "https://images.alphacoders.com/276/276861.jpg"
-                }
-                alt="Recipe Image"
-              />
-            </div>
-            <label>Product Gallery</label>
-            <label
-              htmlFor="fileInput"
-              id="PutImage"
-              onDrop={handleDrop}
-              onDragOver={handleDragOver}
-            >
-              <span id="DropImageTitle">Drop your image here, or browse</span>
-              <div>
-                <input
-                  ref={fileInputRef}
-                  id="fileInput"
-                  type="file"
-                  accept="image/png, image/jpg, image/jpeg"
-                  onChange={handleFileChange}
-                />
-              </div>
-            </label>
-            <div className="buttonContainer">
-              <button type="submit" id="saveButton" className="button">
-                SAVE
-              </button>
-              <button id="deleteButton" className="button">
-                DELETE
-              </button>
-            </div>
-          </div>
-        </form>
-      </main>
+      <EditRecipePage/>
     </>
   );
 };

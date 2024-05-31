@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from "react";
 import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
-import { BackArrow } from "../../imagens/svgs";
 import "../../estilos/EditRecipePage.css";
 
 const NovoIngrediente = () => {
@@ -158,7 +157,6 @@ const NovoIngrediente = () => {
   const url = window.location.href;
   const match = url.match(/[?&]id=(\d+)/);
   const idingridients = match ? match[1] : null;
-  
 
   useEffect(() => {
     fetchCategories();
@@ -172,12 +170,12 @@ const NovoIngrediente = () => {
       <main className="EditRecipePage" style={{ width: 100 + "%" }}>
         <form className="EditForm" onSubmit={handleSubmit}>
           <div className="LeftForm">
-            <div>
+            {/* <div>
               <button className="BackEditRecipe">
                 <BackArrow />
                 <span>Back</span>
               </button>
-            </div>
+            </div> */}
             <label htmlFor="">Recipe Name</label>
             <input
               type="text"

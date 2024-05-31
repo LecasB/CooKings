@@ -42,11 +42,14 @@ const ListaCards = ({ categoriasUser, tagsUser, inputValue }) => {
       query = query.overlaps("idtags", tagsUser);
     }
 
-    if (inputValue || inputValue != " ") {
+    if (inputValue) {
       query = query.ilike("name", `%${inputValue}%`); // por motivos que apenas deus sabe eu n posso colocar apenas inputValue, tem que ser obrigatoriamente `%${inputValue}%` 😢
     }
 
-    query = query.order("idrecipe", { ascending: false }).range(min, max);
+    query = query
+      .eq("state", true)
+      .order("idrecipe", { ascending: false })
+      .range(min, max);
 
     const { data, error } = await query;
 
@@ -66,7 +69,7 @@ const ListaCards = ({ categoriasUser, tagsUser, inputValue }) => {
   }, [inputValue]);
 
   useEffect(() => {
-    console.log("aquii");
+    getItems();
   }, [localStorage]);
 
   useEffect(() => {

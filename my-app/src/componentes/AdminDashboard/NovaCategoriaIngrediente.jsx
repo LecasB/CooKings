@@ -61,7 +61,7 @@ const ListaIngredienteClient = () => {
   );
 
   return (
-    <div style={{ width: "100%", overflow: "scroll" }}>
+    <div className="novaCategoriaIngredienteBack"style={{ width: "100%", overflow: "scroll" }}>
       <div className="listaIngrediente" style={{ paddingBottom: 150 }}>
       <div id="novaCategoriaIngrediente">
           <h1>New Ingredient's Category</h1>

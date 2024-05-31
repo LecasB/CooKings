@@ -62,7 +62,7 @@ const ListaReceitaClient = () => {
   );
 
   return (
-    <div style={{ width: "100%", overflow: "scroll" }}>
+    <div className="novaCategoriaReceitaBack" style={{ width: "100%", overflow: "scroll" }}>
       <div className="listaReceita" style={{ paddingBottom: 150 }}>
         <div id="novaCategoriaReceita">
           <h1>New Recipe's Category</h1>

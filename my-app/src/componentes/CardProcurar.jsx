@@ -9,7 +9,7 @@ const CardProcurar = ({ titulo, texto, image, iduser, id }) => {
     window.parent.location();
   }
 
-  const idForUser = iduser.id;
+  const idForUser = iduser ? iduser.id : null;
   //alert(idForUser);
 
   return (

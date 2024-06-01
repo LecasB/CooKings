@@ -42,7 +42,9 @@ const SignUpForm = () => {
   return (
     <div id="page">
       <form id="SignUpForm" onSubmit={signUp}>
-        <img src={Logo} alt="Logo" />
+        <Link to={"/"}>
+          <img src={Logo} alt="Logo" />
+        </Link>
         <InputText
           texto={"Username"}
           value={username}

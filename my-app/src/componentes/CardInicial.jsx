@@ -1,7 +1,10 @@
 import React from "react";
 import "../estilos/EstilosDoCardInicial.css";
+import { Link } from "react-router-dom";
+import supabase from "../supabaseClient";
+import FavoriteButton from "./SearchPage/FavoriteButton";
 
-const CardInicial = ({ titulo, texto, img  }) => {
+const CardInicial = ({ id, titulo, texto, img, user }) => {
   return (
     <div className="card-pi">
       <div className="cont-img">
@@ -14,8 +17,11 @@ const CardInicial = ({ titulo, texto, img  }) => {
         </div>
 
         <div className="cont-actions">
-          <button type="button">View recipe</button>
-          <i className="fa-solid fa-crown"></i>
+          <Link to={`ViewRecipePage?=${id}`}>
+            <button type="button">View recipe</button>
+          </Link>
+
+          {user && <FavoriteButton idRecipes={id} idUser={user.id} />}
         </div>
       </div>
     </div>

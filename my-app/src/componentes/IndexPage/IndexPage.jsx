@@ -11,53 +11,45 @@ import recipelogo from "../../imagens/recipe-icon.png";
 import supabase from "../../supabaseClient";
 
 const IndexPage = () => {
-  const [username, setUsername] = useState("");
+  const [username, setUsername] = useState(null);
+  const [user, setUser] = useState();
   const [recommendedRecipes, setRecommendedRecipes] = useState([]);
+  const [lastRecipes, setLastRecipes] = useState([]);
 
   useEffect(() => {
-    const fetchRandomRecipes = async () => {
-      try {
-        const { data: allIds, error: allIdsError } = await supabase
-          .from("Recipes")
-          .select("idrecipe");
+    const lastUploads = async () => {
+      const { data, error } = await supabase
+        .from("Recipes")
+        .select()
+        .order("idrecipe", { ascending: false })
+        .range(0, 2);
 
-        if (allIdsError) {
-          console.error("Error fetching all ids:", allIdsError);
-          return;
-        }
-
-        if (!allIds || allIds.length === 0) {
-          console.error("No recipe ids found");
-          return;
-        }
-
-        // Shuffle the ids and select the first 3
-        const shuffledIds = allIds.sort(() => 0.5 - Math.random()).slice(0, 3);
-
-        const recipePromises = shuffledIds.map(async (row) => {
-          const { data: recipe, error: recipeError } = await supabase
-            .from("Recipes")
-            .select("*")
-            .eq("idrecipe", row.idrecipe)
-            .single();
-
-          if (recipeError) {
-            console.error("Error fetching recipe:", recipeError);
-            return null;
-          }
-
-          return recipe;
-        });
-
-        const recipes = await Promise.all(recipePromises);
-        setRecommendedRecipes(recipes.filter((recipe) => recipe !== null));
-      } catch (error) {
-        console.error("Unexpected error:", error);
+      if (data) {
+        setLastRecipes(data);
+      } else {
+        console.error(error);
       }
     };
 
-    fetchRandomRecipes();
+    /* fetchRandomRecipes(); */
+    lastUploads();
   }, []);
+
+  const getRecommendedRecipes = async (user) => {
+    let tags = user.idtags;
+    const { data, error } = await supabase
+      .from("Recipes")
+      .select()
+      .overlaps("idtags", tags || [])
+      .order("idrecipe", { ascending: false })
+      .range(0, 2);
+
+    if (data) {
+      setRecommendedRecipes(data);
+    } else {
+      console.error(error);
+    }
+  };
 
   useEffect(() => {
     const getData = async () => {
@@ -66,10 +58,15 @@ const IndexPage = () => {
           data: { user },
         } = await supabase.auth.getUser();
         if (user) {
+          if (user.idtags > 0) {
+            getRecommendedRecipes(user);
+          }
           setUsername(user.user_metadata.username);
+          setUser(user);
         }
       } catch (error) {
         console.log(error);
+        setUsername(null);
       }
     };
     getData();
@@ -180,17 +177,20 @@ const IndexPage = () => {
         <div>
           <RecipeSearch />
         </div>
-        <div className="box">
-          <h2>Recommended for you</h2>
-          <div className="boxcard">
-            <ListaCard dados={recommendedRecipes} />
+
+        {recommendedRecipes > 0 && (
+          <div className="box">
+            <h2>Recommended for you</h2>
+            <div className="boxcard">
+              <ListaCard dados={recommendedRecipes} user={username} />
+            </div>
           </div>
-        </div>
+        )}
 
         <div className="box">
-          <h2>Based on your preferences</h2>
+          <h2>Last Recipes Upload</h2>
           <div className="boxcard">
-            <ListaCard dados={recommendedRecipes} />
+            <ListaCard dados={lastRecipes} user={user} />
           </div>
         </div>
       </main>

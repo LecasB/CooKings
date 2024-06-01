@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "../../estilos/UserLateral.css";
 import { Profile } from "../../imagens/svgs";
 import supabase from "../../supabaseClient";
@@ -17,6 +17,10 @@ const UserInfo = () => {
   const [mismatchError, setMismatchError] = useState("");
   const [isDirty, setIsDirty] = useState(false);
   const [newName, setNewName] = useState("");
+  const [profileImage, setProfileImage] = useState(null);
+  const [profileImageURL, setProfileImageURL] = useState(null);
+
+  const fileInputRef = useRef();
 
   const getUser = async () => {
     const {
@@ -25,6 +29,7 @@ const UserInfo = () => {
     if (user) {
       setUser(user);
       setNewName(user.user_metadata?.username || "");
+      setProfileImageURL(user.user_metadata?.profile_image_url || "");
     } else {
       setUser(null);
     }
@@ -50,13 +55,32 @@ const UserInfo = () => {
     setNewPassword("");
     setConfirmNewPassword("");
     setName("");
+    setProfileImage(null);
+  };
+
+  const uploadProfileImage = async () => {
+    if (!profileImage) return null;
+
+    try {
+      const { data, error } = await supabase.storage
+        .from("cooKingsBucket")
+        .upload(profileImage.name, profileImage);
+
+      if (error) throw error;
+
+      return data.path;
+    } catch (error) {
+      console.error("Error uploading image:", error.message);
+      setError(`Failed to upload profile image: ${error.message}`);
+      return null;
+    }
   };
 
   const handleSaveChanges = async () => {
     setLoading(true);
     setError("");
     setSuccess("");
-    setMismatchError(""); // Reset mismatch error
+    setMismatchError("");
 
     if (newPassword && newPassword !== confirmNewPassword) {
       setMismatchError("New passwords do not match");
@@ -86,21 +110,25 @@ const UserInfo = () => {
           setLoading(false);
           return;
         }
-
-        resetFields(); // Reset fields after successful password change
       }
 
+      const imagePath = await uploadProfileImage();
+
       const { error: updateMetadataError } = await supabase.auth.updateUser({
-        data: { username: newName },
+        data: {
+          username: newName,
+          profile_image_url: `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/${profileImage.name}`,
+        },
       });
 
       if (updateMetadataError) {
-        setError("Failed to update name");
+        setError("Failed to update profile");
         setLoading(false);
         return;
       }
 
       setSuccess("Profile updated successfully");
+      resetFields();
       setIsDirty(false);
     } catch (error) {
       setError("An unexpected error occurred");
@@ -110,17 +138,40 @@ const UserInfo = () => {
   };
 
   const handleResetChanges = () => {
-    resetFields(); // Reset fields
+    resetFields();
     setIsDirty(false);
-    setMismatchError(""); // Reset mismatch error
+    setMismatchError("");
+  };
+
+  const handleImageClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setProfileImage(file);
+    setProfileImageURL(URL.createObjectURL(file));
+    setIsDirty(true);
   };
 
   return (
     <div className="UserInfo">
       <section className="Perfil">
-        <figure className="foto">
-          <Profile />
+        <figure className="foto" onClick={handleImageClick}>
+          {profileImageURL ? (
+            <img src={profileImageURL} alt="Profile" className="profile-img" />
+          ) : (
+            <Profile className="profile-img" />
+          )}
         </figure>
+
+        <input
+          type="file"
+          ref={fileInputRef}
+          style={{ display: "none" }}
+          onChange={handleImageChange}
+          accept="image/*"
+        />
 
         <input
           className="inputsProfile"

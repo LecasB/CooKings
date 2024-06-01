@@ -58,6 +58,11 @@
   
 }
 
+.UserInfo{
+  overflow: auto;
+  padding-bottom: 150px;
+
+}
 .UserInfo figure {
   text-align: center;
 }
@@ -66,8 +71,19 @@
   margin: 0;
 
 }
+
 .UserInfo .Perfil .foto svg {
-  width: 100%;
+  justify-content: center;
+}
+.UserInfo .Perfil{
+
+  width: 300px;
+  margin: 0 auto;
+
+}
+
+.UserInfo .Perfil .foto svg {
+  width: 200px;
   height: auto;
   transition: opacity 0.5s;
 }
@@ -96,38 +112,9 @@
   border-radius: 1em;
   background-color: #d9d9d9;
   border: none;
-}
-
-.UserInfo .inputsProfile{
   padding: 0 1rem 0 1rem;
 }
 
-.UserInfo button.inputsProfile {
-  background-color: #d4eff1;
-  height: 3em;
-  border-radius: 1em;
-  border: none;
-  cursor: pointer;
-}
-
-.user-options-section {
-  width: 100%;
-  height: auto;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.user-options {
-  
-  padding: 1px 10px;
-  margin: 2px;
-  border-radius: 50px;
-  background: rgb(199, 197, 197);
-}
-
-.user-options p {
-  margin: 0;
-}
 .perfil{
   display: flex;
 }
@@ -135,7 +122,35 @@
   width: 19em;;
 }
 
+.button-group{
 
+  display: flex;
+  justify-content: end;
+  gap: 2em;
+  align-items: center;
+}
+
+.saveProfileUpdate, .resetProfileUpdate{
+  width: 100%;
+  height: 3em;
+  border: 1px solid #000000;
+  border-radius: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+  color: #ffffff;
+  font-weight: 600;
+  background-color: black;
+}
+
+.resetProfileUpdate{
+
+  background-color: rgb(222, 4, 4);
+}
+
+.error-message , .success-message{
+
+  margin: 0px;
+}
 
 .card-section {
   display: flex;

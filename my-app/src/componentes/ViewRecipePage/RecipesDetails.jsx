@@ -91,14 +91,14 @@ const RecipeDetails = (data) => {
         </div>
         <p>{description}</p>
         <h3>Ingredients</h3>
-        <ul className="IngredientList">
+        <ol className="IngredientList">
           <li>Lorem</li>
           <li>Lorem</li>
           <li>Lorem</li>
           <li>Lorem</li>
           <li>Lorem</li>
           <li>Lorem</li>
-        </ul>
+        </ol>
       </div>
     </div>
   );

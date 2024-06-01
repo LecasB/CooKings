@@ -1,17 +1,13 @@
-import react from 'react';
-import supabaseClient from '../../supabaseClient';
-import { useEffect, useState, useRef } from 'react';
-import supabase from '../../supabaseClient';
-import { Link } from 'react-router-dom'
-import { BackArrow } from "../../imagens/svgs";
+import React, { useEffect, useState, useRef } from "react";
+import { Link } from "react-router-dom";
+import supabase from "../../supabaseClient";
 import "../../estilos/EditRecipePage.css";
-import EditRecipePage from '../EditRecipePage/EditRecipePage';
+import EditRecipePage from "../EditRecipePage/EditRecipePage";
 
-const NovaReceitaClient = () =>{
-    const fileInputRef = useRef();
+const NovaReceitaClient = () => {
+  const fileInputRef = useRef();
   const imageRef = useRef();
 
-  // State variables for form data and image handling
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [idcategory, setCategoryId] = useState("");
@@ -19,8 +15,8 @@ const NovaReceitaClient = () =>{
   const [imageFile, setImageFile] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
   const [userId, setUserId] = useState(null);
+  const [tag, setTag] = useState([]);
 
-  // Fetch categories from Supabase
   const fetchCategories = async () => {
     try {
       const { data, error } = await supabase
@@ -37,18 +33,15 @@ const NovaReceitaClient = () =>{
 
   async function getUser() {
     const { data, error } = await supabase.auth.getSession();
-    
+
     if (error) {
-        console.error("Error fetching user session:", error.message);
-        return;
+      console.error("Error fetching user session:", error.message);
+      return;
     }
-
     if (data.session) {
-        setUserId(data.session.user.id);
+      setUserId(data.session.user.id);
     }
-}
-
-  // Fetch ingredient data if editing
+  }
 
   const fetchIngredientData = async () => {
     try {
@@ -63,38 +56,24 @@ const NovaReceitaClient = () =>{
       setName(data.name);
       setDescription(data.description);
       setCategoryId(data.idcategory);
-      setImageUrl(data.image); // Set image URL if exists
-      console.log(data.image);
-      console.log(imageUrl);
-      // debugger;
+      setImageUrl(data.image);
     } catch (error) {
       console.error("Error fetching ingredient data:", error.message);
     }
   };
 
-  useEffect(() => {
-    console.log(imageUrl);
-  }, [imageUrl]);
-
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const dataAtual = new Date();
     const dia = String(dataAtual.getDate()).padStart(2, "0");
-    const mes = String(dataAtual.getMonth() + 1).padStart(2, "0"); // getMonth() começa de 0 para janeiro
+    const mes = String(dataAtual.getMonth() + 1).padStart(2, "0");
     const ano = dataAtual.getFullYear();
     const horas = String(dataAtual.getHours()).padStart(2, "0");
     const minutos = String(dataAtual.getMinutes()).padStart(2, "0");
     const segundos = String(dataAtual.getSeconds()).padStart(2, "0");
     const dataHoraFormatada = dia + mes + ano + horas + minutos + segundos;
-
     try {
-      console.log(imageUrl);
-      // debugger;
       let imageUrlInDatabase = imageUrl;
-
-      // Upload image if a new image is selected
       if (imageFile) {
         const { data, error } = await supabase.storage
           .from("cooKingsBucket")
@@ -105,28 +84,17 @@ const NovaReceitaClient = () =>{
         if (error) {
           throw error;
         }
-        console.log("Upload response:", data);
-        imageUrlInDatabase = data.path; // L
-        console.log(imageUrlInDatabase);
+        imageUrlInDatabase = data.path;
       }
-
       const ingredientData = {
         name,
         description,
         idcategory,
-        image:
-          `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/` +
-          imageUrlInDatabase,
-          iduser: userId,
-          state: false,
-
+        image: `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/${imageUrlInDatabase}`,
+        iduser: userId,
+        state: false,
+        idtags: tag,
       };
-
-      console.log(
-        `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/` +
-          imageUrlInDatabase
-      );
-
       if (idingridients) {
         await supabase
           .from("Recipes")
@@ -135,14 +103,12 @@ const NovaReceitaClient = () =>{
       } else {
         await supabase.from("Recipes").insert([ingredientData]);
       }
-
       window.location.href = "/AdminDashboardPage/ListaReceitas";
     } catch (error) {
       console.error("Error inserting/updating data:", error.message);
     }
   };
 
-  // Handle drag and drop for image
   const handleDrop = (event) => {
     event.preventDefault();
     const files = event.dataTransfer.files;
@@ -156,12 +122,10 @@ const NovaReceitaClient = () =>{
     }
   };
 
-  // Handle drag over for image drop area
   const handleDragOver = (event) => {
     event.preventDefault();
   };
 
-  // Handle file input change for image
   const handleFileChange = (event) => {
     const files = event.target.files;
     if (files.length) {
@@ -174,7 +138,6 @@ const NovaReceitaClient = () =>{
     }
   };
 
-  // Extracting the ID parameter from the URL
   const url = window.location.href;
   const match = url.match(/[?&]id=(\d+)/);
   const idingridients = match ? match[1] : null;
@@ -189,9 +152,30 @@ const NovaReceitaClient = () =>{
 
   return (
     <>
-    <EditRecipePage/>
+      <EditRecipePage
+        name={name}
+        setName={setName}
+        description={description}
+        setDescription={setDescription}
+        idcategory={idcategory}
+        setCategoryId={setCategoryId}
+        categories={categories}
+        setCategories={setCategories}
+        imageFile={imageFile}
+        setImageFile={setImageFile}
+        imageUrl={imageUrl}
+        setImageUrl={setImageUrl}
+        fileInputRef={fileInputRef}
+        imageRef={imageRef}
+        handleSubmit={handleSubmit}
+        handleFileChange={handleFileChange}
+        handleDrop={handleDrop}
+        handleDragOver={handleDragOver}
+        tag={tag}
+        setTag={setTag}
+      />
     </>
   );
-}
+};
 
 export default NovaReceitaClient;

@@ -10,10 +10,6 @@ import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-
-let { error } = await supabase.auth.signOut()
-
-
 const LoginForm = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,10 +33,20 @@ const LoginForm = () => {
     }
   };
 
+  useEffect(() => {
+    const reset = async () => {
+      let { error } = await supabase.auth.signOut();
+    };
+
+    reset();
+  }, []);
+
   return (
     <div id="page">
       <div id="SignUpForm">
-        <img src={Logo} alt="Logo" />
+        <Link to={"/"}>
+          <img src={Logo} alt="Logo" />
+        </Link>
         <InputText
           texto={"Email"}
           value={email}
@@ -58,7 +64,9 @@ const LoginForm = () => {
           <Text texto="Forgot your Password?" />
         </div>
         <LoginButton texto={"Log in"} type="submit" onClick={handleLogin} />
-        <Link to="/EmailPasswordReset"><p>Forgot ur password?</p></Link>
+        <Link to="/EmailPasswordReset">
+          <p>Forgot ur password?</p>
+        </Link>
         <Text texto="Or" />
         <Text texto="Don't have an account yet?" />
         <Link to="/SignUpPage">

@@ -1,7 +1,7 @@
 .ViewRecipePage {
   padding-top: 5em;
-  margin-bottom: 20em;
-  height: 500px;
+  /*   margin-bottom: 20em;
+  height: 500px; */
 }
 .Recipe {
   width: 80%;
@@ -18,7 +18,7 @@
 .Recipe .Detalhes,
 .Recommended {
   width: 100%;
-  padding: 2em;
+  padding: 0 2em;
   box-sizing: border-box;
 }
 .Recommended h3 {
@@ -39,14 +39,32 @@
   gap: 10px;
   margin: 0;
   padding: 0;
+  flex-wrap: wrap;
 }
-.IngredientList {
-  padding-bottom: 3em;
-}
+
 .TagList li {
   padding: 1px 10px;
   border-radius: 50px;
   background: gray;
+}
+
+.IngredientList {
+  display: flex;
+  padding: 0;
+  gap: 10px;
+  padding-left: 20px;
+  flex-wrap: wrap;
+}
+
+.IngredientList li {
+  padding: 1px 10px;
+  border-radius: 50px;
+  padding: 0;
+  margin-right: 15px;
+}
+
+ol > li::marker {
+  font-weight: bold;
 }
 
 .Recipe figure img {
@@ -54,13 +72,34 @@
   width: 100%;
   height: 100%;
 }
+
 .Recipe figure {
   margin: 0;
   margin-inline: 0;
   margin-block: 0;
-  max-width: 40%;
   height: 100%;
   overflow: hidden;
   border-top-left-radius: 3em;
   border-bottom-left-radius: 3em;
+}
+
+@media screen and (max-width: 600px) {
+  .Recipe {
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .Recommended .boxcard {
+    margin-inline-end: 0em;
+  }
+
+  .Recipe figure {
+    margin: 0;
+    margin-inline: 0;
+    margin-block: 0;
+    height: 100%;
+    overflow: hidden;
+    width: 100%;
+    border-radius: 0;
+  }
 }

@@ -21,6 +21,7 @@ const IndexPage = () => {
       const { data, error } = await supabase
         .from("Recipes")
         .select()
+        .eq("state", true)
         .order("idrecipe", { ascending: false })
         .range(0, 2);
 
@@ -41,6 +42,7 @@ const IndexPage = () => {
       .from("Recipes")
       .select()
       .overlaps("idtags", tags || [])
+      .eq("state", true)
       .order("idrecipe", { ascending: false })
       .range(0, 2);
 

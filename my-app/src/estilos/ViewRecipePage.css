@@ -38,6 +38,10 @@
   display: inline-flex;
   gap: 10px;
   margin: 0;
+  padding: 0;
+}
+
+.TagList li {
   padding: 1px 10px;
   border-radius: 50px;
   background: gray;

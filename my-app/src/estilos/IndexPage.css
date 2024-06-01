@@ -34,6 +34,7 @@
   .boas {
     width: 100%;
     margin: 0px 10px 10px 0px;
-    font-size: 50px;
+    font-size: 35px;
+    padding-top:20px;
   }
 }

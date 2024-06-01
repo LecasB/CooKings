@@ -12,7 +12,11 @@ const AprovarReceitas = ({
 }) => {
   const [categoria, setName] = useState("");
 
+  
+
   return (
+
+    
     <div className="card-procurar" style={{ margin: 10 }}>
       <figure className="cont-img-procurar">
         <img src={imagem} alt="" />

@@ -95,7 +95,7 @@ const NavBar = () => {
               <Link
                 to={
                   user == null
-                    ? "/SignUpPage"
+                    ? "/LoginPage"
                     : userAdmin
                     ? "/AdminDashboardPage/ListaReceitas"
                     : "/ClientDashboard/ListaIngredienteClient"
@@ -108,7 +108,7 @@ const NavBar = () => {
               <Link
                 to={
                   user == null
-                    ? "/SignUpPage"
+                    ? "/LoginPage"
                     : userAdmin
                     ? "/AdminDashboardPage"
                     : "/ClientDashboard"

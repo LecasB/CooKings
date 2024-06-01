@@ -40,6 +40,7 @@ const ListaReceitas = () => {
         <div>
           <h1>Recipes List</h1>
         </div>
+        
         <div className="recipesMap">
           {categorias.map((categoria) => (
             <div key={categoria.idrecipe}>

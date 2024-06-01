@@ -11,7 +11,7 @@ const ListaIngredienteClient = () => {
   async function getCategorias() {
     try {
       const { data, error } = await supabase
-        .from("Category_Ingredients")
+        .from("Category_Recipes")
         .select();
 
       if (error) {
@@ -38,7 +38,7 @@ const ListaIngredienteClient = () => {
 
     try {
       const { data, error } = await supabase
-        .from("Category_Ingredients")
+        .from("Category_Recipes")
         .insert([{ name }]);
 
       if (error) {
@@ -58,7 +58,7 @@ const ListaIngredienteClient = () => {
 
     try {
       const { data, error } = await supabase
-        .from("Category_Ingredients")
+        .from("Category_Recipes")
         .update({ name: editingCategory.name })
         .eq("idcategory", editingCategory.idcategory);
 
@@ -88,7 +88,7 @@ const ListaIngredienteClient = () => {
     if (window.confirm("Are you sure you want to delete this category?")) {
       try {
         const { error } = await supabase
-          .from("Category_Ingredients")
+          .from("Category_Recipes")
           .delete()
           .eq("idcategory", id);
 
@@ -115,7 +115,7 @@ const ListaIngredienteClient = () => {
     >
       <div className="listaIngrediente" style={{ paddingBottom: 150 }}>
         <div id="novaCategoriaIngrediente">
-          <h1>New Ingredient's Category</h1>
+          <h1>New Recipe's Category</h1>
           <form onSubmit={handleSubmit}>
             <label>
               Name:
@@ -130,7 +130,7 @@ const ListaIngredienteClient = () => {
           </form>
         </div>
         <div>
-          <h2>Filter your ingredient categories here :)</h2>
+          <h2>Filter your recipes categories here :)</h2>
           <input
             type="text"
             placeholder="Example: Cake"

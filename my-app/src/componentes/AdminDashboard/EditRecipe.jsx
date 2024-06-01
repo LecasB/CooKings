@@ -3,7 +3,7 @@ import supabase from "../../supabaseClient";
 import { Link } from "react-router-dom";
 import { BackArrow } from "../../imagens/svgs";
 import "../../estilos/EditRecipePage.css";
-import EditRecipePage from '../EditRecipePage/EditRecipePage';
+import EditRecipePage from "../EditRecipePage/EditRecipePage";
 
 const EditRecipe = () => {
   const fileInputRef = useRef();
@@ -16,6 +16,7 @@ const EditRecipe = () => {
   const [categories, setCategories] = useState([]);
   const [imageFile, setImageFile] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
+  const [tag, setTag] = useState([]);
 
   // Fetch categories from Supabase
   const fetchCategories = async () => {
@@ -101,6 +102,7 @@ const EditRecipe = () => {
         image:
           `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/` +
           imageUrlInDatabase,
+        idtags: tag,
       };
 
       console.log(
@@ -169,7 +171,28 @@ const EditRecipe = () => {
 
   return (
     <>
-      <EditRecipePage/>
+      <EditRecipePage
+        name={name}
+        setName={setName}
+        description={description}
+        setDescription={setDescription}
+        idcategory={idcategory}
+        setCategoryId={setCategoryId}
+        categories={categories}
+        setCategories={setCategories}
+        imageFile={imageFile}
+        setImageFile={setImageFile}
+        imageUrl={imageUrl}
+        setImageUrl={setImageUrl}
+        fileInputRef={fileInputRef}
+        imageRef={imageRef}
+        handleSubmit={handleSubmit}
+        handleFileChange={handleFileChange}
+        handleDrop={handleDrop}
+        handleDragOver={handleDragOver}
+        tag={tag}
+        setTag={setTag}
+      />
     </>
   );
 };

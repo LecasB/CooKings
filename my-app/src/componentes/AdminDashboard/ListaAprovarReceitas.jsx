@@ -48,7 +48,10 @@ const ListaAprovarReceitas = () => {
   }, []);
 
   return (
-    <div style={{ width: "100%", overflow: "auto", padding: "5px 10px" }}>
+    <div
+      className="lista-aprovar"
+      style={{ width: "100%", overflow: "auto", padding: "5px 10px" }}
+    >
       <div>
       <h1>{receitas.length === 0 ? "No recipes available" : "Recipes List"  }</h1>
       </div>

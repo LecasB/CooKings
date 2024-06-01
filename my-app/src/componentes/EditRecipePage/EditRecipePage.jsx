@@ -1,111 +1,100 @@
-import React, { useRef } from "react";
+import React from "react";
 import "../../estilos/EditRecipePage.css";
 import TagsArea from "../TagsArea";
 
-const EditRecipePage = () => {
-  const fileInputRef = useRef();
-  const imageRef = useRef();
-
-  const handleDrop = (evento) => {
-    evento.preventDefault();
-    const files = evento.dataTransfer.files;
-    if (files.length) {
-      let reader = new FileReader();
-      reader.onload = (evento) => {
-        if (imageRef.current) {
-          imageRef.current.src = evento.target.result;
-        }
-      };
-      reader.readAsDataURL(files[0]);
-    }
-  };
-
-  const handleDragOver = (evento) => {
-    evento.preventDefault();
-  };
-
-  const handleFileChange = (evento) => {
-    const files = evento.target.files;
-    if (files.length) {
-      let reader = new FileReader();
-      reader.onload = (evento) => {
-        if (imageRef.current) {
-          imageRef.current.src = evento.target.result;
-        }
-      };
-      reader.readAsDataURL(files[0]);
-    }
-  };
-
+const EditRecipePage = ({
+  name,
+  setName,
+  description,
+  setDescription,
+  idcategory,
+  setCategoryId,
+  categories,
+  imageFile,
+  setImageFile,
+  imageUrl,
+  setImageUrl,
+  fileInputRef,
+  imageRef,
+  handleSubmit,
+  handleFileChange,
+  handleDrop,
+  handleDragOver,
+  tag,
+  setTag,
+}) => {
   return (
-    <>
-      <main className="EditRecipePage">
-        <form className="EditForm">
-          <div className="LeftForm">
-            <label htmlFor="">Recipe Name</label>
-            <input id="recipeName" type="text"/>
-            <label htmlFor="">Description</label>
-            <textarea
-              name=""
-              id=""
-              cols="30"
-              rows="10"
-            ></textarea>
-            <label htmlFor="">Category</label>
-            <select name="" id="">
-              <option value="" selected disabled hidden>
-                Choose here
+    <main className="EditRecipePage">
+      <form className="EditForm" onSubmit={handleSubmit}>
+        <div className="LeftForm">
+          <label htmlFor="recipeName">Recipe Name</label>
+          <input
+            id="recipeName"
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+          <label htmlFor="description">Description</label>
+          <textarea
+            id="description"
+            cols="30"
+            rows="10"
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            required
+          ></textarea>
+          <label htmlFor="category">Category</label>
+          <select
+            id="category"
+            value={idcategory}
+            onChange={(e) => setCategoryId(e.target.value)}
+            required
+          >
+            <option value="">Select category</option>
+            {categories.map((categ) => (
+              <option key={categ.idcategory} value={categ.idcategory}>
+                {categ.name}
               </option>
-              <option value="Breakfast">Breakfast</option>
-              <option value="Lunch">Lunch</option>
-              <option value="Dinner">Dinner</option>
-              <option value="Dessert">Dessert</option>
-              <option value="Drink">Drink</option>
-              <option value="Snack">Snack</option>
-            </select>
-            <label htmlFor="">Tag</label>
-            <TagsArea></TagsArea>
-          </div>
+            ))}
+          </select>
+          <label htmlFor="tags">Tag</label>
+          <TagsArea tag={tag} setTag={setTag} />
+        </div>
 
-          <div className="RightForm">
+        <div className="RightForm">
+          <div>
+            <img
+              ref={imageRef}
+              id="RecipeImage"
+              src={imageUrl || "https://images.alphacoders.com/276/276861.jpg"}
+              alt="Recipe"
+            />
+          </div>
+          <label htmlFor="fileInput">Product Gallery</label>
+          <label id="PutImage" onDrop={handleDrop} onDragOver={handleDragOver}>
+            <span id="DropImageTitle">Drop your image here, or browse</span>
             <div>
-              <img
-                ref={imageRef}
-                id="RecipeImage"
-                src="https://images.alphacoders.com/276/276861.jpg"
-                alt="Recipe Image"
+              <input
+                ref={fileInputRef}
+                id="fileInput"
+                type="file"
+                accept="image/png, image/jpg, image/jpeg"
+                onChange={handleFileChange}
               />
             </div>
-            <label>Product Gallery</label>
-            <label
-              htmlFor="fileInput"
-              id="PutImage"
-              onDrop={handleDrop}
-              onDragOver={handleDragOver}
-            >
-              <span id="DropImageTitle">Drop your image here, or browse</span>
-              <div>
-                <input
-                  ref={fileInputRef}
-                  id="fileInput"
-                  type="file"
-                  accept="image/png, image/jpg, image/jpeg"
-                  onChange={handleFileChange}
-                />
-              </div>
-            </label>
-            <div className="buttonContainer">
-              <button id="saveButton" className="button">
-                SAVE
-              </button>
-              <button id="deleteButton" className="button">
-                CANCEL
-              </button>
-            </div>
+          </label>
+          <div className="buttonContainer">
+            <button id="saveButton" className="button" type="submit">
+              SAVE
+            </button>
+            <button id="deleteButton" className="button" type="button">
+              CANCEL
+            </button>
           </div>
-        </form>
-      </main>
-    </>
+        </div>
+      </form>
+    </main>
   );
 };
 

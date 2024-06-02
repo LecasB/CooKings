@@ -15,11 +15,11 @@ const SideBar = () => {
         </li>
 
         <li>
-          <Link to="ListaIngredienteClient"> My Ingriedients </Link>
+          <Link to="ListaIngredienteClient"> My Ingredients </Link>
         </li>
 
         <li>
-          <Link to="NovoIngredienteClient"> Add Ingridient </Link>
+          <Link to="NovoIngredienteClient"> Add Ingredient </Link>
         </li>
 
         <li>

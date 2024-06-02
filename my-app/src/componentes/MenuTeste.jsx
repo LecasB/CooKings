@@ -14,7 +14,6 @@ import SearchForm from "./SearchPage/SearchForm";
 import SearchPage from "./SearchPage/SearchPage";
 import IndexPage from "./IndexPage/IndexPage";
 import UserPage from "./UserPage/UserPage";
-import IngredientsListPage from "./IngredientsListPage/IngredientsListPage";
 import EditRecipePage from "./EditRecipePage/EditRecipePage";
 import Layout from "./Layout";
 import LayoutAdmin from "./AdminDashboard/LayoutAdmin";
@@ -55,10 +54,6 @@ const MenuTeste = () => {
           <Route path="SearchPage" element={<SearchPage />} />
           <Route index path="/" element={<IndexPage />} />
           <Route path="EditRecipePage" element={<EditRecipePage />} />
-          <Route
-            path="IngredientsListPage/IngredientsListPage"
-            element={<IngredientsListPage />}
-          />
           <Route path="ViewRecipePage" element={<ViewRecipePage />} />
           <Route path="PasswordReset" element={<PasswordReset />} />
           <Route path="EmailPasswordReset" element={<EmailPasswordReset />} />

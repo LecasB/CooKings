@@ -31,7 +31,9 @@ const EditRecipePage = ({
   useEffect(() => {
     const fetchIngredients = async () => {
       try {
-        const { data: ingredients, error } = await supabase.from("Ingredients").select("*");
+        const { data: ingredients, error } = await supabase
+          .from("Ingredients")
+          .select("*");
         if (error) {
           throw error;
         }
@@ -43,14 +45,17 @@ const EditRecipePage = ({
     fetchIngredients();
   }, []);
 
+  // Dentro da função NovaReceitaClient
+
+  // Atualize a função handleIngredientSelect para armazenar apenas os IDs dos ingredientes
   const handleIngredientSelect = (index, value) => {
     const updatedIngredients = [...selectedIngredients];
-    updatedIngredients[index] = value;
+    updatedIngredients[index] = Number(value); // Armazenar apenas o ID do ingrediente
     setSelectedIngredients(updatedIngredients);
   };
 
   const addSelectBox = () => {
-    setSelectedIngredients([...selectedIngredients, ""]);
+    setSelectedIngredients([...selectedIngredients, null]);
   };
 
   return (
@@ -101,7 +106,10 @@ const EditRecipePage = ({
               >
                 <option value="">Select Ingredient</option>
                 {availableIngredients.map((ingredient) => (
-                  <option key={ingredient.id} value={ingredient.name}>
+                  <option
+                    key={ingredient.idingridients}
+                    value={ingredient.idingridients}
+                  >
                     {ingredient.name}
                   </option>
                 ))}

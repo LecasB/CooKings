@@ -20,6 +20,8 @@ const UserInfo = () => {
   const [profileImage, setProfileImage] = useState(null);
   const [profileImageURL, setProfileImageURL] = useState(null);
   const [isNewImageSelected, setIsNewImageSelected] = useState(false);
+  const [tag, setTag] = useState([]);
+  
 
   const fileInputRef = useRef();
 
@@ -244,7 +246,7 @@ const UserInfo = () => {
         {mismatchError && <p className="error-message">{mismatchError}</p>}
         {error && <p className="error-message">{error}</p>}
         {success && <p className="success-message">{success}</p>}
-        <TagsArea />
+        <TagsArea tag={tag} setTag={setTag}/>
         {isDirty && (
           <div className="button-group">
             <button

@@ -146,12 +146,12 @@ const UserInfo = () => {
     resetFields();
     setIsDirty(false);
     setMismatchError("");
-  
+
     // Only reset the profileImageURL if a new image has not been selected
     if (!isNewImageSelected) {
       setProfileImageURL(user?.user_metadata?.profile_image_url || "");
     }
-  
+
     // Reset isNewImageSelected to false
     setIsNewImageSelected(false);
   };

@@ -188,7 +188,7 @@ const IndexPage = () => {
           <div className="box">
             <h2>Recommended for you</h2>
             <div className="boxcard">
-              <ListaCard dados={recommendedRecipes} user={username} />
+              <ListaCard dados={recommendedRecipes} user={user} />
             </div>
           </div>
         )}

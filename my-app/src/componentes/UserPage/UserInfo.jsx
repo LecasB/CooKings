@@ -59,6 +59,7 @@ const UserInfo = () => {
     setConfirmNewPassword("");
     setName("");
     setProfileImage(null);
+    
   };
 
   const uploadProfileImage = async () => {
@@ -84,52 +85,53 @@ const UserInfo = () => {
     setError("");
     setSuccess("");
     setMismatchError("");
-
+  
     if (newPassword && newPassword !== confirmNewPassword) {
       setMismatchError("New passwords do not match");
       setLoading(false);
       return;
     }
-
+  
     try {
       if (currentPassword && newPassword) {
         const { error: signInError } = await supabase.auth.signInWithPassword({
           email: user?.email,
           password: currentPassword,
         });
-
+  
         if (signInError) {
           setError("Current password is incorrect");
           setLoading(false);
           return;
         }
-
+  
         const { error: updatePasswordError } = await supabase.auth.updateUser({
           password: newPassword,
         });
-
+  
         if (updatePasswordError) {
           setError("Failed to update password");
           setLoading(false);
           return;
         }
       }
-
+  
       const imagePath = await uploadProfileImage();
-
+  
       const { error: updateMetadataError } = await supabase.auth.updateUser({
         data: {
           username: newName,
-          profile_image_url: `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/${profileImage.name}`,
+          profile_image_url: imagePath ? `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/${profileImage.name}` : user.user_metadata?.profile_image_url || "",
+          tags: tag, // Save the selected tags here
         },
       });
-
+  
       if (updateMetadataError) {
         setError("Failed to update profile");
         setLoading(false);
         return;
       }
-
+  
       setSuccess("Profile updated successfully");
       resetFields();
       setIsDirty(false);
@@ -246,7 +248,8 @@ const UserInfo = () => {
         {mismatchError && <p className="error-message">{mismatchError}</p>}
         {error && <p className="error-message">{error}</p>}
         {success && <p className="success-message">{success}</p>}
-        <TagsArea tag={tag} setTag={setTag}/>
+        <TagsArea tag={tag} setTag={setTag} setIsDirty={setIsDirty} />
+        
         {isDirty && (
           <div className="button-group">
             <button

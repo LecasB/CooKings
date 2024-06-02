@@ -5,7 +5,7 @@ import Logo from "../imagens/cooKingsImagev1.png";
 import supabase from "../supabaseClient";
 
 const OverlayMenu = ({ isOpen, onClose }) => {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState(null);
   const [userAdmin, setAdmin] = useState(false);
 
   const getUser = async () => {
@@ -28,27 +28,30 @@ const OverlayMenu = ({ isOpen, onClose }) => {
   return (
     <div className={`mobileLinkItem ${isOpen ? "open" : ""}`} onClick={onClose}>
       <ul>
-        <img srcSet={Logo}></img>
+        <img srcSet={Logo} alt="Logo" />
         <li>
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/LoginPage">Login Form</Link>
-        </li>
-        <li>
-          <Link to="/SignUpPage">Sign Up</Link>
-        </li>
-        <li>
           <Link to="/SearchPage">Search page</Link>
         </li>
-
+        {!user && (
+          <>
+            <li>
+              <Link to="/LoginPage">Login In</Link>
+            </li>
+            <li>
+              <Link to="/SignUpPage">Sign Up</Link>
+            </li>
+          </>
+        )}
         {userAdmin ? (
           <li>
-            <Link to="/AdminDashboardPage/Dashboard">Admin</Link>
+            <Link to="/adminDashboardPage">Admin Dashboard</Link>
           </li>
         ) : user ? (
           <li>
-            <Link to="/UserPage">User page</Link>
+            <Link to="/clientDashboard">Client Dashboard</Link>
           </li>
         ) : null}
       </ul>

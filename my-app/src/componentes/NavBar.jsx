@@ -7,10 +7,11 @@ import supabase from "../supabaseClient";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
-  let mediaQuery = window.matchMedia("(max-width: 980px)"); //por enquanto deixo sempre ativo para podermos andar pela aplicação
+  let mediaQuery = window.matchMedia("(max-width: 980px)");
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState();
   const [userAdmin, setAdmin] = useState(false);
+  const [profileImageURL, setProfileImageURL] = useState(null);
 
   const ativarMenu = () => {
     setIsOpen(!isOpen);
@@ -44,8 +45,10 @@ const NavBar = () => {
     if (user) {
       setUser(user);
       setAdmin(user.user_metadata.admin);
+      setProfileImageURL(user.user_metadata?.profile_image_url || null);
     } else {
       setUser(null);
+      setProfileImageURL(null);
     }
   };
 
@@ -57,17 +60,13 @@ const NavBar = () => {
     hamburguer();
 
     if (isOpen) {
-      // Desativar o scroll quando o overlay está aberto
       document.body.classList.add("noScroll");
     } else {
-      // Reativar o scroll quando o overlay é fechado
       document.body.classList.remove("noScroll");
     }
 
-    // Chama a funcao sempre que a mediaQuery passa mobile size
     mediaQuery.addEventListener("change", hamburguer);
 
-    // Remove o EventListener
     return () => {
       mediaQuery.removeEventListener("change", hamburguer);
     };
@@ -75,7 +74,6 @@ const NavBar = () => {
 
   return (
     <header>
-      {" "}
       <nav className="navBar">
         <div className="logoContainer">
           <Link to="/">
@@ -114,11 +112,11 @@ const NavBar = () => {
                     : `LoadingPage?=/ClientDashboard`
                 }
               >
-                <Profile />
+                <Profile profileImageURL={profileImageURL} />
               </Link>
             </li>
             <li id="burger-icon" onClick={ativarMenu}>
-              <label className={`burger ${isOpen ? "open" : ""}`} for="burger">
+              <label className={`burger ${isOpen ? "open" : ""}`} htmlFor="burger">
                 <div className="line"></div>
               </label>
             </li>

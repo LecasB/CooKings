@@ -31,7 +31,7 @@
   margin-left: 20px;
 }
 
-.linksItems svg {
+.linksItems svg , .navBar .profile-img{
   max-width: 2.5em;
   max-height: 2.5em;
 }

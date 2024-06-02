@@ -217,6 +217,10 @@
 }
 
 @media only screen and (max-width: 650px) {
+
+  #logoutSvg{
+    display: none;
+  }
   .sidenavbar {
     display: none;
   }

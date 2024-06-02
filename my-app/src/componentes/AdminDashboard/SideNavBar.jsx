@@ -11,7 +11,7 @@ const SideNavBar = () => {
         </li>
 
         <li>
-          <Link to="NovoIngrediente"> New Ingridient </Link>
+          <Link to="NovoIngrediente"> New Ingredient </Link>
         </li>
 
         <li>
@@ -19,7 +19,7 @@ const SideNavBar = () => {
         </li>
 
         <li>
-          <Link to="ListaIngridiente"> Ingridients List </Link>
+          <Link to="ListaIngridiente"> Ingredients List </Link>
         </li>
 
         <li>

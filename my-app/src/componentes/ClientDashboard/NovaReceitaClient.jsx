@@ -16,6 +16,7 @@ const NovaReceitaClient = () => {
   const [imageUrl, setImageUrl] = useState("");
   const [userId, setUserId] = useState(null);
   const [tag, setTag] = useState([]);
+  const [selectedIngredients, setSelectedIngredients] = useState([]);
 
   const fetchCategories = async () => {
     try {
@@ -57,6 +58,7 @@ const NovaReceitaClient = () => {
       setDescription(data.description);
       setCategoryId(data.idcategory);
       setImageUrl(data.image);
+      setSelectedIngredients(data.ingridients);
     } catch (error) {
       console.error("Error fetching ingredient data:", error.message);
     }
@@ -94,6 +96,7 @@ const NovaReceitaClient = () => {
         iduser: userId,
         state: false,
         idtags: tag,
+        ingridients: selectedIngredients,
       };
       if (idingridients) {
         await supabase
@@ -103,11 +106,14 @@ const NovaReceitaClient = () => {
       } else {
         await supabase.from("Recipes").insert([ingredientData]);
       }
-      window.location.href = "/AdminDashboardPage/ListaReceitas";
     } catch (error) {
       console.error("Error inserting/updating data:", error.message);
     }
   };
+
+  useEffect(() => {
+    console.warn(selectedIngredients);
+  }, [selectedIngredients]);
 
   const handleDrop = (event) => {
     event.preventDefault();
@@ -126,6 +132,12 @@ const NovaReceitaClient = () => {
     event.preventDefault();
   };
 
+  /*   const handleIngredientSelect = (index, value) => {
+    const updatedIngredients = [...selectedIngredients];
+    updatedIngredients[index] = value.id; // Armazenar apenas o ID do ingrediente
+    setSelectedIngredients(updatedIngredients);
+  };
+ */
   const handleFileChange = (event) => {
     const files = event.target.files;
     if (files.length) {
@@ -137,7 +149,6 @@ const NovaReceitaClient = () => {
       reader.readAsDataURL(files[0]);
     }
   };
-
   const url = window.location.href;
   const match = url.match(/[?&]id=(\d+)/);
   const idingridients = match ? match[1] : null;
@@ -173,6 +184,8 @@ const NovaReceitaClient = () => {
         handleDragOver={handleDragOver}
         tag={tag}
         setTag={setTag}
+        selectedIngredients={selectedIngredients}
+        setSelectedIngredients={setSelectedIngredients}
       />
     </>
   );

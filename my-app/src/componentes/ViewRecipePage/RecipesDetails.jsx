@@ -118,16 +118,6 @@ const RecipeDetails = () => {
     fetchRecipeData();
   }, []);
 
-  const renderIngredientList = () => {
-    return ingsName.map(ing => {
-      const isIngredientAvailable = ingredientAvailability[ing.idingridients];
-      return (
-        <li key={ing.id} style={{ backgroundColor: isIngredientAvailable ? "green" : "red" }}>
-          {ing.name}
-        </li>
-      );
-    });
-  };
 
   return (
     <div className="Recipe">
@@ -148,7 +138,14 @@ const RecipeDetails = () => {
         <p>{description}</p>
         <h3>Ingredients</h3>
         <ol className="IngredientList">
-          {renderIngredientList()}
+          {ingsName.map(ing => {
+      const isIngredientAvailable = ingredientAvailability[ing.idingridients];
+      return (
+        <li key={ing.id} style={{ backgroundColor: isIngredientAvailable ? "green" : "red" }}>
+          {ing.name}
+        </li>
+      );
+    })}
         </ol>
       </div>
     </div>

@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Logo from "../../imagens/cooKingsImagev1.png";
 import "../../estilos/LoadingPage.css";
 import CircularProgress from "@mui/material/CircularProgress";
@@ -20,10 +21,24 @@ const LoadingScreen = () => {
 
   const randomIndex = Math.floor(Math.random() * cookingTips.length);
   const randomTip = cookingTips[randomIndex];
+  const navigate = useNavigate();
+
+  const string = "LoadingPage?=/AdminDashboardPage/ListaReceitas";
+  const pattern = /(?<=\=).*/;
+  const match = string.match(pattern);
+  const redirectTo = (`${match}`);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      navigate(redirectTo);
+    }, 2000); // Adjust the delay time as needed
+
+    return () => clearTimeout(timer);
+  }, [navigate, redirectTo]);
 
   return (
     <div id="LoadingPage">
-      <img src={Logo}></img>
+      <img src={Logo} alt="Logo" />
       <h1>Tip: {randomTip}</h1>
       <Box sx={{ display: "flex" }}>
         <CircularProgress />

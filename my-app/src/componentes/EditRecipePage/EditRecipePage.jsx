@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../estilos/EditRecipePage.css";
 import TagsArea from "../TagsArea";
+import supabase from "../../supabaseClient";
 
 const EditRecipePage = ({
   name,
@@ -22,7 +23,36 @@ const EditRecipePage = ({
   handleDragOver,
   tag,
   setTag,
+  selectedIngredients,
+  setSelectedIngredients,
 }) => {
+  const [availableIngredients, setAvailableIngredients] = useState([]);
+
+  useEffect(() => {
+    const fetchIngredients = async () => {
+      try {
+        const { data: ingredients, error } = await supabase.from("Ingredients").select("*");
+        if (error) {
+          throw error;
+        }
+        setAvailableIngredients(ingredients);
+      } catch (error) {
+        console.error("Error fetching ingredients:", error.message);
+      }
+    };
+    fetchIngredients();
+  }, []);
+
+  const handleIngredientSelect = (index, value) => {
+    const updatedIngredients = [...selectedIngredients];
+    updatedIngredients[index] = value;
+    setSelectedIngredients(updatedIngredients);
+  };
+
+  const addSelectBox = () => {
+    setSelectedIngredients([...selectedIngredients, ""]);
+  };
+
   return (
     <main className="EditRecipePage">
       <form className="EditForm" onSubmit={handleSubmit}>
@@ -52,7 +82,7 @@ const EditRecipePage = ({
             required
           >
             <option value="">Select category</option>
-            {categories.map((categ) => (
+            {(categories ?? []).map((categ) => (
               <option key={categ.idcategory} value={categ.idcategory}>
                 {categ.name}
               </option>
@@ -60,6 +90,28 @@ const EditRecipePage = ({
           </select>
           <label htmlFor="tags">Tag</label>
           <TagsArea tag={tag} setTag={setTag} />
+
+          {selectedIngredients.map((value, index) => (
+            <div key={index}>
+              <label>Ingredient {index + 1}:</label>
+              <select
+                value={value}
+                onChange={(e) => handleIngredientSelect(index, e.target.value)}
+                required
+              >
+                <option value="">Select Ingredient</option>
+                {availableIngredients.map((ingredient) => (
+                  <option key={ingredient.id} value={ingredient.name}>
+                    {ingredient.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          ))}
+
+          <button type="button" onClick={addSelectBox}>
+            Add Ingredient
+          </button>
         </div>
 
         <div className="RightForm">

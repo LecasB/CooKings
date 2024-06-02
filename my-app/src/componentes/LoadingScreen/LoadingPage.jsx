@@ -23,15 +23,15 @@ const LoadingScreen = () => {
   const randomTip = cookingTips[randomIndex];
   const navigate = useNavigate();
 
-  const string = "LoadingPage?=/AdminDashboardPage/ListaReceitas";
+  const queryString = window.location.search;
   const pattern = /(?<=\=).*/;
-  const match = string.match(pattern);
+  const match = queryString.match(pattern);
   const redirectTo = (`${match}`);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       navigate(redirectTo);
-    }, 2000); // Adjust the delay time as needed
+    }, 1500); // Adjust the delay time as needed
 
     return () => clearTimeout(timer);
   }, [navigate, redirectTo]);

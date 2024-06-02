@@ -8,7 +8,7 @@
   max-width: 100%;
   gap: 10px;
 }
-h1{
+h1 {
   padding-left: 1em;
 }
 .card-section .card-procurar {
@@ -20,7 +20,7 @@ h1{
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-left: 1rem;
+  /* padding-left: 1rem; */
   /*  padding-right: 50px; */
 }
 
@@ -28,7 +28,8 @@ h1{
   display: flex;
   justify-content: end;
   gap: 30px;
-  padding-right: 1.5rem;
+  /*padding-right: 1.5rem; */
+  padding: 10px 1.5rem 0 0;
 }
 
 .search-page {
@@ -63,7 +64,9 @@ h1{
     z-index: 15;
     padding: 35px 35px;
   }
-
+  .card-procurar {
+    width: 100%;
+  }
   .openCategorias {
     display: flex;
     max-width: 50px;

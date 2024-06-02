@@ -142,12 +142,12 @@ const UserInfo = () => {
     resetFields();
     setIsDirty(false);
     setMismatchError("");
-  
+
     // Only reset the profileImageURL if a new image has not been selected
     if (!isNewImageSelected) {
       setProfileImageURL(user?.user_metadata?.profile_image_url || "");
     }
-  
+
     // Reset isNewImageSelected to false
     setIsNewImageSelected(false);
   };
@@ -244,7 +244,7 @@ const UserInfo = () => {
         {mismatchError && <p className="error-message">{mismatchError}</p>}
         {error && <p className="error-message">{error}</p>}
         {success && <p className="success-message">{success}</p>}
-        <TagsArea />
+        <TagsArea onClick={() => alert("aqui")} />
         {isDirty && (
           <div className="button-group">
             <button

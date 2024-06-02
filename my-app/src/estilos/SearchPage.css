@@ -8,7 +8,9 @@
   max-width: 100%;
   gap: 10px;
 }
-
+h1{
+  padding-left: 1em;
+}
 .card-section .card-procurar {
   margin: 0 2rem 2rem 0;
 }

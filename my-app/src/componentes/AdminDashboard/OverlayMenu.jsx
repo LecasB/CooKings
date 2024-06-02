@@ -32,7 +32,7 @@ const OverlayMenu = ({ isOpen, onClose}) => {
           <img srcSet={Logo}></img>
           {userAdmin ? (
           <>
-            <li><Link to="/AdminDashboardPage/Dashboard">Dashboard</Link></li>
+            <li><Link to="/AdminDashboardPage/">Dashboard</Link></li>
             <li><Link to="/AdminDashboardPage/NovoIngrediente">New Ingredient</Link></li>
             <li><Link to="/AdminDashboardPage/NovaReceita">New Recipe</Link></li>
             <li><Link to="/AdminDashboardPage/NovaCategoriaIngrediente">New Ingredient Category</Link></li>
@@ -42,12 +42,12 @@ const OverlayMenu = ({ isOpen, onClose}) => {
           </>
         ) : user ? (
           <>
-            <li><Link to="/AdminDashboardPage/Dashboard">Dashboard</Link></li>
-            <li><Link to="/AdminDashboardPage/NovoIngrediente">New Recipe</Link></li>
-            <li><Link to="/AdminDashboardPage/NovaReceita">My Ingredients</Link></li>
-            <li><Link to="/AdminDashboardPage/NovaCategoriaIngrediente">Add Ingredient</Link></li>
-            <li><Link to="/AdminDashboardPage/NovaCategoriaReceita">My Favourites</Link></li>
-            <li><Link to="/AdminDashboardPage/ListaIngridiente">My Profile</Link></li>
+            <li><Link to="/clientDashboard">Dashboard</Link></li>
+            <li><Link to="/ClientDashboard/NovaReceitaClient">New Recipe</Link></li>
+            <li><Link to="/ClientDashboard/ListaIngredienteClient">My Ingredients</Link></li>
+            <li><Link to="/ClientDashboard/NovoIngredienteClient">Add Ingredient</Link></li>
+            <li><Link to="/ClientDashboard/FavoritosClient">My Favourites</Link></li>
+            <li><Link to="/ClientDashboard/UserPage">My Profile</Link></li>
           </>
         ) : null}
         <li><Link to="/">Menu</Link></li>

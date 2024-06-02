@@ -1,25 +1,23 @@
-import React, { useRef, useState, useEffect } from "react";
-import supabase from "../../supabaseClient";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
-import { BackArrow } from "../../imagens/svgs";
+import supabase from "../../supabaseClient";
 import "../../estilos/EditRecipePage.css";
 import EditRecipePage from "../EditRecipePage/EditRecipePage";
 
-const EditRecipe = () => {
+const NovaReceitaClient = () => {
   const fileInputRef = useRef();
   const imageRef = useRef();
 
-  // State variables for form data and image handling
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [idcategory, setCategoryId] = useState("");
   const [categories, setCategories] = useState([]);
   const [imageFile, setImageFile] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
+  const [userId, setUserId] = useState(null);
   const [tag, setTag] = useState([]);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
 
-  // Fetch categories from Supabase
   const fetchCategories = async () => {
     try {
       const { data, error } = await supabase
@@ -34,7 +32,17 @@ const EditRecipe = () => {
     }
   };
 
-  // Fetch ingredient data if editing
+  async function getUser() {
+    const { data, error } = await supabase.auth.getSession();
+
+    if (error) {
+      console.error("Error fetching user session:", error.message);
+      return;
+    }
+    if (data.session) {
+      setUserId(data.session.user.id);
+    }
+  }
 
   const fetchIngredientData = async () => {
     try {
@@ -49,38 +57,29 @@ const EditRecipe = () => {
       setName(data.name);
       setDescription(data.description);
       setCategoryId(data.idcategory);
-      setImageUrl(data.image); // Set image URL if exists
-      console.log(data.image);
-      console.log(imageUrl);
-      // debugger;
+      setImageUrl(data.image);
+      setSelectedIngredients(data.ingridients);
     } catch (error) {
       console.error("Error fetching ingredient data:", error.message);
     }
   };
 
-  useEffect(() => {
-    console.log(imageUrl);
-  }, [imageUrl]);
+  const isValidUrl = (url) => {
+    return url.startsWith("http://") || url.startsWith("https://");
+  };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const dataAtual = new Date();
     const dia = String(dataAtual.getDate()).padStart(2, "0");
-    const mes = String(dataAtual.getMonth() + 1).padStart(2, "0"); 
+    const mes = String(dataAtual.getMonth() + 1).padStart(2, "0");
     const ano = dataAtual.getFullYear();
     const horas = String(dataAtual.getHours()).padStart(2, "0");
     const minutos = String(dataAtual.getMinutes()).padStart(2, "0");
     const segundos = String(dataAtual.getSeconds()).padStart(2, "0");
     const dataHoraFormatada = dia + mes + ano + horas + minutos + segundos;
-
     try {
-      console.log(imageUrl);
-      
       let imageUrlInDatabase = imageUrl;
-
-      
       if (imageFile) {
         const { data, error } = await supabase.storage
           .from("cooKingsBucket")
@@ -91,27 +90,20 @@ const EditRecipe = () => {
         if (error) {
           throw error;
         }
-        console.log("Upload response:", data);
-        imageUrlInDatabase = data.path; // L
-        console.log(imageUrlInDatabase);
+        imageUrlInDatabase = data.path;
       }
-
       const ingredientData = {
         name,
         description,
         idcategory,
-        image:
-          `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/` +
-          imageUrlInDatabase,
+        image: isValidUrl(imageUrlInDatabase)
+          ? imageUrlInDatabase
+          : `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/${imageUrlInDatabase}`,
+        iduser: userId,
+        state: false,
         idtags: tag,
         ingridients: selectedIngredients,
       };
-
-      console.log(
-        `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/` +
-          imageUrlInDatabase
-      );
-
       if (idingridients) {
         await supabase
           .from("Recipes")
@@ -120,7 +112,6 @@ const EditRecipe = () => {
       } else {
         await supabase.from("Recipes").insert([ingredientData]);
       }
-
     } catch (error) {
       console.error("Error inserting/updating data:", error.message);
     }
@@ -128,9 +119,8 @@ const EditRecipe = () => {
 
   useEffect(() => {
     console.warn(selectedIngredients);
-  },[selectedIngredients])
+  }, [selectedIngredients]);
 
-  
   const handleDrop = (event) => {
     event.preventDefault();
     const files = event.dataTransfer.files;
@@ -144,12 +134,10 @@ const EditRecipe = () => {
     }
   };
 
-  
   const handleDragOver = (event) => {
     event.preventDefault();
   };
 
-  
   const handleFileChange = (event) => {
     const files = event.target.files;
     if (files.length) {
@@ -162,12 +150,12 @@ const EditRecipe = () => {
     }
   };
 
-  
   const url = window.location.href;
   const match = url.match(/[?&]id=(\d+)/);
   const idingridients = match ? match[1] : null;
 
   useEffect(() => {
+    getUser();
     fetchCategories();
     if (idingridients) {
       fetchIngredientData();
@@ -204,4 +192,4 @@ const EditRecipe = () => {
   );
 };
 
-export default EditRecipe;
+export default NovaReceitaClient;

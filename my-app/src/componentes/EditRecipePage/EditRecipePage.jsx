@@ -28,6 +28,7 @@ const EditRecipePage = ({
 }) => {
   const [availableIngredients, setAvailableIngredients] = useState([]);
 
+  const [isDirty, setIsDirty] = useState(false);
   useEffect(() => {
     const fetchIngredients = async () => {
       try {
@@ -94,7 +95,7 @@ const EditRecipePage = ({
             ))}
           </select>
           <label htmlFor="tags">Tag</label>
-          <TagsArea tag={tag} setTag={setTag} />
+          <TagsArea tag={tag} setTag={setTag} setIsDirty={setIsDirty} />
 
           {selectedIngredients.map((value, index) => (
             <div key={index}>

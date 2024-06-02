@@ -15,6 +15,31 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
+  const verificarOps = async () => {
+    const {
+      data: { user },
+    } = await supabase.auth.getUser();
+
+    if (!user) {
+      console.error("No user logged in");
+      return;
+    }
+
+    const { user_metadata: userMetadata } = user;
+
+    if (
+      !userMetadata ||
+      !userMetadata.categories ||
+      !userMetadata.tags ||
+      userMetadata.categories.length === 0 ||
+      userMetadata.tags.length === 0
+    ) {
+      navigate("/CategoriesChoice");
+    } else {
+      navigate("/");
+    }
+  };
+
   const handleLogin = async () => {
     try {
       const { data, error } = await supabase.auth.signInWithPassword({
@@ -26,7 +51,8 @@ const LoginForm = () => {
         console.error("Error signing in:", error.message);
       } else {
         console.log("User signed in successfully:", data);
-        navigate("/");
+
+        verificarOps();
       }
     } catch (error) {
       console.log(error);
@@ -62,7 +88,7 @@ const LoginForm = () => {
         <div id="checkAndText">
           <CheckBox />
           <Link to="/EmailPasswordReset">
-          <Text texto="Forgot your Password?" />
+            <Text texto="Forgot your Password?" />
           </Link>
         </div>
         <LoginButton texto={"Log in"} type="submit" onClick={handleLogin} />

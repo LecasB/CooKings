@@ -148,6 +148,7 @@ const ListaIngredienteClient = () => {
             onChange={handleSearchChange}
           />
         </div>
+        <div id="tabelaIngre">
         <table>
           <thead>
             <tr>
@@ -203,6 +204,7 @@ const ListaIngredienteClient = () => {
               ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   );

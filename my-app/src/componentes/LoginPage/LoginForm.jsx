@@ -55,12 +55,11 @@ const LoginForm = () => {
         />
         <div id="checkAndText">
           <CheckBox />
+          <Link to="/EmailPasswordReset">
           <Text texto="Forgot your Password?" />
+          </Link>
         </div>
         <LoginButton texto={"Log in"} type="submit" onClick={handleLogin} />
-        <Link to="/EmailPasswordReset">
-          <p>Forgot ur password?</p>
-        </Link>
         <Text texto="Or" />
         <Text texto="Don't have an account yet?" />
         <Link to="/SignUpPage">

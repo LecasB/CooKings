@@ -97,8 +97,8 @@ const NavBar = () => {
                   user == null
                     ? "/LoginPage"
                     : userAdmin
-                    ? "/AdminDashboardPage/ListaReceitas"
-                    : "/ClientDashboard/ListaIngredienteClient"
+                    ? `LoadingPage?=/AdminDashboardPage/ListaReceitas`
+                    : `LoadingPage?=/ClientDashboard/ListaIngredienteClient`
                 }
               >
                 <Storage />
@@ -110,8 +110,8 @@ const NavBar = () => {
                   user == null
                     ? "/LoginPage"
                     : userAdmin
-                    ? "/AdminDashboardPage"
-                    : "/ClientDashboard"
+                    ? `LoadingPage?=/AdminDashboardPage`
+                    : `LoadingPage?=/ClientDashboard`
                 }
               >
                 <Profile />

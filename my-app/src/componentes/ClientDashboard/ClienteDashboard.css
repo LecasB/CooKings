@@ -124,7 +124,8 @@ svg {
 #tabelaIngre{
   display: flex;
   align-items: center;
-  overflow-x:scroll;
+  justify-content: center;
+  
 }
 @media only screen and (max-width: 1650px) {
   .NormalProdCard {
@@ -139,5 +140,12 @@ svg {
 @media only screen and (max-width: 1050px) {
   .NormalProdCard {
     grid-template-columns: repeat(1, minmax(240px, 1fr));
+
+  }
+
+  #tabelaIngre{
+    overflow-x: scroll;
+    justify-content: start;
+    
   }
 }

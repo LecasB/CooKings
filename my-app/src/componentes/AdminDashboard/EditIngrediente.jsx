@@ -178,8 +178,8 @@ const NovoIngrediente = () => {
             </div> */}
             <label htmlFor="">Recipe Name</label>
             <input
+              id="recipeName"
               type="text"
-              placeholder="Type here..."
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
@@ -190,7 +190,6 @@ const NovoIngrediente = () => {
               id=""
               cols="30"
               rows="10"
-              placeholder="Type here..."
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               required

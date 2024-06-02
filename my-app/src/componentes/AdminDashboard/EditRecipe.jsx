@@ -17,6 +17,7 @@ const EditRecipe = () => {
   const [imageFile, setImageFile] = useState(null);
   const [imageUrl, setImageUrl] = useState("");
   const [tag, setTag] = useState([]);
+  const [selectedIngredients, setSelectedIngredients] = useState([]);
 
   // Fetch categories from Supabase
   const fetchCategories = async () => {
@@ -67,7 +68,7 @@ const EditRecipe = () => {
 
     const dataAtual = new Date();
     const dia = String(dataAtual.getDate()).padStart(2, "0");
-    const mes = String(dataAtual.getMonth() + 1).padStart(2, "0"); // getMonth() começa de 0 para janeiro
+    const mes = String(dataAtual.getMonth() + 1).padStart(2, "0"); 
     const ano = dataAtual.getFullYear();
     const horas = String(dataAtual.getHours()).padStart(2, "0");
     const minutos = String(dataAtual.getMinutes()).padStart(2, "0");
@@ -76,10 +77,10 @@ const EditRecipe = () => {
 
     try {
       console.log(imageUrl);
-      // debugger;
+      
       let imageUrlInDatabase = imageUrl;
 
-      // Upload image if a new image is selected
+      
       if (imageFile) {
         const { data, error } = await supabase.storage
           .from("cooKingsBucket")
@@ -103,6 +104,7 @@ const EditRecipe = () => {
           `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/` +
           imageUrlInDatabase,
         idtags: tag,
+        ingridients: selectedIngredients,
       };
 
       console.log(
@@ -119,13 +121,16 @@ const EditRecipe = () => {
         await supabase.from("Recipes").insert([ingredientData]);
       }
 
-      window.location.href = "/AdminDashboardPage/ListaReceitas";
     } catch (error) {
       console.error("Error inserting/updating data:", error.message);
     }
   };
 
-  // Handle drag and drop for image
+  useEffect(() => {
+    console.warn(selectedIngredients);
+  },[selectedIngredients])
+
+  
   const handleDrop = (event) => {
     event.preventDefault();
     const files = event.dataTransfer.files;
@@ -139,12 +144,12 @@ const EditRecipe = () => {
     }
   };
 
-  // Handle drag over for image drop area
+  
   const handleDragOver = (event) => {
     event.preventDefault();
   };
 
-  // Handle file input change for image
+  
   const handleFileChange = (event) => {
     const files = event.target.files;
     if (files.length) {
@@ -157,7 +162,7 @@ const EditRecipe = () => {
     }
   };
 
-  // Extracting the ID parameter from the URL
+  
   const url = window.location.href;
   const match = url.match(/[?&]id=(\d+)/);
   const idingridients = match ? match[1] : null;
@@ -192,6 +197,8 @@ const EditRecipe = () => {
         handleDragOver={handleDragOver}
         tag={tag}
         setTag={setTag}
+        selectedIngredients={selectedIngredients}
+        setSelectedIngredients={setSelectedIngredients}
       />
     </>
   );

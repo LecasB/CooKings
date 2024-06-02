@@ -128,7 +128,7 @@ const NovaReceita = () => {
             </select>
           </label>
           <br />
-
+          
           <label>
             Image:
             <input

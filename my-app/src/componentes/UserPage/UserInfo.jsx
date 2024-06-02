@@ -19,6 +19,7 @@ const UserInfo = () => {
   const [newName, setNewName] = useState("");
   const [profileImage, setProfileImage] = useState(null);
   const [profileImageURL, setProfileImageURL] = useState(null);
+  const [isNewImageSelected, setIsNewImageSelected] = useState(false);
 
   const fileInputRef = useRef();
 
@@ -141,6 +142,14 @@ const UserInfo = () => {
     resetFields();
     setIsDirty(false);
     setMismatchError("");
+  
+    // Only reset the profileImageURL if a new image has not been selected
+    if (!isNewImageSelected) {
+      setProfileImageURL(user?.user_metadata?.profile_image_url || "");
+    }
+  
+    // Reset isNewImageSelected to false
+    setIsNewImageSelected(false);
   };
 
   const handleImageClick = () => {
@@ -152,6 +161,7 @@ const UserInfo = () => {
     setProfileImage(file);
     setProfileImageURL(URL.createObjectURL(file));
     setIsDirty(true);
+    setIsNewImageSelected(true);
   };
 
   return (

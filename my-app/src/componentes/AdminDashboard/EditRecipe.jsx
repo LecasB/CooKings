@@ -64,6 +64,10 @@ const NovaReceitaClient = () => {
     }
   };
 
+  const isValidUrl = (url) => {
+    return url.startsWith("http://") || url.startsWith("https://");
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const dataAtual = new Date();
@@ -92,7 +96,9 @@ const NovaReceitaClient = () => {
         name,
         description,
         idcategory,
-        image: `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/${imageUrlInDatabase}`,
+        image: isValidUrl(imageUrlInDatabase)
+          ? imageUrlInDatabase
+          : `https://bdoacldjlizmqmadvijc.supabase.co/storage/v1/object/public/cooKingsBucket/${imageUrlInDatabase}`,
         iduser: userId,
         state: false,
         idtags: tag,
@@ -132,12 +138,6 @@ const NovaReceitaClient = () => {
     event.preventDefault();
   };
 
-  /*   const handleIngredientSelect = (index, value) => {
-    const updatedIngredients = [...selectedIngredients];
-    updatedIngredients[index] = value.id; // Armazenar apenas o ID do ingrediente
-    setSelectedIngredients(updatedIngredients);
-  };
- */
   const handleFileChange = (event) => {
     const files = event.target.files;
     if (files.length) {
@@ -149,6 +149,7 @@ const NovaReceitaClient = () => {
       reader.readAsDataURL(files[0]);
     }
   };
+
   const url = window.location.href;
   const match = url.match(/[?&]id=(\d+)/);
   const idingridients = match ? match[1] : null;

@@ -37,16 +37,18 @@ const IndexPage = () => {
   }, []);
 
   const getRecommendedRecipes = async (user) => {
-    let tags = user.idtags;
+    /* const { user_metadata: userMetadata } = user;
+    let tags = userMetadata.tags; */
     const { data, error } = await supabase
       .from("Recipes")
       .select()
-      .overlaps("idtags", tags || [])
+      .overlaps("idtags", user || [])
       .eq("state", true)
       .order("idrecipe", { ascending: false })
       .range(0, 2);
 
     if (data) {
+      console.warn(data);
       setRecommendedRecipes(data);
     } else {
       console.error(error);
@@ -60,8 +62,9 @@ const IndexPage = () => {
           data: { user },
         } = await supabase.auth.getUser();
         if (user) {
-          if (user.idtags > 0) {
-            getRecommendedRecipes(user);
+          const { user_metadata: userMetadata } = user;
+          if (user) {
+            getRecommendedRecipes(userMetadata.tags);
           }
           setUsername(user.user_metadata.username);
           setUser(user);
@@ -71,6 +74,7 @@ const IndexPage = () => {
         setUsername(null);
       }
     };
+
     getData();
   }, []);
 
@@ -180,7 +184,7 @@ const IndexPage = () => {
           <RecipeSearch />
         </div>
 
-        {recommendedRecipes > 0 && (
+        {user && (
           <div className="box">
             <h2>Recommended for you</h2>
             <div className="boxcard">

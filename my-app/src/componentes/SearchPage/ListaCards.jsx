@@ -127,7 +127,7 @@ const ListaCards = ({ categoriasUser, tagsUser, inputValue }) => {
             Back
           </button>
         )}
-        {item.length > 0 && parar == false && (
+        {item.length > 10 && (
           <button className="loginButton " onClick={() => updateList(false)}>
             Next
           </button>

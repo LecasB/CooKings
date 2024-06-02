@@ -24,6 +24,7 @@ const ViewRecipePage = () => {
           console.error("No recipe ids found");
           return;
         }
+        
 
         const shuffledIds = allIds.sort(() => 0.5 - Math.random()).slice(0, 4);
 
